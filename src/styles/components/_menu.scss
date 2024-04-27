@@ -20,8 +20,12 @@
     }
 
     &__el{
-        cursor: pointer;
         margin-right: 20px;
+        opacity: 0.6;
+
+        &--active{
+            opacity: 1;
+        }
     }
 
     &__el:last-child{
@@ -29,7 +33,6 @@
     }
 
     &__logo svg{
-        cursor: pointer;
         max-height: 47px;
         width: fit-content;
     }
@@ -51,10 +54,9 @@
         }
 
         &__btn{
-            cursor: pointer;
             display: block;
             font-size: 20px;
-            padding: 11px 27px 11px 27px;
+            padding: 11px 36px 11px 36px;
             background-color: $c-btn;
         }
     }
