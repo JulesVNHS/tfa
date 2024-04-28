@@ -67,3 +67,131 @@ function mixColors(color1, color2, ratio) {
 
   return '#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0');
 }
+
+/*Parallaxe*/
+/*const parallaxItem = document.querySelector(".projets__el");
+
+document.addEventListener("mouseleave", function (e) {
+    parallaxItem.style.transform = "translate(0%, 0%)";
+});
+
+document.addEventListener("mousemove", function (e) {
+  if (!isTouchDevice()) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    const parallaxItemRect = parallaxItem.getBoundingClientRect();
+    const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
+    const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
+
+    const deltaX = parallaxItemCenterX - mouseX;
+    const deltaY = parallaxItemCenterY - mouseY;
+
+    const newX = parallaxItemCenterX + deltaX * 0.05;
+    const newY = parallaxItemCenterY + deltaY * 0.05;
+
+    const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
+    const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
+
+    parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
+  }
+});
+
+function isTouchDevice() {
+  return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+}*/
+
+/*lampe torche*/
+try {
+    var __canvas_DOM = document.createElement('canvas'),
+        __content = document.getElementsByTagName('body')[0];
+    if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
+        __content.style.position = 'relative';
+    }
+    __canvas_DOM.setAttribute("style", "position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;");
+    __content.appendChild(__canvas_DOM);
+} catch (e) {
+    console.info("Une exception s'est produite : " + e);
+}
+
+function initializeCanvas() {
+    __canvas_DOM.width = window.innerWidth;
+    __canvas_DOM.height = window.innerHeight;
+
+    if (__canvas_DOM.getContext) {
+        var c = __canvas_DOM.getContext('2d'),
+            w = __canvas_DOM.width,
+            h = __canvas_DOM.height;
+
+        var centerPoint = {
+            x: w / 2,
+            y: h / 2
+        };
+
+        var pointerEvent = ('ontouchstart' in window) ? 'touchmove' : 'mousemove';
+
+        var mousePosition = {
+            x: centerPoint.x,
+            y: centerPoint.y
+        };
+
+        var flashlight_size = {
+            center: h / 5,
+            outside: h / 3
+        };
+
+        var gradient_color = {
+            first: "rgba(0,0,0,0.8)",
+            second: "rgba(0,0,0,0)"
+        };
+
+        var gradient;
+
+        function draw() {
+            c.save();
+            c.clearRect(0, 0, w, h);
+            gradient = c.createRadialGradient(mousePosition.x, mousePosition.y, flashlight_size.center, mousePosition.x, mousePosition.y, flashlight_size.outside);
+            gradient.addColorStop(0, gradient_color.first);
+            gradient.addColorStop(1, gradient_color.second);
+
+            c.fillStyle = '#000';
+            c.fillRect(0, 0, w, h);
+
+            c.globalCompositeOperation = 'destination-out';
+            c.fillStyle = gradient;
+            c.beginPath();
+            c.arc(mousePosition.x, mousePosition.y, flashlight_size.outside, 0, Math.PI * 2, false);
+            c.fill();
+            c.restore();
+        }
+
+        draw();
+
+        function updatePosition(x, y) {
+            mousePosition.x = x;
+            mousePosition.y = y;
+            draw();
+        }
+
+        window.addEventListener(pointerEvent, function (e) {
+            if (pointerEvent === 'touchmove') {
+                var touch = e.touches[0];
+                updatePosition(touch.clientX, touch.clientY);
+            } else {
+                updatePosition(e.clientX, e.clientY);
+            }
+        });
+
+        __canvas_DOM.addEventListener('mouseleave', function () {
+            mousePosition.x = centerPoint.x;
+            mousePosition.y = centerPoint.y;
+            draw();
+        });
+
+        window.addEventListener('resize', function () {
+            initializeCanvas();
+        });
+    }
+}
+
+initializeCanvas();
