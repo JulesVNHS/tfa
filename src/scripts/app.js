@@ -191,6 +191,16 @@ function initializeCanvas() {
         window.addEventListener('resize', function () {
             initializeCanvas();
         });
+
+        document.querySelector('.home__group').addEventListener('mouseenter', function () {
+            flashlight_size.outside *= 2;
+            draw();
+        });
+
+        document.querySelector('.home__group').addEventListener('mouseleave', function () {
+            flashlight_size.outside = h / 3;
+            draw();
+        });
     }
 }
 
