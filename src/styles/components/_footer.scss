@@ -1,0 +1,22 @@
+.footer{
+    &__list{
+        display: flex;
+    }
+
+    &__el{
+        margin-right: 20px;
+    }
+
+    &__el:last-child{
+        margin-right: 0px;
+    }
+}
+
+@media(min-width: 1300px) {
+    .footer {
+      &__el svg:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+      }
+    }
+  }

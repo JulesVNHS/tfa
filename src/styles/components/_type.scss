@@ -8,7 +8,28 @@ body {
   font-family: $font-text;
   font-size: $size-text;
   color: #ffffff;
-  height: 400vh;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $c-bg2;
+  background-color: $c-title;
+  padding: 27px 0 15px 0;
+  margin-top: 266px;
+
+  & a{
+    color: $c-bg2;
+  }
+
+  & svg{
+    vertical-align: middle;
+  }
+
+  & small{
+    margin-top: 15px;
+  }
 }
 
 p{
@@ -33,6 +54,10 @@ h3{
   font-family: $font-title;
   color: $c-title;
   margin: 0;
+}
+
+small{
+  font-size: 15px
 }
 
 ul{
@@ -65,9 +90,10 @@ button {
 }
 
 @media(min-width: 1300px) {
-  a:hover{
-    transform: scale(1.1);
-    transition: 0.1s;
+  footer {
+    & small a:hover{
+      opacity: 0.5;
+    }
   }
 }
 

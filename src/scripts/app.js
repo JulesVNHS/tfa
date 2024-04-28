@@ -69,28 +69,22 @@ function mixColors(color1, color2, ratio) {
 }
 
 /*mouvements survol des tableaux*/
-const image = document.querySelector('.hello__me'); // Sélection de l'élément par sa classe
+const image = document.querySelector('.hello__me');
 
-        // Fonction pour mettre à jour l'inclinaison en fonction de la position de la souris
-        function updateRotation(event) {
-            const imageRect = image.getBoundingClientRect();
-            const mouseX = event.clientX - imageRect.left;
-            const mouseY = event.clientY - imageRect.top;
-
-            const rotateX = (mouseY / imageRect.height - 0.5) * 30;
-            const rotateY = (mouseX / imageRect.width - 0.5) * 30;
-
-            image.style.setProperty('--rotatex', rotateX + 'deg');
-            image.style.setProperty('--rotatey', rotateY + 'deg');
-        }
-
-        // Écouter les événements de mouvement de la souris sur l'image
-        image.addEventListener('mousemove', updateRotation);
-        image.addEventListener('mouseleave', () => {
-            // Réinitialiser l'inclinaison lorsque la souris quitte l'image
-            image.style.setProperty('--rotatex', '0deg');
-            image.style.setProperty('--rotatey', '0deg');
-        });
+function updateRotation(event) {
+    const imageRect = image.getBoundingClientRect();
+    const mouseX = event.clientX - imageRect.left;
+    const mouseY = event.clientY - imageRect.top;
+    const rotateX = (mouseY / imageRect.height - 0.5) * 30;
+    const rotateY = (mouseX / imageRect.width - 0.5) * 30;
+    image.style.setProperty('--rotatex', rotateX + 'deg');
+    image.style.setProperty('--rotatey', rotateY + 'deg');
+}
+image.addEventListener('mousemove', updateRotation);
+image.addEventListener('mouseleave', () => {
+    image.style.setProperty('--rotatex', '0deg');
+    image.style.setProperty('--rotatey', '0deg');
+});
 
 /*Parallaxe*/
 const parallaxItem = document.querySelector(".hello__follow");

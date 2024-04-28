@@ -13,19 +13,7 @@
     font-size: 27px;
     padding:  20px;
     background: $c-bg2;
-
-    &::before{
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("../assets/images/texture1.png");
-        background-size: cover;
-        background-position: center;
-        z-index: -1;
-    }
+    border-bottom: 1px solid $c-btn;
 
     &__list{
         display: flex;
@@ -73,4 +61,20 @@
             background-color: $c-btn;
         }
     }
+}
+
+@media(min-width: 1300px) {
+  .menu{
+      &__btn:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+      }
+      &__logo:hover{
+          transform: scale(1.1);
+          transition: 0.1s;
+      }
+      &__el:hover{
+          opacity: 0.8;
+      }
+  }
 }
