@@ -107,13 +107,12 @@ button {
   box-sizing: border-box;
   top: 0;
   z-index: 10;
-  transition: top 0.3s;
+  transition: top 0.5s;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   font-family: "Londrina Solid", sans-serif;
-  font-size: 27px;
   padding: 20px;
   background: #09030D;
   border-bottom: 1px solid #71289F;
@@ -123,7 +122,7 @@ button {
   flex-direction: row;
 }
 .menu__el {
-  margin-right: 27px;
+  margin-right: 20px;
   opacity: 0.6;
 }
 .menu__el--active {
@@ -133,7 +132,7 @@ button {
   margin-right: 0;
 }
 .menu__logo img {
-  max-height: 47px;
+  max-height: 36px;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -145,6 +144,10 @@ button {
 }
 
 @media (min-width: 600px) {
+  .menu {
+    font-size: 27px;
+    justify-content: space-between;
+  }
   .menu__el {
     margin-right: 36px;
   }
@@ -153,6 +156,9 @@ button {
     font-size: 20px;
     padding: 11px 47px 11px 47px;
     background-color: #71289F;
+  }
+  .menu__logo img {
+    max-height: 47px;
   }
 }
 @media (min-width: 1300px) {
