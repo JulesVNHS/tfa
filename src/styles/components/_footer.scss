@@ -14,7 +14,7 @@
 
 @media(min-width: 1300px) {
     .footer {
-      &__el svg:hover{
+      &__el img:hover{
         transform: scale(1.1);
         transition: 0.1s;
       }

@@ -21,7 +21,7 @@ footer {
 footer a {
   color: #09030D;
 }
-footer svg {
+footer img {
   vertical-align: middle;
 }
 footer small {
@@ -123,7 +123,7 @@ button {
   flex-direction: row;
 }
 .menu__el {
-  margin-right: 20px;
+  margin-right: 27px;
   opacity: 0.6;
 }
 .menu__el--active {
@@ -132,7 +132,7 @@ button {
 .menu__el:last-child {
   margin-right: 0;
 }
-.menu__logo svg {
+.menu__logo img {
   max-height: 47px;
   width: -moz-fit-content;
   width: fit-content;
@@ -324,7 +324,7 @@ button {
 }
 
 @media (min-width: 1300px) {
-  .footer__el svg:hover {
+  .footer__el img:hover {
     transform: scale(1.1);
     transition: 0.1s;
   }
