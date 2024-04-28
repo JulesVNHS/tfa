@@ -68,8 +68,32 @@ function mixColors(color1, color2, ratio) {
   return '#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0');
 }
 
+/*mouvements survol des tableaux*/
+const image = document.querySelector('.hello__me'); // Sélection de l'élément par sa classe
+
+        // Fonction pour mettre à jour l'inclinaison en fonction de la position de la souris
+        function updateRotation(event) {
+            const imageRect = image.getBoundingClientRect();
+            const mouseX = event.clientX - imageRect.left;
+            const mouseY = event.clientY - imageRect.top;
+
+            const rotateX = (mouseY / imageRect.height - 0.5) * 30;
+            const rotateY = (mouseX / imageRect.width - 0.5) * 30;
+
+            image.style.setProperty('--rotatex', rotateX + 'deg');
+            image.style.setProperty('--rotatey', rotateY + 'deg');
+        }
+
+        // Écouter les événements de mouvement de la souris sur l'image
+        image.addEventListener('mousemove', updateRotation);
+        image.addEventListener('mouseleave', () => {
+            // Réinitialiser l'inclinaison lorsque la souris quitte l'image
+            image.style.setProperty('--rotatex', '0deg');
+            image.style.setProperty('--rotatey', '0deg');
+        });
+
 /*Parallaxe*/
-/*const parallaxItem = document.querySelector(".projets__el");
+const parallaxItem = document.querySelector(".hello__follow");
 
 document.addEventListener("mouseleave", function (e) {
     parallaxItem.style.transform = "translate(0%, 0%)";
@@ -87,8 +111,8 @@ document.addEventListener("mousemove", function (e) {
     const deltaX = parallaxItemCenterX - mouseX;
     const deltaY = parallaxItemCenterY - mouseY;
 
-    const newX = parallaxItemCenterX + deltaX * 0.05;
-    const newY = parallaxItemCenterY + deltaY * 0.05;
+    const newX = parallaxItemCenterX + deltaX * 0.03;
+    const newY = parallaxItemCenterY + deltaY * 0.03;
 
     const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
     const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
@@ -99,10 +123,10 @@ document.addEventListener("mousemove", function (e) {
 
 function isTouchDevice() {
   return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-}*/
+}
 
 /*lampe torche*/
-try {
+/*try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -204,4 +228,4 @@ function initializeCanvas() {
     }
 }
 
-initializeCanvas();
+initializeCanvas();*/

@@ -12,6 +12,7 @@ body {
 }
 
 p{
+  line-height: 140%;
   margin: 0;
 }
 
@@ -22,6 +23,7 @@ h1{
 }
 
 h2{
+  font-size: 63px;
   font-family: $font-title;
   color: $c-title;
   margin: 0;
@@ -50,4 +52,37 @@ button {
   border: none;
   padding: 0;
   margin: 0;
+}
+
+@media(min-width: 600px) {
+  p{
+    font-size: 27px;
+  }
+  
+  h2{
+    font-size: 84px;
+  }
+}
+
+@media(min-width: 1300px) {
+  a:hover{
+    transform: scale(1.1);
+    transition: 0.1s;
+  }
+}
+
+@media(min-width: 1900px) {
+  h2{
+    font-size: 112px;
+  }
+}
+
+@media(min-width: 2200px) {
+  p{
+    font-size: 36px;
+  }
+
+  h2{
+    font-size: 150px;
+  }
 }
