@@ -1,0 +1,46 @@
+.projets{
+    background-color: $c-bg3;
+    background-image: url("../assets/images/texture2.png");
+    background-position: center;
+    padding: 112px 20px;
+
+    &__list{
+        display: grid;
+        justify-content: center;
+        row-gap: 27px;
+    }
+
+    & img{
+        width: 100%;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .projets {
+        background-image: url("../assets/images/texture2@2x.png");
+    }
+}
+
+@media(min-width: 600px) {
+    .projets{
+        padding: 112px 47px;
+
+        &__list{
+            grid-template-columns: 1fr 1fr;
+            row-gap: 47px;
+            column-gap: 47px;
+        }
+    }
+}
+
+@media(min-width: 1300px) {
+    .projets{
+        padding: 112px;
+
+        &__list{
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 112px;
+            column-gap: 112px;
+        }
+    }
+}
