@@ -30,6 +30,10 @@ footer {
   & small{
     margin-top: 15px;
   }
+
+  & small a{
+    text-decoration: underline;
+  }
 }
 
 p{
