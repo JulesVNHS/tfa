@@ -22,10 +22,6 @@
     }
 
     &__me{
-        --rotatex: 0deg;
-        --rotatey: 0deg;
-        transform: rotateX(var(--rotatex)) rotateY(var(--rotatey));
-        transition: transform 0.1s ease;
         width: 266px;
     }
 }

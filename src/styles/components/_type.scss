@@ -84,6 +84,13 @@ button {
   margin: 0;
 }
 
+.move{
+  --rotatex: 0deg;
+  --rotatey: 0deg;
+  transform: rotateX(var(--rotatex)) rotateY(var(--rotatey));
+  transition: transform 0.1s ease;
+}
+
 @media(min-width: 600px) {
   p{
     font-size: 27px;

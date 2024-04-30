@@ -69,21 +69,26 @@ function mixColors(color1, color2, ratio) {
 }
 
 /*Mouvements survol des tableaux*/
-const image = document.querySelector('.hello__me');
+const images = document.querySelectorAll('.move');
 
 function updateRotation(event) {
-    const imageRect = image.getBoundingClientRect();
+    const imageRect = this.getBoundingClientRect();
     const mouseX = event.clientX - imageRect.left;
     const mouseY = event.clientY - imageRect.top;
     const rotateX = (mouseY / imageRect.height - 0.5) * 30;
     const rotateY = (mouseX / imageRect.width - 0.5) * 30;
-    image.style.setProperty('--rotatex', rotateX + 'deg');
-    image.style.setProperty('--rotatey', rotateY + 'deg');
+    this.style.setProperty('--rotatex', rotateX + 'deg');
+    this.style.setProperty('--rotatey', rotateY + 'deg');
 }
-image.addEventListener('mousemove', updateRotation);
-image.addEventListener('mouseleave', () => {
-    image.style.setProperty('--rotatex', '0deg');
-    image.style.setProperty('--rotatey', '0deg');
+
+function resetRotation() {
+    this.style.setProperty('--rotatex', '0deg');
+    this.style.setProperty('--rotatey', '0deg');
+}
+
+images.forEach(image => {
+    image.addEventListener('mousemove', updateRotation);
+    image.addEventListener('mouseleave', resetRotation);
 });
 
 /*Parallaxe*/
