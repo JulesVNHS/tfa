@@ -4,10 +4,14 @@
     background-position: center;
     padding: 112px 20px;
 
+    &__title{
+        margin-bottom: 112px;
+    }
+
     &__list{
         display: grid;
         justify-content: center;
-        row-gap: 27px;
+        row-gap: 84px;
     }
 
     &__el{
@@ -16,20 +20,22 @@
 
     &__el:first-child{
         display: block;
-        transform: rotate(-5deg);
+        transform: rotate(-10deg);
     }
 
     &__el:nth-child(3){
         display: block;
-        transform: rotate(10deg);
+        transform: rotate(2deg);
     }
 
     &__el:nth-child(5){
         display: block;
+        transform: rotate(10deg);
     }
 
     & img{
         width: 100%;
+        vertical-align: middle;
     }
 }
 
@@ -43,20 +49,36 @@
     .projets{
         padding: 150px 63px;
 
+        &__title{
+            margin-bottom: 150px;
+        }
+
         &__list{
             grid-template-columns: 1fr 1fr;
             row-gap: 47px;
             column-gap: 47px;
         }
     
+        &__el:first-child{
+            transform: translateX(50px) scale(0.9) rotate(-5deg);
+        }
+    
+        &__el:nth-child(3){
+            transform: translateX(-50px) scale(0.8);
+        }
+    
+        &__el:nth-child(5){
+            transform: translateY(50px) scale(0.9) rotate(15deg);
+        }
+
         &__el:nth-child(2){
             display: block;
-            transform: scale(0.8);
+            transform: translateX(50px) translateY(50px) scale(0.7);
         }
     
         &__el:nth-child(7){
             display: block;
-            transform: scale(0.8);
+            transform: translateX(50px) translateY(-50px) scale(0.6);
         }
     }
 }
@@ -65,20 +87,44 @@
     .projets{
         padding: 199px 112px;
 
+        &__title{
+            margin-bottom: 199px;
+        }
+
         &__list{
             grid-template-columns: 1fr 1fr 1fr;
             row-gap: 84px;
             column-gap: 84px;
         }
 
+        &__el:first-child{
+            transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);
+        }
+
+        &__el:nth-child(2){
+            transform: translateX(-50px) translatey(200px)  scale(0.7);
+        }
+
+        &__el:nth-child(3){
+            transform: translateX(-50px) translatey(20px)  rotate(-5deg);
+        }
+
         &__el:nth-child(4){
             display: block;
-            transform: scale(0.8);
+            transform: translateX(50px) rotate(-5deg) scale(0.6);
         }
     
+        &__el:nth-child(5){
+            transform: translateX(150px) translatey(200px) scale(0.95);
+        }
+
         &__el:nth-child(6){
             display: block;
-            transform: scale(0.8);
+            transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.5);
+        }
+
+        &__el:nth-child(7){
+            transform: translateX(250px) translatey(-200px)  scale(0.5);
         }
     }
 }
@@ -86,5 +132,9 @@
 @media(min-width: 2200px) {
     .projets{
         padding: 266px 112px;
+
+        &__title{
+            margin-bottom: 266px;
+        }
     }
 }

@@ -91,7 +91,7 @@ button {
   
   h2{
     font-size: 84px;
-    margin-bottom: 63px;
+    margin-bottom: 47px;
   }
 }
 
@@ -101,15 +101,12 @@ button {
       opacity: 0.5;
     }
   }
-
-  h2{
-    margin-bottom: 112px;
-  }
 }
 
 @media(min-width: 1900px) {
   h2{
     font-size: 112px;
+    margin-bottom: 63px;
   }
 }
 
@@ -120,5 +117,6 @@ button {
 
   h2{
     font-size: 150px;
+    margin-bottom: 84px;
   }
 }
