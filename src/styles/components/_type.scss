@@ -91,7 +91,7 @@ button {
   
   h2{
     font-size: 84px;
-    margin-bottom: 47px;
+    margin-bottom: 63px;
   }
 }
 
@@ -100,6 +100,10 @@ button {
     & small a:hover{
       opacity: 0.5;
     }
+  }
+
+  h2{
+    margin-bottom: 112px;
   }
 }
 
@@ -116,6 +120,5 @@ button {
 
   h2{
     font-size: 150px;
-    margin-bottom: 63px;
   }
 }
