@@ -37,6 +37,10 @@
         width: 100%;
         vertical-align: middle;
     }
+
+    &__follow{
+        transition: transform 0.1s ease;
+    }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -99,32 +103,67 @@
 
         &__el:first-child{
             transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);
+
+            &:hover{
+                transform: translateX(20px) translatey(20px) rotate(10deg) scale(1);
+                transition: 0.3s;
+            }
         }
 
         &__el:nth-child(2){
             transform: translateX(-50px) translatey(200px)  scale(0.7);
+
+            &:hover{
+                transform: translateX(-50px) translatey(200px) scale(0.8);
+                transition: 0.3s;
+            }
         }
 
         &__el:nth-child(3){
             transform: translateX(-50px) translatey(20px)  rotate(-5deg);
+
+            &:hover{
+                transform: translateX(-50px) translatey(20px)  rotate(-5deg) scale(1.1);
+                transition: 0.3s;
+            }
         }
 
         &__el:nth-child(4){
             display: block;
             transform: translateX(50px) rotate(-5deg) scale(0.6);
+
+            &:hover{
+                transform: translateX(50px) rotate(-5deg) scale(0.7);
+                transition: 0.3s;
+            }
         }
     
         &__el:nth-child(5){
             transform: translateX(150px) translatey(200px) scale(0.95);
+
+            &:hover{
+                transform: translateX(150px) translatey(200px) scale(1.05);
+                transition: 0.3s;
+            }
         }
 
         &__el:nth-child(6){
             display: block;
             transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.5);
+
+            &:hover{
+                transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.6);
+                transition: 0.3s;
+            }
         }
 
         &__el:nth-child(7){
             transform: translateX(250px) translatey(-200px)  scale(0.5);
+
+            &:hover{
+                transform: translateX(250px) translatey(-200px) scale(0.6);
+                transition: 0.3s;
+            }
         }
     }
 }

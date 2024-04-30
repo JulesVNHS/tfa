@@ -68,7 +68,7 @@ function mixColors(color1, color2, ratio) {
   return '#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0');
 }
 
-/*mouvements survol des tableaux*/
+/*Mouvements survol des tableaux*/
 const image = document.querySelector('.hello__me');
 
 function updateRotation(event) {
@@ -87,36 +87,40 @@ image.addEventListener('mouseleave', () => {
 });
 
 /*Parallaxe*/
-const parallaxItem = document.querySelector(".hello__follow");
+const parallaxItems = document.querySelectorAll(".follow");
 
 document.addEventListener("mouseleave", function (e) {
-    parallaxItem.style.transform = "translate(0%, 0%)";
+    parallaxItems.forEach(item => {
+        item.style.transform = "translate(0%, 0%)";
+    });
 });
 
 document.addEventListener("mousemove", function (e) {
-  if (!isTouchDevice()) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
+    if (!isTouchDevice()) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
 
-    const parallaxItemRect = parallaxItem.getBoundingClientRect();
-    const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
-    const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
+        parallaxItems.forEach(parallaxItem => {
+            const parallaxItemRect = parallaxItem.getBoundingClientRect();
+            const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
+            const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
 
-    const deltaX = parallaxItemCenterX - mouseX;
-    const deltaY = parallaxItemCenterY - mouseY;
+            const deltaX = parallaxItemCenterX - mouseX;
+            const deltaY = parallaxItemCenterY - mouseY;
 
-    const newX = parallaxItemCenterX + deltaX * 0.03;
-    const newY = parallaxItemCenterY + deltaY * 0.03;
+            const newX = parallaxItemCenterX + deltaX * 0.03;
+            const newY = parallaxItemCenterY + deltaY * 0.03;
 
-    const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
-    const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
+            const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
+            const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
 
-    parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
-  }
+            parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
+        });
+    }
 });
 
 function isTouchDevice() {
-  return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 }
 
 /*lampe torche*/
