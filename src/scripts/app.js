@@ -129,7 +129,7 @@ function isTouchDevice() {
 }
 
 /*lampe torche*/
-/*try {
+try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -163,9 +163,11 @@ function initializeCanvas() {
         };
 
         var flashlight_size = {
-            center: h / 5,
+            center: h / 6,
             outside: h / 3
         };
+
+        var original_flashlight_size = flashlight_size.outside;
 
         var gradient_color = {
             first: "rgba(0,0,0,0.8)",
@@ -192,7 +194,24 @@ function initializeCanvas() {
             c.restore();
         }
 
-        draw();
+        function animateSize(targetSize) {
+            var startTime = performance.now();
+            var startSize = flashlight_size.outside;
+
+            function updateSize(timestamp) {
+                var progress = timestamp - startTime;
+                if (progress < 300) { // Durée de l'animation en millisecondes
+                    flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
+                    draw();
+                    requestAnimationFrame(updateSize);
+                } else {
+                    flashlight_size.outside = targetSize;
+                    draw();
+                }
+            }
+
+            requestAnimationFrame(updateSize);
+        }
 
         function updatePosition(x, y) {
             mousePosition.x = x;
@@ -219,16 +238,21 @@ function initializeCanvas() {
             initializeCanvas();
         });
 
-        document.querySelector('.home__group').addEventListener('mouseenter', function () {
-            flashlight_size.outside *= 2;
-            draw();
+        var inspectElements = document.querySelectorAll('.inspect');
+        inspectElements.forEach(function (element) {
+            element.addEventListener('mouseenter', function () {
+                var targetSize = original_flashlight_size;
+                animateSize(targetSize);
+            });
+
+            element.addEventListener('mouseleave', function () {
+                var targetSize = original_flashlight_size * 2;
+                animateSize(targetSize);
+            });
         });
 
-        document.querySelector('.home__group').addEventListener('mouseleave', function () {
-            flashlight_size.outside = h / 3;
-            draw();
-        });
+        draw();
     }
 }
 
-initializeCanvas();*/
+initializeCanvas();
