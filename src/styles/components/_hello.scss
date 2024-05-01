@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 112px 20px;
+    padding: 112px 36px 266px 36px;
 
     &__list{
         margin-bottom: 63px;
@@ -28,7 +28,7 @@
 
 @media(min-width: 600px) {
     .hello{
-        padding: 150px 0px;
+        padding: 150px 0px 354px 0px;
 
         &__list{
             margin-bottom: 84px;
@@ -47,7 +47,7 @@
 
 @media(min-width: 1300px) {
     .hello{
-        padding: 199px 0px;
+        padding: 199px 0px 472px 0px;
         flex-direction: row;
         justify-content: space-evenly;
     
@@ -71,7 +71,7 @@
 
 @media(min-width: 2200px) {
     .hello{
-        padding: 266px 0px;
+        padding: 266px 0px 629px 0px;
 
         &__list{
             margin-bottom: 112px;
