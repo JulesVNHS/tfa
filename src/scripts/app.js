@@ -20,7 +20,7 @@ document.querySelectorAll('.menu__list a').forEach(function(link) {
       document.body.classList.add('stop-hidden');
       setTimeout(function() {
         document.body.classList.remove('stop-hidden');
-      }, 500);
+      }, 1000);
       menu.classList.add('menu--hidden');
   });
 });

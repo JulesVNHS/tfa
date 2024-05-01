@@ -253,7 +253,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 112px 20px;
+  padding: 112px 36px 266px 36px;
 }
 .hello__list {
   margin-bottom: 63px;
@@ -274,7 +274,7 @@ button {
 
 @media (min-width: 600px) {
   .hello {
-    padding: 150px 0px;
+    padding: 150px 0px 354px 0px;
   }
   .hello__list {
     margin-bottom: 84px;
@@ -289,7 +289,7 @@ button {
 }
 @media (min-width: 1300px) {
   .hello {
-    padding: 199px 0px;
+    padding: 199px 0px 472px 0px;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -307,7 +307,7 @@ button {
 }
 @media (min-width: 2200px) {
   .hello {
-    padding: 266px 0px;
+    padding: 266px 0px 629px 0px;
   }
   .hello__list {
     margin-bottom: 112px;
@@ -337,10 +337,30 @@ button {
   }
 }
 .projets {
+  --border-height: 47px;
+  --padding-x: 36px;
+  --padding-y: 266px;
+  --total-padding-x: calc(var(--padding-x) * 2);
   background-color: #351111;
   background-image: url("../assets/images/texture2.png");
   background-position: center;
-  padding: 112px 20px;
+  padding: var(--padding-y) var(--padding-x);
+  position: relative;
+}
+.projets::before, .projets::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--padding-x));
+  left: calc(-1 * var(--padding-x));
+  height: var(--border-height);
+  background-image: url("../assets/images/bordure.svg");
+  background-repeat: repeat-x;
+}
+.projets::before {
+  top: calc(-1 * var(--border-height) / 2);
+}
+.projets::after {
+  bottom: calc(-1 * var(--border-height) / 2);
 }
 .projets__title {
   margin-bottom: 112px;
@@ -366,7 +386,7 @@ button {
   transform: rotate(10deg);
 }
 .projets img {
-  width: 100%;
+  width: 266px;
   vertical-align: middle;
 }
 .projets__follow {
@@ -380,7 +400,12 @@ button {
 }
 @media (min-width: 600px) {
   .projets {
-    padding: 150px 63px;
+    --border-height: 63px;
+    --padding-x: 84px;
+    --padding-y: 354px;
+  }
+  .projets img {
+    width: 100%;
   }
   .projets__title {
     margin-bottom: 150px;
@@ -411,7 +436,9 @@ button {
 }
 @media (min-width: 1300px) {
   .projets {
-    padding: 199px 112px;
+    --border-height: 84px;
+    --padding-x: 150px;
+    --padding-y: 472px;
   }
   .projets__title {
     margin-bottom: 199px;
@@ -476,9 +503,33 @@ button {
 }
 @media (min-width: 2200px) {
   .projets {
-    padding: 266px 112px;
+    --border-height: 112px;
+    --padding-x: 199px;
+    --padding-y: 629px;
   }
   .projets__title {
     margin-bottom: 266px;
+  }
+}
+.jeu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 266px 36px 112px 36px;
+}
+
+@media (min-width: 600px) {
+  .jeu {
+    padding: 354px 0px 150px 0px;
+  }
+}
+@media (min-width: 1300px) {
+  .jeu {
+    padding: 472px 0px 199px 0px;
+  }
+}
+@media (min-width: 2200px) {
+  .jeu {
+    padding: 629px 0px 266px 0px;
   }
 }/*# sourceMappingURL=app.css.map */

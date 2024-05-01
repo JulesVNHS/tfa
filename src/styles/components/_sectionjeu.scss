@@ -2,23 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 266px 36px 112px 36px;
+    padding: 150px 36px 112px 36px;
+
+    &__title{
+        padding-top: 112px;
+    }
 }
 
 @media(min-width: 600px) {
     .jeu{
-        padding: 354px 0px 150px 0px;
+        padding: 199px 0px 150px 0px;
     }
 }
 
 @media(min-width: 1300px) {
     .jeu{
-        padding: 472px 0px 199px 0px;
+        padding: 354px 0px 199px 0px;
     }
 }
 
 @media(min-width: 2200px) {
     .jeu{
-        padding: 629px 0px 266px 0px;
+        padding: 472px 0px 266px 0px;
     }
 }

@@ -1,7 +1,7 @@
 .projets{
     --border-height: 47px;
     --padding-x: 36px;
-    --padding-y: 266px;
+    --padding-y: 150px;
     --total-padding-x: calc(var(--padding-x) * 2);
 
     background-color: $c-bg3;
@@ -30,6 +30,7 @@
     }
 
     &__title{
+        padding-top: 112px;
         margin-bottom: 112px;
     }
 
@@ -78,7 +79,7 @@
     .projets{
         --border-height: 63px;
         --padding-x: 84px;
-        --padding-y: 354px;
+        --padding-y: 199px;
 
         & img{
             width: 100%;
@@ -122,7 +123,7 @@
     .projets{
         --border-height: 84px;
         --padding-x: 150px;
-        --padding-y: 472px;
+        --padding-y: 354px;
 
         &__title{
             margin-bottom: 199px;
@@ -205,7 +206,7 @@
     .projets{
         --border-height: 112px;
         --padding-x: 199px;
-        --padding-y: 629px;
+        --padding-y: 472px;
 
         &__title{
             margin-bottom: 266px;
