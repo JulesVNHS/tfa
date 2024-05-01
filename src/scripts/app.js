@@ -70,6 +70,8 @@ function mixColors(color1, color2, ratio) {
 
 /*Mouvements survol des tableaux*/
 const images = document.querySelectorAll('.move');
+let initialBeta = null;
+let initialGamma = null;
 
 function isMouseEventOrTrackpad(event) {
     return event.clientX !== undefined && event.clientY !== undefined;
@@ -95,6 +97,29 @@ images.forEach(image => {
     image.addEventListener('mousemove', updateRotation);
     image.addEventListener('mouseleave', resetRotation);
 });
+
+if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', function(event) {
+        const beta = event.beta;
+        const gamma = event.gamma;
+        
+        if (initialBeta === null || initialGamma === null) {
+            initialBeta = beta;
+            initialGamma = gamma;
+        }
+
+        let rotateX = ((beta - initialBeta) / 90) * 30;
+        let rotateY = ((gamma - initialGamma) / 90) * 30;
+
+        rotateX = Math.max(-30, Math.min(30, rotateX));
+        rotateY = Math.max(-30, Math.min(30, rotateY));
+
+        images.forEach(image => {
+            image.style.setProperty('--rotatex', rotateX + 'deg');
+            image.style.setProperty('--rotatey', rotateY + 'deg');
+        });
+    });
+}
 
 /*Parallaxe*/
 const parallaxItems = document.querySelectorAll(".follow");
