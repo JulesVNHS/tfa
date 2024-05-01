@@ -71,7 +71,12 @@ function mixColors(color1, color2, ratio) {
 /*Mouvements survol des tableaux*/
 const images = document.querySelectorAll('.move');
 
+function isMouseEventOrTrackpad(event) {
+    return event.clientX !== undefined && event.clientY !== undefined;
+}
+
 function updateRotation(event) {
+    if (!isMouseEventOrTrackpad(event)) return;
     const imageRect = this.getBoundingClientRect();
     const mouseX = event.clientX - imageRect.left;
     const mouseY = event.clientY - imageRect.top;
@@ -101,7 +106,7 @@ document.addEventListener("mouseleave", function (e) {
 });
 
 document.addEventListener("mousemove", function (e) {
-    if (!isTouchDevice()) {
+    if (isDesktop()) {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
@@ -124,12 +129,16 @@ document.addEventListener("mousemove", function (e) {
     }
 });
 
+function isDesktop() {
+    return !isTouchDevice();
+}
+
 function isTouchDevice() {
     return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 }
 
 /*lampe torche*/
-try {
+/*try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -255,4 +264,4 @@ function initializeCanvas() {
     }
 }
 
-initializeCanvas();
+initializeCanvas();*/
