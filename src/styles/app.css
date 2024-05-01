@@ -43,7 +43,7 @@ h1 {
 }
 
 h2 {
-  font-size: 63px;
+  font-size: 84px;
   font-family: "Londrina Solid", sans-serif;
   color: #7BEA44;
   margin: 0;
@@ -91,7 +91,7 @@ button {
     font-size: 27px;
   }
   h2 {
-    font-size: 84px;
+    font-size: 112px;
     margin-bottom: 47px;
   }
 }
@@ -102,7 +102,7 @@ button {
 }
 @media (min-width: 1900px) {
   h2 {
-    font-size: 112px;
+    font-size: 150px;
     margin-bottom: 63px;
   }
 }
@@ -111,7 +111,7 @@ button {
     font-size: 36px;
   }
   h2 {
-    font-size: 150px;
+    font-size: 199px;
     margin-bottom: 84px;
   }
 }
