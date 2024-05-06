@@ -5,7 +5,7 @@
     --total-padding-x: calc(var(--padding-x) * 2);
 
     background-color: $c-bg2;
-    background-image: linear-gradient(to right, rgba($c-bg2, 1), rgba($c-bg2, 0.2), rgba($c-bg2, 0), rgba($c-bg2, 0.2), rgba($c-bg2, 1)), url("../assets/images/texture2.svg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url("../assets/images/texture2.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
