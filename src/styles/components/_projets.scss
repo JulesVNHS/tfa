@@ -1,12 +1,14 @@
 .projets{
-    --border-height: 47px;
+    --border-height: 36px;
     --padding-x: 36px;
     --padding-y: 150px;
     --total-padding-x: calc(var(--padding-x) * 2);
 
     background-color: $c-bg3;
-    background-image: url("../assets/images/texture2.png");
+    background-image: url("../assets/images/texture2.svg");
+    background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     padding: var(--padding-y) var(--padding-x);
     position: relative;
 
@@ -69,15 +71,9 @@
     }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .projets {
-        background-image: url("../assets/images/texture2@2x.png");
-    }
-}
-
 @media(min-width: 600px) {
     .projets{
-        --border-height: 63px;
+        --border-height: 47px;
         --padding-x: 84px;
         --padding-y: 199px;
 
@@ -121,7 +117,7 @@
 
 @media(min-width: 1300px) {
     .projets{
-        --border-height: 84px;
+        --border-height: 63px;
         --padding-x: 150px;
         --padding-y: 354px;
 
@@ -204,7 +200,7 @@
 
 @media(min-width: 2200px) {
     .projets{
-        --border-height: 112px;
+        --border-height: 84px;
         --padding-x: 199px;
         --padding-y: 472px;
 
