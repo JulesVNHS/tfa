@@ -124,8 +124,9 @@ button {
   width: 100%;
   box-sizing: border-box;
   top: 0;
+  transform: translateY(0%);
   z-index: 10;
-  transition: top 0.5s;
+  transition: transform 0.5s;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -158,7 +159,7 @@ button {
   display: none;
 }
 .menu--hidden {
-  top: -100%;
+  transform: translateY(-100%);
 }
 
 @media (min-width: 600px) {
