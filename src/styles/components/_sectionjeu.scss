@@ -3,9 +3,21 @@
     flex-direction: column;
     align-items: center;
     padding: 150px 36px 112px 36px;
+    position: relative;
 
     &__title{
         padding-top: 112px;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 20vh;
+        background: linear-gradient(to top, rgba(#09030D, 0), rgba(#09030D, 1));
+        z-index: -1;
     }
 }
 

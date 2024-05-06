@@ -259,6 +259,7 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 112px 36px 150px 36px;
+  position: relative;
 }
 .hello__list {
   margin-bottom: 63px;
@@ -278,6 +279,16 @@ button {
 }
 .hello__title {
   padding-top: 112px;
+}
+.hello::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(to bottom, rgba(9, 3, 13, 0), #09030d);
+  z-index: -1;
 }
 
 @media (min-width: 600px) {
@@ -350,8 +361,8 @@ button {
   --padding-x: 36px;
   --padding-y: 150px;
   --total-padding-x: calc(var(--padding-x) * 2);
-  background-color: #351111;
-  background-image: url("../assets/images/texture2.svg");
+  background-color: #09030D;
+  background-image: linear-gradient(to right, #09030d, rgba(9, 3, 13, 0.2), rgba(9, 3, 13, 0), rgba(9, 3, 13, 0.2), #09030d), url("../assets/images/texture2.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -523,9 +534,20 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 150px 36px 112px 36px;
+  position: relative;
 }
 .jeu__title {
   padding-top: 112px;
+}
+.jeu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(to top, rgba(9, 3, 13, 0), #09030d);
+  z-index: -1;
 }
 
 @media (min-width: 600px) {
