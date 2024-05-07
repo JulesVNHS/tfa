@@ -17,13 +17,10 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #09030D;
-  background-color: #7BEA44;
+  background: #09030D;
+  border-top: 6px solid #71289F;
   padding: 27px 0 15px 0;
   margin-top: 266px;
-}
-footer a {
-  color: #09030D;
 }
 footer img {
   vertical-align: middle;
@@ -101,7 +98,8 @@ button {
 }
 @media (min-width: 1300px) {
   footer small a:hover {
-    opacity: 0.5;
+    opacity: 0.8;
+    transition: opacity 0.2s;
   }
 }
 @media (min-width: 1900px) {
@@ -133,8 +131,8 @@ button {
   align-items: center;
   font-family: "Londrina Solid", sans-serif;
   padding: 20px;
-  background: #09030D;
-  border-bottom: 1px solid #71289F;
+  background: #1B0C21;
+  border-bottom: 6px solid #71289F;
 }
 .menu__list {
   display: flex;
@@ -183,14 +181,15 @@ button {
 @media (min-width: 1300px) {
   .menu__btn:hover {
     transform: scale(1.1);
-    transition: 0.1s;
+    transition: 0.2s;
   }
   .menu__logo:hover {
     transform: scale(1.1);
-    transition: 0.1s;
+    transition: 0.2s;
   }
   .menu__el:hover {
     opacity: 0.8;
+    transition: opacity 0.2s;
   }
 }
 .home {
@@ -287,7 +286,7 @@ button {
   bottom: 0;
   width: 100%;
   height: 20vh;
-  background: linear-gradient(to bottom, rgba(9, 3, 13, 0), #09030d);
+  background: linear-gradient(to bottom, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
 
@@ -353,7 +352,7 @@ button {
 @media (min-width: 1300px) {
   .footer__el img:hover {
     transform: scale(1.1);
-    transition: 0.1s;
+    transition: 0.2s;
   }
 }
 .projets {
@@ -362,7 +361,7 @@ button {
   --padding-y: 150px;
   --total-padding-x: calc(var(--padding-x) * 2);
   background-color: #09030D;
-  background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgb(0, 0, 0)), url("../assets/images/texture2.svg");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("../assets/images/texture2.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -546,7 +545,7 @@ button {
   top: 0;
   width: 100%;
   height: 20vh;
-  background: linear-gradient(to top, rgba(9, 3, 13, 0), #09030d);
+  background: linear-gradient(to top, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
 
