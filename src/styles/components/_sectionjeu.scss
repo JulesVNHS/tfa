@@ -16,7 +16,7 @@
         top: 0;
         width: 100%;
         height: 20vh;
-        background: linear-gradient(to top, rgba(#09030D, 0), rgba(#09030D, 1));
+        background: linear-gradient(to top, rgba($c-btn, 0), rgba($c-btn, 0.08));
         z-index: -1;
     }
 }

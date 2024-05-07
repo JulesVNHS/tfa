@@ -44,8 +44,8 @@ document.addEventListener('scroll', function() {
   var windowHeight = window.innerHeight;
   var documentHeight = document.body.scrollHeight;
   var scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-  var color1 = '#09030D';
-  var color2 = '#1B0C21';
+  var color2 = '#09030D';
+  var color1 = '#1B0C21';
   
   var newColor = mixColors(color1, color2, scrollPercentage / 100);
   var menu = document.querySelector('.menu');

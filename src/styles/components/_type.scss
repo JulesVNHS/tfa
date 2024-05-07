@@ -18,14 +18,10 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $c-bg2;
-  background-color: $c-title;
+  background: $c-bg2;
+  border-top: 6px solid $c-btn;
   padding: 27px 0 15px 0;
   margin-top: 266px;
-
-  & a{
-    color: $c-bg2;
-  }
 
   & img{
     vertical-align: middle;
@@ -109,7 +105,8 @@ button {
 @media(min-width: 1300px) {
   footer {
     & small a:hover{
-      opacity: 0.5;
+      opacity: 0.8;
+      transition: opacity 0.2s;
     }
   }
 }
