@@ -272,6 +272,19 @@ function initializeCanvas() {
             initializeCanvas();
         });
 
+        var expandElements = document.querySelectorAll('.expand');
+        expandElements.forEach(function (element) {
+            element.addEventListener('mouseenter', function () {
+                var targetSize = original_flashlight_size * 4;
+                animateSize(targetSize);
+            });
+
+            element.addEventListener('mouseleave', function () {
+                var targetSize = original_flashlight_size * 2;
+                animateSize(targetSize);
+            });
+        });
+
         var inspectElements = document.querySelectorAll('.inspect');
         inspectElements.forEach(function (element) {
             element.addEventListener('mouseenter', function () {
