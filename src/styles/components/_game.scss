@@ -71,7 +71,7 @@ $colors: (
   @return key($colors, $key, $sub-key);
 }
 
-body {
+.body--jeu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,7 +169,7 @@ body {
   }
 }
 
-main {
+.main--jeu {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
