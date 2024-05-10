@@ -17,74 +17,110 @@
     <script src="scripts/app.js" defer></script>
 </head>
 <body class="body--jeu">
-<div class="info"><button class="btn-sound"></button><audio id="theme-song" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/smb3-theme.mp3" loop="loop"></audio>
-    <div class="score">
-        <div class="turns">Turns: <span>2</span></div>
-        <div class="attempts">Attempts: <span>0</span></div>
-        <div class="wins">Wins: <span>0</span></div>
-    </div>
-</div>
-<main class="main--jeu">
-    <div class="card" data-type="flower" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="mushroom" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="star" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="flower" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="mushroom" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="star" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="1up" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="coin10" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="coin20" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="1up" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="coin10" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-    <div class="card" data-type="coin20" data-matched="false">
-        <div class="front"></div>
-        <div class="back"></div>
-    </div>
-</main>
-<div class="success">
-    <div class="success-icon" data-type="mushroom">
-        <div class="front"></div>
-    </div>
-    <h2 class="success-message">Nice work! </h2>
-    <div class="score">
-        <div class="turns">Turns <span>2</span></div>
-        <div class="attempts">Attempts <span>0</span></div>
-        <div class="wins">Wins <span>0</span></div>
-        <div class="attempts-overall">Attempts Overall <span>0</span></div>
-    </div><button class="btn-continue">Continue</button>
-</div>
+    <header class="header--jeu">
+        <nav class="menu">
+            <a class="menu__logo" href="index.html#home">
+                <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+            </a>
+            <ul class="menu__list">
+                <li class="menu__el menu__el--active"><a href="index.html#hello">Hello</a></li>
+                <li class="menu__el"><a href="index.html#projets">Projets</a></li>
+                <li class="menu__el"><a href="index.html#jeu">Le&nbsp;Jeu</a></li>
+            </ul>
+            <a class="menu__btn" href="game.html">JOUER</a>
+        </nav>
+    </header>
+    <main class="main--jeu">
+        <div class="info">
+            <ul class="info__li">
+                <li class="info__el turns">Turns: <span>2</span></li>
+                <li class="info__el attempts">Attempts: <span>0</span></li>
+                <li class="info__el wins">Wins: <span>0</span></li>
+            </ul>
+        </div>
+        <ul class="card__list">
+            <li class="card__el" data-type="flower" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="mushroom" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="star" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="flower" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="mushroom" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="star" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="1up" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="coin10" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="coin20" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="1up" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="coin10" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+            <li class="card__el" data-type="coin20" data-matched="false">
+                <div class="front"></div>
+                <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+            </li>
+        </ul>
+        <div class="success">
+            <div class="success-icon" data-type="mushroom">
+                <div class="front"></div>
+            </div>
+            <h2 class="success-message">Nice work! </h2>
+            <ul class="score">
+                <li class="turns">Turns <span>2</span></li>
+                <li class="attempts">Attempts <span>0</span></li>
+                <li class="wins">Wins <span>0</span></li>
+                <li class="attempts-overall">Attempts Overall <span>0</span></li>
+            </ul>
+            <button class="btn-continue">Continue</button>
+        </div>
+    </main>
+    <footer class="footer--jeu">
+        <ul class="footer__list">
+            <li class="footer__el">
+                <a href="https://www.instagram.com/menu.burger/">
+                  <img src="assets/images/insta.svg" alt="un logo instagram">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://github.com/JulesVNHS">
+                    <img src="assets/images/github.svg" alt="un logo github">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://be.linkedin.com/in/jules-vanhuysse-b52345256">
+                    <img src="assets/images/linkedin.svg" alt="un logo linkedin">
+                </a>
+            </li>
+        </ul>
+        <small>© <a href="index.html#home">Jules Vanhuysse</a> 2024 - <a href="credits.html">Crédits</a></small>
+    </footer>
 </body>
 </html>

@@ -306,8 +306,8 @@ initializeCanvas();*/
 
 /*Le Jeu*/
 var $board = $('main'),
-    $card = $('.card'),
-    $itemCount = $('.score span'),
+    $card = $('.card__el'),
+    $itemCount = $('info__li span'),
     $wins = $('.wins span'),
     $turns = $('.turns span'),
     $attempts = $('.attempts span'),
@@ -331,29 +331,6 @@ var $board = $('main'),
     tooManyAttempts = 8,
     timeoutLength = 600,
     card1, card2, msg;
-
-// Let's make some noise
-var assetsUrl = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/',
-    sound = [
-      'smb3_1-up.mp3',
-      'smb3_nspade_match.mp3',
-      'smb3_bonus_game_no_match.mp3'
-    ],
-    $themeSongEl = $('#theme-song')[0],
-    soundSuccess = new Audio(assetsUrl + sound[0]),
-    soundMatch = new Audio(assetsUrl + sound[1]),
-    soundNoMatch = new Audio(assetsUrl + sound[2]);
-
-// Turn on the sound if you want that real deal throwback experience
-$btnSound.on('click', function(e) {
-  e.preventDefault();
-  $(this).toggleClass(playSoundClass);
-  if ($(this).hasClass(playSoundClass)) {
-    $themeSongEl.play();
-  } else {
-    $themeSongEl.pause();
-  }
-});
 
 // Shuffle up the deck
 shuffleCards();
