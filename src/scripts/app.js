@@ -305,21 +305,18 @@ function initializeCanvas() {
 initializeCanvas();*/
 
 /*Le Jeu*/
-var $board = $('main'),
+var $board = $('.card__list'),
     $card = $('.card__el'),
-    $itemCount = $('info__li span'),
+    $itemCount = $('info__list span'),
     $wins = $('.wins span'),
     $turns = $('.turns span'),
     $attempts = $('.attempts span'),
     $attemptsOverall = $('.attempts-overall span'),
     $success = $('.success'),
-    $successMsg = $('.success-message'),
-    $successIcon = $('.success-icon'),
-    $btnContinue = $('.btn-continue'),
-    $btnSound = $('.btn-sound'),
+    $successMsg = $('.success__message'),
+    $btnContinue = $('.success__btn'),
     selectedClass = 'is-selected',
     visibleClass = 'is-visible',
-    playSoundClass = 'is-playing',
     scoreUpdateClass = 'is-updating',
     lastTurnClass = 'last-turn',
     dataMatch = 'data-matched',
@@ -332,34 +329,25 @@ var $board = $('main'),
     timeoutLength = 600,
     card1, card2, msg;
 
-// Shuffle up the deck
 shuffleCards();
 
 $card.on('click', function() {
-  // Add selected class to a card only if it is not already matched
   if ($(this).attr(dataMatch) == 'false') {
     $(this).addClass(selectedClass);
   }
 
   var selectedCards = $('.' + selectedClass);
 
-  // Check if cards match
   if (selectedCards.length == 2) {
     card1 = selectedCards.eq(0).attr(dataType);
     card2 = selectedCards.eq(1).attr(dataType);
 
     if (card1 == card2) {
-      if ($btnSound.hasClass(playSoundClass)) {
-        soundMatch.play(); 
-      }
       selectedCards
         .attr(dataMatch, true)
         .removeClass(selectedClass)
 
     } else {
-      if ($btnSound.hasClass(playSoundClass)) {
-        soundNoMatch.play(); 
-      }
       setTimeout(function() {
         turnsCount--;
         $turns
@@ -391,34 +379,21 @@ $card.on('click', function() {
     }
   }
 
-  // Winner!
   if ($('[' + dataMatch + '="true"]').length == $card.length) {
-    // Show success screen
     $success.addClass(visibleClass);
-    if (attemptsCount <= tooManyAttempts) {
-      setTimeout(function() {
-        if ($btnSound.hasClass(playSoundClass)) {
-          soundSuccess.play(); 
-        }
-      }, 600);
-    }
-    // Update success message based on the amount of attempts
+
     switch(true) {
       case (attemptsCount <= 2):
-        msg = "SUPER!!!";
-        $successIcon.attr(dataType, "star");
+        msg = "Bravo !!!";
         break;
       case (attemptsCount > 2 && attemptsCount <= 5):
-        msg = "Nice Work!";
-        $successIcon.attr(dataType, "mushroom");
+        msg = "Pas Mal !";
         break;
       case (attemptsCount > 5 && attemptsCount <= 8):
-        msg = "You can do better!";
-        $successIcon.attr(dataType, "flower");
+        msg = "Tu peux t'améliorer !";
         break;
       case (attemptsCount > tooManyAttempts):
-        msg = "That took awhile...";
-        $successIcon.attr(dataType, "chest");
+        msg = "Ça a pris du temps...";
         break;
     }
     $successMsg.text(msg);
@@ -438,7 +413,6 @@ $card.on('click', function() {
 
 });
 
-// Remove the score update class after the animation completes
 $itemCount.on(
   "webkitAnimationEnd oanimationend msAnimationEnd animationend",
   function() {
@@ -446,7 +420,6 @@ $itemCount.on(
   }
 );
 
-// On to the next round!
 $btnContinue.on('click', function() {
   $success.removeClass(visibleClass);
   shuffleCards();
@@ -460,7 +433,6 @@ $btnContinue.on('click', function() {
   }, 300);
 });
 
-// Card shuffle function
 function shuffleCards() {
   var cards = $board.children();
   while (cards.length) {
