@@ -396,7 +396,7 @@ $card.on('click', function() {
         msg = "Bravo !";
         break;
       case (attemptsCount > tooManyAttempts):
-        msg = "Tu peux t'améliorer...";
+        msg = "Passable...";
         break;
     }
     $successMsg.text(msg);
@@ -453,8 +453,36 @@ function shuffleCards() {
 }
 
 
-/*Apparitions Cartes*/
-document.addEventListener('DOMContentLoaded', function() {
+/*Chargement*/
+$(document).ready(function() {
+  $('.skip').click(function() {
+    $('.overlay, body').addClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("skip");
+    }, 1500);
+  });
+
+  $(window).bind('load', function() {
+    $('.overlay, body').addClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("loaded");
+    }, 1500);
+  });
+
+  setTimeout(function() {
+    $('.overlay, body').removeClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("delay");
+    }, 1500);
+  }, 10000);
+
+  /*Apparitions Cartes*/
   const cardElements = Array.from(document.querySelectorAll('.card__pop'));
 
   function revealElements() {
@@ -467,8 +495,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  revealElements();
-
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -476,28 +502,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     return array;
   }
-});
-
-/*Chargement*/
-$(document).ready(function() {
-  $('.skip').click(function() {
-      $('.overlay, body').addClass('loaded');
-      setTimeout(function() {
-        $('.overlay').addClass('invisible');
-    }, 2000);
-  });
-
-  $(window).bind('load', function() {
-      $('.overlay, body').addClass('loaded');
-      setTimeout(function() {
-        $('.overlay').addClass('invisible');
-      }, 2000);
-  });
-
-  setTimeout(function() {
-      $('.overlay, body').removeClass('loaded');
-      setTimeout(function() {
-        $('.overlay').addClass('invisible');
-      }, 2000);
-  }, 30000);
 });
