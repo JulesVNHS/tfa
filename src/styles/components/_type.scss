@@ -13,6 +13,10 @@ body {
   font-size: $size-text;
   color: #ffffff;
 
+  &.loaded {
+		overflow-y: auto;
+	}
+
   &.no-scroll {
     overflow: hidden;
   }
