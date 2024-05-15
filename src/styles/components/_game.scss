@@ -2,8 +2,6 @@ $p: 7px;
 $cardPadding: $p * 2;
 $cardWidth: ($p*18) + $cardPadding;
 $cardHeight: $cardWidth + ($cardPadding*2.5);
-$transDuration: 0.4s;
-$transTimeFunc: ease-out;
 
 $colors: (
   score: (
@@ -47,7 +45,6 @@ $colors: (
 .card{
   &__list {
     box-sizing: border-box;
-    padding: 0 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -60,17 +57,26 @@ $colors: (
     }
   }
 
+  &__pop{
+    opacity: 0;
+      
+    &.visible {
+      opacity: 1;
+      animation: bounce 0.5s ease forwards;
+    }
+  }
+
   &__el {
     position: relative;
-    margin: 1%;
     padding-top: $cardPadding*3/2;
-      padding-left: $cardPadding/2;
-      width: $cardWidth/2;
-      height: $cardHeight/2;
+    padding-left: $cardPadding/2;
+    margin: 6px;
+    width: $cardWidth/2;
+    height: $cardHeight/2;
     cursor: pointer;
     transform: translate3d(0,0,0);
     transform-style: preserve-3d;
-    transition: transform $transDuration $transTimeFunc;
+    transition: transform 0.4s ease-out;
     border-radius: 3px;
     user-select: none;
 
@@ -88,6 +94,7 @@ $colors: (
       padding-left: $cardPadding;
       width: $cardWidth;
       height: $cardHeight;
+      margin: 11px;
 
       .front:before,
       .front:after,
@@ -163,7 +170,7 @@ $colors: (
   transform: translate3d(0,0,0) rotateY(180deg);
 }
 [data-matched=true] {
-  animation: matchSuccess $transDuration $transTimeFunc 3;
+  animation: matchSuccess 0.4s ease-out 3;
 }
 
 // Success!
@@ -287,7 +294,7 @@ $colors: (
 
 @keyframes bounce {
   0% { transform: scale(0.1); }
-  20% { transform: scale(1.4); }
+  20% { transform: scale(1.2); }
   40% { transform: scale(0.8); }
   60% { transform: scale(1.1); }
   80% { transform: scale(0.9); }

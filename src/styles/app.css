@@ -598,7 +598,6 @@ button {
 
 .card__list {
   box-sizing: border-box;
-  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -611,11 +610,18 @@ button {
     padding: 0;
   }
 }
+.card__pop {
+  opacity: 0;
+}
+.card__pop.visible {
+  opacity: 1;
+  animation: bounce 0.5s ease forwards;
+}
 .card__el {
   position: relative;
-  margin: 1%;
   padding-top: 21px;
   padding-left: 7px;
+  margin: 6px;
   width: 70px;
   height: 87.5px;
   cursor: pointer;
@@ -641,6 +647,7 @@ button {
     padding-left: 14px;
     width: 140px;
     height: 175px;
+    margin: 11px;
   }
   .card__el .front:before,
   .card__el .front:after,
@@ -827,7 +834,7 @@ button {
     transform: scale(0.1);
   }
   20% {
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
   40% {
     transform: scale(0.8);

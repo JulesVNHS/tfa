@@ -451,3 +451,29 @@ function shuffleCards() {
     $board.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
   }
 }
+
+
+/*Apparitions Cartes*/
+document.addEventListener('DOMContentLoaded', function() {
+  const cardElements = Array.from(document.querySelectorAll('.card__pop'));
+
+  function revealElements() {
+    const shuffledElements = shuffleArray(cardElements);
+    
+    shuffledElements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, index * 50);
+    });
+  }
+
+  revealElements();
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+});
