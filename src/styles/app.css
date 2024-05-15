@@ -860,6 +860,9 @@ button {
   height: 100%;
   z-index: 5;
 }
+.overlay.invisible {
+  display: none;
+}
 .overlay .overlayDoor:before, .overlay .overlayDoor:after {
   content: "";
   position: absolute;

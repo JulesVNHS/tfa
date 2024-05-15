@@ -480,18 +480,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*Chargement*/
 $(document).ready(function() {
-	$('.skip').click(function() {
-		$('.overlay, body').addClass('loaded');
-	})
+  $('.skip').click(function() {
+      $('.overlay, body').addClass('loaded');
+      setTimeout(function() {
+        $('.overlay').addClass('invisible');
+    }, 2000);
+  });
 
-	$(window).bind('load', function() {
-		$('.overlay, body').addClass('loaded');
-		setTimeout(function() {
-			$('.overlay').css({'display':'none'})
-		}, 2000)
-	});
-	
-	setTimeout(function() {
-		$('.overlay, body').addClass('loaded');
-	}, 60000);
-})
+  $(window).bind('load', function() {
+      $('.overlay, body').addClass('loaded');
+      setTimeout(function() {
+        $('.overlay').addClass('invisible');
+      }, 2000);
+  });
+
+  setTimeout(function() {
+      $('.overlay, body').removeClass('loaded');
+      setTimeout(function() {
+        $('.overlay').addClass('invisible');
+      }, 2000);
+  }, 30000);
+});

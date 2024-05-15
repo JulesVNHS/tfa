@@ -6,6 +6,10 @@
 	height: 100%;
 	z-index: 5;
 
+    &.invisible {
+        display: none;
+    }
+
 	.overlayDoor {
 		&:before, &:after {
 			content: "";
