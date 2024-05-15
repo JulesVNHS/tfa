@@ -34,8 +34,6 @@ $colors: (
   justify-content: center;
   min-height: 100vh;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   @media (min-width: 600px) {
     padding-top: 99px;
@@ -178,7 +176,6 @@ $colors: (
   top: 0; left: 0;
   width: 100%;
   min-height: 100%;
-  overflow-y: auto;
   text-align: center;
   background-color: rgba($c-bg2, 0.99);
   z-index: 10;

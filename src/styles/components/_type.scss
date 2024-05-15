@@ -12,6 +12,10 @@ body {
   font-family: $font-text;
   font-size: $size-text;
   color: #ffffff;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 footer {
