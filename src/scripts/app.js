@@ -346,6 +346,7 @@ $card.on('click', function() {
       selectedCards
         .attr(dataMatch, true)
         .removeClass(selectedClass)
+        .addClass('matched');
 
     } else {
       setTimeout(function() {
@@ -373,6 +374,7 @@ $card.on('click', function() {
           $attempts
             .addClass(scoreUpdateClass)
             .html(attemptsCount);
+          $card.removeClass('matched');
         }, timeoutLength);
       }
 
@@ -381,19 +383,20 @@ $card.on('click', function() {
 
   if ($('[' + dataMatch + '="true"]').length == $card.length) {
     $success.addClass(visibleClass);
+    $card.removeClass('matched');
 
     switch(true) {
       case (attemptsCount <= 2):
-        msg = "Bravo !!!";
+        msg = "Parfait !!!";
         break;
       case (attemptsCount > 2 && attemptsCount <= 5):
-        msg = "Pas Mal !";
+        msg = "Super !!";
         break;
       case (attemptsCount > 5 && attemptsCount <= 8):
-        msg = "Tu peux t'améliorer !";
+        msg = "Bravo !";
         break;
       case (attemptsCount > tooManyAttempts):
-        msg = "Ça a pris du temps...";
+        msg = "Tu peux t'améliorer...";
         break;
     }
     $successMsg.text(msg);
@@ -422,6 +425,7 @@ $itemCount.on(
 
 $btnContinue.on('click', function() {
   $success.removeClass(visibleClass);
+  $('body').removeClass('no-scroll');
   shuffleCards();
   setTimeout(function() {
     turnsCount = 2;
@@ -431,6 +435,14 @@ $btnContinue.on('click', function() {
     attemptsCount = 0;
     $attempts.html(attemptsCount);
   }, 300);
+});
+
+$success.on('transitionend', function() {
+  if ($success.hasClass(visibleClass)) {
+    $('body').addClass('no-scroll');
+  } else {
+    $('body').removeClass('no-scroll');
+  }
 });
 
 function shuffleCards() {
