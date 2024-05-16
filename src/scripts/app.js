@@ -163,7 +163,7 @@ function isTouchDevice() {
 }
 
 /*lampe torche*/
-/*try {
+try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -302,7 +302,9 @@ function initializeCanvas() {
     }
 }
 
-initializeCanvas();*/
+if (window.innerWidth >= 1300) {
+  initializeCanvas();
+}
 
 /*Le Jeu*/
 var $board = $('.card__list'),
