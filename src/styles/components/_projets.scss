@@ -80,8 +80,16 @@
           }
     }
 
-    &__follow{
+    &__follow1{
         transition: transform 0.1s ease;
+    }
+
+    &__follow2{
+        transition: transform 0.3s ease;
+    }
+
+    &__follow3{
+        transition: transform 0.2s ease;
     }
 }
 

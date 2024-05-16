@@ -60,6 +60,7 @@
     &__follow{
         display: flex;
         justify-content: center;
+        transition: transform 0.1s ease;
     }
 }
 
@@ -100,6 +101,10 @@
         &__btn{
             margin: 0;
             margin-top: 47px;
+        }
+
+        &__list{
+            margin-bottom: 112px;
         }
     }
 }
