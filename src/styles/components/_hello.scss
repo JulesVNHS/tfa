@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 112px 36px 150px 36px;
+    padding: calc(150px - 112px) 36px 150px 36px;
     position: relative;
 
     &__list{
-        margin-bottom: 63px;
+        margin-bottom: 84px;
         max-width: 354px;
     }
 
@@ -36,7 +36,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 20vh;
+        height: 10vh;
         background: linear-gradient(to bottom, rgba($c-btn, 0), rgba($c-btn, 0.08));
         z-index: -1;
     }
@@ -44,10 +44,10 @@
 
 @media(min-width: 600px) {
     .hello{
-        padding: 150px 0px 199px 0px;
+        padding: calc(199px - 112px) 84px 199px 84px;
 
         &__list{
-            margin-bottom: 84px;
+            margin-bottom: 112px;
             max-width: 472px;
         }
 
@@ -63,16 +63,16 @@
 
 @media(min-width: 1300px) {
     .hello{
-        padding: 199px 0px 354px 0px;
+        padding: calc(354px - 112px) 12vw 354px 12vw;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
     
         &__list{
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
 
         &__me{
-            width: 472px;
+            width: 30vw;
             padding-top: 112px;
         }
     }
@@ -88,7 +88,7 @@
 
 @media(min-width: 2200px) {
     .hello{
-        padding: 266px 0px 472px 0px;
+        padding: calc(472px - 112px) 12vw 472px 12vw;
 
         &__list{
             margin-bottom: 112px;
@@ -100,7 +100,7 @@
         }
 
         &__me{
-            width: 839px;
+            width: 35vw;
         }
     }
 }

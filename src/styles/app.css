@@ -96,6 +96,9 @@ button {
 }
 
 @media (min-width: 600px) {
+  footer {
+    margin-top: 354px;
+  }
   p {
     font-size: 27px;
   }
@@ -105,6 +108,9 @@ button {
   }
 }
 @media (min-width: 1300px) {
+  footer {
+    margin-top: 472px;
+  }
   footer small a:hover {
     opacity: 0.8;
     transition: opacity 0.2s;
@@ -117,6 +123,9 @@ button {
   }
 }
 @media (min-width: 2200px) {
+  footer {
+    margin-top: 629px;
+  }
   p {
     font-size: 36px;
   }
@@ -172,6 +181,7 @@ button {
   .menu {
     font-size: 27px;
     justify-content: space-between;
+    padding: 20px 47px;
   }
   .menu__el {
     margin-right: 36px;
@@ -207,7 +217,6 @@ button {
   align-items: center;
   height: 100vh;
   width: 100%;
-  padding-top: 87px;
   box-sizing: border-box;
 }
 @media (min-width: 600px) {
@@ -272,11 +281,11 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 112px 36px 150px 36px;
+  padding: 38px 36px 150px 36px;
   position: relative;
 }
 .hello__list {
-  margin-bottom: 63px;
+  margin-bottom: 84px;
   max-width: 354px;
 }
 .hello__el:nth-child(2) {
@@ -300,17 +309,17 @@ button {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 20vh;
+  height: 10vh;
   background: linear-gradient(to bottom, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
 
 @media (min-width: 600px) {
   .hello {
-    padding: 150px 0px 199px 0px;
+    padding: 87px 84px 199px 84px;
   }
   .hello__list {
-    margin-bottom: 84px;
+    margin-bottom: 112px;
     max-width: 472px;
   }
   .hello__el:nth-child(2) {
@@ -322,15 +331,15 @@ button {
 }
 @media (min-width: 1300px) {
   .hello {
-    padding: 199px 0px 354px 0px;
+    padding: 242px 12vw 354px 12vw;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   .hello__list {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
   .hello__me {
-    width: 472px;
+    width: 30vw;
     padding-top: 112px;
   }
 }
@@ -341,7 +350,7 @@ button {
 }
 @media (min-width: 2200px) {
   .hello {
-    padding: 266px 0px 472px 0px;
+    padding: 360px 12vw 472px 12vw;
   }
   .hello__list {
     margin-bottom: 112px;
@@ -351,7 +360,7 @@ button {
     margin-bottom: 36px;
   }
   .hello__me {
-    width: 839px;
+    width: 35vw;
   }
 }
 .footer__list {
@@ -380,7 +389,7 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: var(--padding-y) var(--padding-x);
+  padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
   position: relative;
 }
 .projets::before, .projets::after {
@@ -425,6 +434,19 @@ button {
 .projets img {
   width: 266px;
   vertical-align: middle;
+  filter: drop-shadow(0 0 20px #71289f);
+  animation: smoke 3s ease-in infinite;
+}
+@keyframes smoke {
+  0% {
+    filter: drop-shadow(0 0 40px rgba(113, 40, 159, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px #71289f);
+  }
+  100% {
+    filter: drop-shadow(0 0 40px rgba(113, 40, 159, 0.5));
+  }
 }
 .projets__follow {
   transition: transform 0.1s ease;
@@ -469,7 +491,7 @@ button {
 @media (min-width: 1300px) {
   .projets {
     --border-height: 63px;
-    --padding-x: 150px;
+    --padding-x: 12vw;
     --padding-y: 354px;
   }
   .projets__title {
@@ -536,7 +558,7 @@ button {
 @media (min-width: 2200px) {
   .projets {
     --border-height: 84px;
-    --padding-x: 199px;
+    --padding-x: 12vw;
     --padding-y: 472px;
   }
   .projets__title {
@@ -547,7 +569,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 150px 36px 112px 36px;
+  padding: 38px 36px 0 36px;
   position: relative;
 }
 .jeu__title {
@@ -559,24 +581,24 @@ button {
   left: 0;
   top: 0;
   width: 100%;
-  height: 20vh;
+  height: 10vh;
   background: linear-gradient(to top, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
 
 @media (min-width: 600px) {
   .jeu {
-    padding: 199px 0px 150px 0px;
+    padding: 87px 84px 0 84px;
   }
 }
 @media (min-width: 1300px) {
   .jeu {
-    padding: 354px 0px 199px 0px;
+    padding: 242px 12vw 0 12vw;
   }
 }
 @media (min-width: 2200px) {
   .jeu {
-    padding: 472px 0px 266px 0px;
+    padding: 360px 12vw 0 12vw;
   }
 }
 .main--jeu {
@@ -741,6 +763,7 @@ button {
   transition: opacity 0.2s ease-out, transform 0s;
 }
 .success .info__list {
+  margin: 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -753,7 +776,7 @@ button {
 }
 .success__icon {
   width: 112px;
-  margin: 27px 0;
+  margin: 36px 0 11px 0;
   position: relative;
   transform: scale(1.5);
   background-color: transparent;
