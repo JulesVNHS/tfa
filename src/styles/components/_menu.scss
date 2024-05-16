@@ -52,7 +52,6 @@
     .menu{
         font-size: 27px;
         justify-content: space-between;
-        padding:  20px 47px;
 
         &__el{
             margin-right: 36px;
@@ -73,17 +72,22 @@
 
 @media(min-width: 1300px) {
   .menu{
-      &__btn:hover{
+    &__container{
+        width: 143px;
+        display: flex;
+    }
+
+    &__btn:hover{
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
+    &__logo:hover{
         transform: scale(1.1);
         transition: 0.2s;
-      }
-      &__logo:hover{
-          transform: scale(1.1);
-          transition: 0.2s;
-      }
-      &__el:hover{
-        opacity: 0.8;
-        transition: opacity 0.2s;
-      }
+    }
+    &__el:hover{
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
   }
 }

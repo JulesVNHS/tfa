@@ -19,9 +19,11 @@
 <body>
   <header class="expand">
     <nav class="menu">
-      <a class="menu__logo" href="index.html#home">
-        <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
-      </a>
+      <div class="menu__container">
+        <a class="menu__logo" href="index.html#home">
+          <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+        </a>
+      </div>
       <ul class="menu__list">
         <li class="menu__el menu__el--active"><a href="index.html#hello">Hello</a></li>
         <li class="menu__el"><a href="index.html#projets">Projets</a></li>
@@ -105,8 +107,12 @@
       </ul>
     </section>
     <section class="jeu">
-      <h2 id="jeu" class="jeu__title">Skills</h2>
-      <a href="game.html">JOUER</a>
+      <ul class="jeu__list">
+        <li class="jeu__el"><h2 id="jeu" class="jeu__title">Skills</h2></li>
+        <li class="jeu__el"><p>Voici&nbsp;un&nbsp;petit&nbsp;jeu&nbsp;interactif qui&nbsp;permet&nbsp;de&nbsp;découvrir les&nbsp;logiciels que&nbsp;j’ai&nbsp;utilisés pour réaliser ce&nbsp;site. Il&nbsp;s’agit&nbsp;d’un&nbsp;mémory mais&nbsp;il&nbsp;y&nbsp;a&nbsp;une&nbsp;difficulté en&nbsp;plus, tout&nbsp;est&nbsp;dans&nbsp;le&nbsp;noir&nbsp;!</p></li>
+        <li class="jeu__el"><a class="jeu__btn" href="game.html">JOUER</a></li>
+      </ul>
+      <img class="hello__me" src="assets/images/moivert.png" srcset="assets/images/moivert@2x.png 2x" alt="un représentation de moi déguisé en scientifique en pixel art devant un ordinateur devant un fond vert">
     </section>
   </main>
   <footer>

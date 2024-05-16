@@ -181,7 +181,6 @@ button {
   .menu {
     font-size: 27px;
     justify-content: space-between;
-    padding: 20px 47px;
   }
   .menu__el {
     margin-right: 36px;
@@ -197,6 +196,10 @@ button {
   }
 }
 @media (min-width: 1300px) {
+  .menu__container {
+    width: 143px;
+    display: flex;
+  }
   .menu__btn:hover {
     transform: scale(1.1);
     transition: 0.2s;
@@ -585,20 +588,72 @@ button {
   background: linear-gradient(to top, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
+.jeu__list {
+  max-width: 354px;
+}
+.jeu img {
+  display: none;
+}
+.jeu__btn {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  margin-top: 36px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Londrina Solid", sans-serif;
+  transition: 0.2s ease;
+  font-size: 20px;
+  padding: 11px 47px 11px 47px;
+  background-color: #71289F;
+}
+@media (min-width: 1300px) {
+  .jeu__btn:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+}
 
 @media (min-width: 600px) {
   .jeu {
     padding: 87px 84px 0 84px;
   }
+  .jeu__list {
+    max-width: 472px;
+  }
+  .jeu__btn {
+    margin-top: 47px;
+    font-size: 27px;
+    padding: 15px 63px 15px 63px;
+  }
 }
 @media (min-width: 1300px) {
   .jeu {
     padding: 242px 12vw 0 12vw;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .jeu img {
+    display: block;
+  }
+}
+@media (min-width: 1900px) {
+  .jeu__btn {
+    margin-top: 63px;
   }
 }
 @media (min-width: 2200px) {
   .jeu {
     padding: 360px 12vw 0 12vw;
+  }
+  .jeu__list {
+    max-width: 629px;
+  }
+  .jeu__btn {
+    margin-top: 84px;
+    font-size: 36px;
+    padding: 20px 84px 20px 84px;
   }
 }
 .main--jeu {
