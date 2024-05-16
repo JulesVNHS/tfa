@@ -24,7 +24,11 @@
         max-width: 354px;
     }
 
-    & img{
+    &__img1{
+        margin: 84px 0;
+    }
+
+    &__img2{
         display: none;
     }
 
@@ -32,6 +36,7 @@
         display: block;
         width: fit-content;
 		text-align: center;
+        margin: 0 auto;
         margin-top: 36px;
 		cursor: pointer;
 		color: $c-text;
@@ -51,6 +56,11 @@
     &__container{
         transform: rotate(-10deg);
     }
+
+    &__follow{
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media(min-width: 600px) {
@@ -66,6 +76,10 @@
             font-size: 27px;
             padding: 15px 63px 15px 63px;
         }
+
+        &__img1{
+            margin: 112px 0;
+        }
     }
 }
 
@@ -75,8 +89,17 @@
         flex-direction: row-reverse;
         justify-content: space-between;
 
-        & img{
+        &__img1{
+            display: none;
+        }
+
+        &__img2{
             display: block;
+        }
+
+        &__btn{
+            margin: 0;
+            margin-top: 47px;
         }
     }
 }

@@ -297,9 +297,6 @@ button {
 .hello__container {
   transform: rotate(10deg);
 }
-.hello__follow {
-  transition: transform 0.1s ease;
-}
 .hello__me {
   width: 266px;
 }
@@ -315,6 +312,15 @@ button {
   height: 10vh;
   background: linear-gradient(to bottom, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
+}
+.hello__follow1 {
+  transition: transform 0.1s ease;
+}
+.hello__follow2 {
+  transition: transform 0.5s ease;
+}
+.hello__follow3 {
+  transition: transform 0.3s ease;
 }
 
 @media (min-width: 600px) {
@@ -591,7 +597,10 @@ button {
 .jeu__list {
   max-width: 354px;
 }
-.jeu img {
+.jeu__img1 {
+  margin: 84px 0;
+}
+.jeu__img2 {
   display: none;
 }
 .jeu__btn {
@@ -599,6 +608,7 @@ button {
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
+  margin: 0 auto;
   margin-top: 36px;
   cursor: pointer;
   color: #ffffff;
@@ -614,6 +624,13 @@ button {
     transition: 0.2s;
   }
 }
+.jeu__container {
+  transform: rotate(-10deg);
+}
+.jeu__follow {
+  display: flex;
+  justify-content: center;
+}
 
 @media (min-width: 600px) {
   .jeu {
@@ -627,6 +644,9 @@ button {
     font-size: 27px;
     padding: 15px 63px 15px 63px;
   }
+  .jeu__img1 {
+    margin: 112px 0;
+  }
 }
 @media (min-width: 1300px) {
   .jeu {
@@ -634,8 +654,15 @@ button {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-  .jeu img {
+  .jeu__img1 {
+    display: none;
+  }
+  .jeu__img2 {
     display: block;
+  }
+  .jeu__btn {
+    margin: 0;
+    margin-top: 47px;
   }
 }
 @media (min-width: 1900px) {
@@ -671,7 +698,24 @@ button {
     padding-top: 99px;
   }
 }
+.main--jeu::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/texture1.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main--jeu::before {
+    background-image: url("../assets/images/texture1@2x.png");
+  }
+}
 .footer--jeu {
   margin-top: 0;
 }

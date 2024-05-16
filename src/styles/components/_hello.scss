@@ -18,10 +18,6 @@
         transform: rotate(10deg);
     }
 
-    &__follow{
-        transition: transform 0.1s ease;
-    }
-
     &__me{
         width: 266px;
     }
@@ -39,6 +35,18 @@
         height: 10vh;
         background: linear-gradient(to bottom, rgba($c-btn, 0), rgba($c-btn, 0.08));
         z-index: -1;
+    }
+
+    &__follow1{
+        transition: transform 0.1s ease;
+    }
+
+    &__follow2{
+        transition: transform 0.5s ease;
+    }
+
+    &__follow3{
+        transition: transform 0.3s ease;
     }
 }
 
