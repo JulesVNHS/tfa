@@ -17,6 +17,28 @@
   <script src="scripts/app.js" defer></script>
 </head>
 <body>
+  <svg class="filtre--titre">
+    <filter id="scribble--0">
+      <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="0"></feturbulence>
+      <fedisplacementmap id="displacement" in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+    </filter>
+    <filter id="scribble--1">
+      <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="1"></feturbulence>
+      <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+    </filter>
+    <filter id="scribble--2">
+      <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="2"></feturbulence>
+      <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+    </filter>
+    <filter id="scribble--3">
+      <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="3"></feturbulence>
+      <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+    </filter>
+    <filter id="scribble--4">
+      <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="4"></feturbulence>
+      <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+    </filter>
+  </svg>
   <header class="expand">
     <nav class="menu">
       <div class="menu__container">

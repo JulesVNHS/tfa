@@ -71,6 +71,10 @@ h3{
   margin: 0;
 }
 
+.filtre--titre{
+  display: none;
+}
+
 small{
   font-size: 15px
 }
@@ -147,5 +151,33 @@ button {
   h2{
     font-size: 199px;
     margin-bottom: 84px;
+  }
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: scribble infinite 0.4s;
+  }
+
+  h2 {
+    animation: scribble infinite 0.4s;
+  }
+}
+
+@keyframes scribble {
+  0% {
+    filter: url("#scribble--0");
+  }
+  25% {
+    filter: url("#scribble--1");
+  }
+  50% {
+    filter: url("#scribble--2");
+  }
+  75% {
+    filter: url("#scribble--3");
+  }
+  100% {
+    filter: url("#scribble--4");
   }
 }
