@@ -7,7 +7,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to bottom, #1B0C21, #09030D);
+  background-color: #09030D;
   font-family: "Eczar", serif;
   font-size: 20px;
   color: #ffffff;
@@ -26,7 +26,6 @@ footer {
   flex-direction: column;
   align-items: center;
   background: #09030D;
-  border-top: 6px solid #71289F;
   padding: 27px 0 15px 0;
   margin-top: 266px;
 }
@@ -39,6 +38,18 @@ footer small {
 footer small a {
   text-decoration: underline;
 }
+footer::before {
+  content: "";
+  border-top: 6px solid #71289F;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  z-index: -1;
+  animation: scribble infinite 0.4s;
+}
 
 p {
   line-height: 140%;
@@ -49,6 +60,7 @@ h1 {
   font-family: "Londrina Solid", sans-serif;
   color: #7BEA44;
   margin: 0;
+  animation: scribble infinite 0.4s;
 }
 
 h2 {
@@ -57,12 +69,17 @@ h2 {
   color: #7BEA44;
   margin: 0;
   margin-bottom: 36px;
+  animation: scribble infinite 0.4s;
 }
 
 h3 {
   font-family: "Londrina Solid", sans-serif;
   color: #7BEA44;
   margin: 0;
+}
+
+.filtre--titre {
+  display: none;
 }
 
 small {
@@ -134,6 +151,23 @@ button {
     margin-bottom: 84px;
   }
 }
+@keyframes scribble {
+  0% {
+    filter: url("#scribble--0");
+  }
+  25% {
+    filter: url("#scribble--1");
+  }
+  50% {
+    filter: url("#scribble--2");
+  }
+  75% {
+    filter: url("#scribble--3");
+  }
+  100% {
+    filter: url("#scribble--4");
+  }
+}
 .menu {
   position: fixed;
   width: 100%;
@@ -176,6 +210,17 @@ button {
 .menu--hidden {
   transform: translateY(-100%);
 }
+.menu:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: inherit;
+  z-index: -1;
+  animation: scribble infinite 0.4s;
+}
 
 @media (min-width: 600px) {
   .menu {
@@ -189,7 +234,18 @@ button {
     display: block;
     font-size: 20px;
     padding: 11px 47px 11px 47px;
+    position: relative;
+  }
+  .menu__btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: #71289F;
+    z-index: -1;
+    animation: scribble infinite 0.4s;
   }
   .menu__logo img {
     max-height: 47px;
@@ -406,6 +462,7 @@ button {
   height: var(--border-height);
   background-image: url("../assets/images/bordure.svg");
   background-repeat: repeat-x;
+  animation: scribble infinite 0.4s;
 }
 .projets::before {
   top: calc(-1 * var(--border-height) / 2);
@@ -608,24 +665,31 @@ button {
 }
 .jeu__btn {
   display: block;
-  width: -moz-fit-content;
-  width: fit-content;
   text-align: center;
   margin: 0 auto;
-  margin-top: 36px;
-  cursor: pointer;
   color: #ffffff;
   font-family: "Londrina Solid", sans-serif;
   transition: 0.2s ease;
   font-size: 20px;
-  padding: 11px 47px 11px 47px;
-  background-color: #71289F;
+  padding: 11px 47px;
+  position: relative;
 }
 @media (min-width: 1300px) {
   .jeu__btn:hover {
     transform: scale(1.1);
     transition: 0.2s;
   }
+}
+.jeu__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #71289F;
+  z-index: -1;
+  animation: scribble infinite 0.4s;
 }
 .jeu__container {
   transform: rotate(-10deg);
@@ -644,7 +708,6 @@ button {
     max-width: 472px;
   }
   .jeu__btn {
-    margin-top: 47px;
     font-size: 27px;
     padding: 15px 63px 15px 63px;
   }
@@ -665,6 +728,8 @@ button {
     display: block;
   }
   .jeu__btn {
+    width: -moz-fit-content;
+    width: fit-content;
     margin: 0;
     margin-top: 47px;
   }
@@ -1037,7 +1102,18 @@ button {
   transition: 0.2s ease;
   font-size: 20px;
   padding: 11px 47px 11px 47px;
+  position: relative;
+}
+.overlay .overlayContent .skip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #71289F;
+  z-index: -1;
+  animation: scribble infinite 0.4s;
 }
 @media (min-width: 1300px) {
   .overlay .overlayContent .skip:hover {
