@@ -7,7 +7,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to bottom, #09030D, #1B0C21);
+  background-image: linear-gradient(to bottom, #1B0C21, #09030D);
   font-family: "Eczar", serif;
   font-size: 20px;
   color: #ffffff;
@@ -196,6 +196,9 @@ button {
   }
 }
 @media (min-width: 1300px) {
+  .menu {
+    padding: 20px 47px;
+  }
   .menu__container {
     width: 143px;
     display: flex;
@@ -313,14 +316,8 @@ button {
   background: linear-gradient(to bottom, rgba(113, 40, 159, 0), rgba(113, 40, 159, 0.08));
   z-index: -1;
 }
-.hello__follow1 {
+.hello__follow {
   transition: transform 0.1s ease;
-}
-.hello__follow2 {
-  transition: transform 0.5s ease;
-}
-.hello__follow3 {
-  transition: transform 0.3s ease;
 }
 
 @media (min-width: 600px) {
@@ -457,8 +454,14 @@ button {
     filter: drop-shadow(0 0 40px rgba(113, 40, 159, 0.5));
   }
 }
-.projets__follow {
+.projets__follow1 {
   transition: transform 0.1s ease;
+}
+.projets__follow2 {
+  transition: transform 0.3s ease;
+}
+.projets__follow3 {
+  transition: transform 0.2s ease;
 }
 
 @media (min-width: 600px) {
@@ -630,6 +633,7 @@ button {
 .jeu__follow {
   display: flex;
   justify-content: center;
+  transition: transform 0.1s ease;
 }
 
 @media (min-width: 600px) {
@@ -663,6 +667,9 @@ button {
   .jeu__btn {
     margin: 0;
     margin-top: 47px;
+  }
+  .jeu__list {
+    margin-bottom: 112px;
   }
 }
 @media (min-width: 1900px) {
