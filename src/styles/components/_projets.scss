@@ -21,6 +21,7 @@
         height: var(--border-height);
         background-image: url('../assets/images/bordure.svg');
         background-repeat: repeat-x;
+        animation: scribble infinite 0.4s;
     }
 
     &::before {

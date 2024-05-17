@@ -17,18 +17,42 @@
     <script src="scripts/app.js" defer></script>
 </head>
 <body class="body--jeu">
-    <header class="header--jeu">
-        <nav class="menu">
-            <a class="menu__logo" href="index.html#home">
-                <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
-            </a>
-            <ul class="menu__list">
-                <li class="menu__el menu__el--active"><a href="index.html#hello">Hello</a></li>
-                <li class="menu__el"><a href="index.html#projets">Projets</a></li>
-                <li class="menu__el"><a href="index.html#jeu">Skills</a></li>
-            </ul>
-            <a class="menu__btn" href="game.html">JOUER</a>
-        </nav>
+    <svg class="filtre--titre">
+        <filter id="scribble--0">
+          <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="0"></feturbulence>
+          <fedisplacementmap id="displacement" in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--1">
+          <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="1"></feturbulence>
+          <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--2">
+          <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="2"></feturbulence>
+          <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--3">
+          <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="3"></feturbulence>
+          <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--4">
+          <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="4"></feturbulence>
+          <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+    </svg>
+    <header class="expand">
+      <nav class="menu">
+        <div class="menu__container">
+          <a class="menu__logo" href="index.html#home">
+            <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+          </a>
+        </div>
+        <ul class="menu__list">
+          <li class="menu__el menu__el--active"><a href="index.html#hello">Hello</a></li>
+          <li class="menu__el"><a href="index.html#projets">Projets</a></li>
+          <li class="menu__el"><a href="index.html#jeu">Skills</a></li>
+        </ul>
+        <a class="menu__btn" href="game.html">JOUER</a>
+      </nav>
     </header>
     <main class="main--jeu expand">
         <div class="overlay">
