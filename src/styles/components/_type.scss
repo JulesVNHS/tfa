@@ -8,13 +8,23 @@ html{
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to bottom, $c-bg2, $c-bg);
+  background-image: linear-gradient(to bottom, $c-bg, $c-bg2);
   font-family: $font-text;
   font-size: $size-text;
   color: #ffffff;
+
+  &.loaded {
+		overflow-y: auto;
+	}
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 footer {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,6 +102,11 @@ button {
 }
 
 @media(min-width: 600px) {
+  footer {
+    margin-top: 354px;
+  }
+
+
   p{
     font-size: 27px;
   }
@@ -104,6 +119,8 @@ button {
 
 @media(min-width: 1300px) {
   footer {
+    margin-top: 472px;
+
     & small a:hover{
       opacity: 0.8;
       transition: opacity 0.2s;
@@ -119,6 +136,10 @@ button {
 }
 
 @media(min-width: 2200px) {
+  footer {
+    margin-top: 629px;
+  }
+
   p{
     font-size: 36px;
   }

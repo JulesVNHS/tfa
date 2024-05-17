@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Let's Play - VCard</title>
+    <link rel="shortcut icon" href="assets/images/logo.svg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Présentation de mes projets">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Let's Play - VCard">
+    <meta property="og:url" content="https://jules-vanhuysse.be">
+    <meta property="og:image" content="assets/images/moivert.jpg">
+    <meta property="og:description" content="Présentation de mes projets">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/app.js" defer></script>
+</head>
+<body class="body--jeu">
+    <header class="header--jeu">
+        <nav class="menu">
+            <a class="menu__logo" href="index.html#home">
+                <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+            </a>
+            <ul class="menu__list">
+                <li class="menu__el menu__el--active"><a href="index.html#hello">Hello</a></li>
+                <li class="menu__el"><a href="index.html#projets">Projets</a></li>
+                <li class="menu__el"><a href="index.html#jeu">Skills</a></li>
+            </ul>
+            <a class="menu__btn" href="game.html">JOUER</a>
+        </nav>
+    </header>
+    <main class="main--jeu expand">
+        <div class="overlay">
+            <div class="overlayDoor"></div>
+            <div class="overlayContent">
+                <div class="loader">
+                    <div class="inner"></div>
+                </div>
+                <button class="skip">SKIP</button>
+            </div>
+        </div>
+        <div class="info">
+            <ul class="info__list">
+                <li class="info__el turns">Tours:&nbsp;<span>2</span></li>
+                <li class="info__el attempts">Essais:&nbsp;<span>0</span></li>
+                <li class="info__el wins">Victoires:&nbsp;<span>0</span></li>
+            </ul>
+        </div>
+        <ul class="card__list">
+            <li class="card__pop">
+                <div class="card__el" data-type="html" data-matched="false">
+                    <div class="front"><img src="assets/images/html5.svg" alt="icone de html 5"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="css" data-matched="false">
+                    <div class="front"><img src="assets/images/css.svg" alt="icone de CSS"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="js" data-matched="false">
+                    <div class="front"><img src="assets/images/js.svg" alt="icone de JavaScript"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="html" data-matched="false">
+                    <div class="front"><img src="assets/images/html5.svg" alt="icone de html 5"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="css" data-matched="false">
+                    <div class="front"><img src="assets/images/css.svg" alt="icone de CSS"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="js" data-matched="false">
+                    <div class="front"><img src="assets/images/js.svg" alt="icone de JavaScript"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="figma" data-matched="false">
+                    <div class="front"><img src="assets/images/figma.svg" alt="icone de Figma"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="vs" data-matched="false">
+                    <div class="front"><img src="assets/images/visualstudio.svg" alt="icone de Visual Studio"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="adobe" data-matched="false">
+                    <div class="front"><img src="assets/images/adobe.svg" alt="icone de Adobe"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="figma" data-matched="false">
+                    <div class="front"><img src="assets/images/figma.svg" alt="icone de Figma"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="vs" data-matched="false">
+                    <div class="front"><img src="assets/images/visualstudio.svg" alt="icone de Visual Studio"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li>
+            <li class="card__pop">
+                <div class="card__el" data-type="adobe" data-matched="false">
+                    <div class="front"><img src="assets/images/adobe.svg" alt="icone de Adobe"></div>
+                    <div class="back"><img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête"></div>
+                </div>
+            </li> 
+        </ul>
+        <div class="success">
+            <div class="success__icon" data-type="2">
+                <img src="assets/images/logo.svg" alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+            </div>
+            <h2 class="success__message">Bravo&nbsp;!!!</h2>
+            <ul class="info__list">
+                <li class="info__el turns">Tours&nbsp;<span>2</span></li>
+                <li class="info__el attempts">Essais&nbsp;<span>0</span></li>
+                <li class="info__el wins">Victoires&nbsp;<span>0</span></li>
+                <li class="info__el attempts-overall">Tentatives&nbsp;Totales <span>0</span></li>
+            </ul>
+            <button class="success__btn">CONTINUER</button>
+        </div>
+    </main>
+    <footer class="footer--jeu">
+        <ul class="footer__list">
+            <li class="footer__el">
+                <a href="https://www.instagram.com/menu.burger/">
+                  <img src="assets/images/insta.svg" alt="un logo instagram">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://github.com/JulesVNHS">
+                    <img src="assets/images/github.svg" alt="un logo github">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://be.linkedin.com/in/jules-vanhuysse-b52345256">
+                    <img src="assets/images/linkedin.svg" alt="un logo linkedin">
+                </a>
+            </li>
+        </ul>
+        <small>© <a href="index.html#home">Jules Vanhuysse</a> 2024 - <a href="credits.html">Crédits</a></small>
+    </footer>
+</body>
+</html>

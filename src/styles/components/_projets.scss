@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: var(--padding-y) var(--padding-x);
+    padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
     position: relative;
 
     &::before,
@@ -64,10 +64,32 @@
     & img{
         width: 266px;
         vertical-align: middle;
+        filter: drop-shadow(0 0 20px rgba($c-btn, 1));
+        animation: smoke 3s ease-in infinite;
+
+        @keyframes smoke {
+            0% {
+              filter: drop-shadow(0 0 40px rgba($c-btn, 0.5));
+            }
+            50% {
+              filter: drop-shadow(0 0 40px rgba($c-btn, 1));
+            }
+            100% {
+              filter: drop-shadow(0 0 40px rgba($c-btn, 0.5));
+            }
+          }
     }
 
-    &__follow{
+    &__follow1{
         transition: transform 0.1s ease;
+    }
+
+    &__follow2{
+        transition: transform 0.3s ease;
+    }
+
+    &__follow3{
+        transition: transform 0.2s ease;
     }
 }
 
@@ -118,7 +140,7 @@
 @media(min-width: 1300px) {
     .projets{
         --border-height: 63px;
-        --padding-x: 150px;
+        --padding-x: 12vw;
         --padding-y: 354px;
 
         &__title{
@@ -201,7 +223,7 @@
 @media(min-width: 2200px) {
     .projets{
         --border-height: 84px;
-        --padding-x: 199px;
+        --padding-x: 12vw;
         --padding-y: 472px;
 
         &__title{

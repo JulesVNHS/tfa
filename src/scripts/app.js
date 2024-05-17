@@ -163,7 +163,7 @@ function isTouchDevice() {
 }
 
 /*lampe torche*/
-/*try {
+try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -302,4 +302,206 @@ function initializeCanvas() {
     }
 }
 
-initializeCanvas();*/
+if (window.innerWidth >= 1200) {
+  initializeCanvas();
+}
+
+/*Le Jeu*/
+var $board = $('.card__list'),
+    $card = $('.card__el'),
+    $itemCount = $('info__list span'),
+    $wins = $('.wins span'),
+    $turns = $('.turns span'),
+    $attempts = $('.attempts span'),
+    $attemptsOverall = $('.attempts-overall span'),
+    $success = $('.success'),
+    $successMsg = $('.success__message'),
+    $btnContinue = $('.success__btn'),
+    selectedClass = 'is-selected',
+    visibleClass = 'is-visible',
+    scoreUpdateClass = 'is-updating',
+    lastTurnClass = 'last-turn',
+    dataMatch = 'data-matched',
+    dataType = 'data-type',
+    turnsCount = 2,
+    winsCount = 0,
+    attemptsCount = 0,
+    attemptsOverallCount = 0,
+    tooManyAttempts = 8,
+    timeoutLength = 600,
+    card1, card2, msg;
+
+shuffleCards();
+
+$card.on('click', function() {
+  if ($(this).attr(dataMatch) == 'false') {
+    $(this).addClass(selectedClass);
+  }
+
+  var selectedCards = $('.' + selectedClass);
+
+  if (selectedCards.length == 2) {
+    card1 = selectedCards.eq(0).attr(dataType);
+    card2 = selectedCards.eq(1).attr(dataType);
+
+    if (card1 == card2) {
+      selectedCards
+        .attr(dataMatch, true)
+        .removeClass(selectedClass)
+        .addClass('matched');
+
+    } else {
+      setTimeout(function() {
+        turnsCount--;
+        $turns
+          .addClass(scoreUpdateClass)
+          .html(turnsCount);
+        selectedCards.removeClass(selectedClass);
+      }, timeoutLength);
+
+      if(turnsCount === 1) {
+        setTimeout(function() {
+          $turns.addClass(lastTurnClass);
+        }, timeoutLength);
+      }
+
+      if(turnsCount <= 0) {
+        setTimeout(function() {
+          turnsCount = 2;
+          $turns
+            .removeClass(lastTurnClass)
+            .html(turnsCount);
+          $card.attr(dataMatch, false);
+          attemptsCount += 1;
+          $attempts
+            .addClass(scoreUpdateClass)
+            .html(attemptsCount);
+          $card.removeClass('matched');
+        }, timeoutLength);
+      }
+
+    }
+  }
+
+  if ($('[' + dataMatch + '="true"]').length == $card.length) {
+    $success.addClass(visibleClass);
+    $card.removeClass('matched');
+
+    switch(true) {
+      case (attemptsCount <= 2):
+        msg = "Parfait !!!";
+        break;
+      case (attemptsCount > 2 && attemptsCount <= 5):
+        msg = "Super !!";
+        break;
+      case (attemptsCount > 5 && attemptsCount <= 8):
+        msg = "Bravo !";
+        break;
+      case (attemptsCount > tooManyAttempts):
+        msg = "Passable...";
+        break;
+    }
+    $successMsg.text(msg);
+
+    setTimeout(function() {
+      attemptsOverallCount += attemptsCount;
+      $attemptsOverall
+        .addClass(scoreUpdateClass)
+        .html(attemptsOverallCount);
+      winsCount += 1;
+      $wins
+        .addClass(scoreUpdateClass)
+        .html(winsCount);
+      $card.attr(dataMatch, false);
+    }, 1200);
+  }
+
+});
+
+$itemCount.on(
+  "webkitAnimationEnd oanimationend msAnimationEnd animationend",
+  function() {
+    $itemCount.removeClass(scoreUpdateClass);
+  }
+);
+
+$btnContinue.on('click', function() {
+  $success.removeClass(visibleClass);
+  $('body').removeClass('no-scroll');
+  shuffleCards();
+  setTimeout(function() {
+    turnsCount = 2;
+    $turns
+      .removeClass(lastTurnClass)
+      .html(turnsCount);
+    attemptsCount = 0;
+    $attempts.html(attemptsCount);
+  }, 300);
+});
+
+$success.on('transitionend', function() {
+  if ($success.hasClass(visibleClass)) {
+    $('body').addClass('no-scroll');
+  } else {
+    $('body').removeClass('no-scroll');
+  }
+});
+
+function shuffleCards() {
+  var cards = $board.children();
+  while (cards.length) {
+    $board.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+  }
+}
+
+
+/*Chargement*/
+$(document).ready(function() {
+  $('.skip').click(function() {
+    $('.overlay, body').addClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("skip");
+    }, 1500);
+  });
+
+  $(window).bind('load', function() {
+    $('.overlay, body').addClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("loaded");
+    }, 1500);
+  });
+
+  setTimeout(function() {
+    $('.overlay, body').removeClass('loaded');
+    setTimeout(function() {
+      $('.overlay').addClass('invisible');
+      revealElements();
+      console.log("delay");
+    }, 1500);
+  }, 10000);
+
+  /*Apparitions Cartes*/
+  const cardElements = Array.from(document.querySelectorAll('.card__pop'));
+
+  function revealElements() {
+    const shuffledElements = shuffleArray(cardElements);
+    
+    shuffledElements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, index * 50);
+    });
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+});
