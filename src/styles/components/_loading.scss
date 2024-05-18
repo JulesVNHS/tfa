@@ -57,25 +57,25 @@
 			display: block;
 			text-align: center;
 			margin: 50px auto 0;
-			cursor: pointer;
 			color: $c-text;
 			font-family: $font-title;
 			transition: 0.2s ease;
             font-size: 20px;
-            padding: 11px 47px 11px 47px;
+            padding: 11px 47px;
 			position: relative;
+			z-index: 1;
 
-			&::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background-color: $c-btn;
-				z-index: -1;
-				animation: scribble infinite 0.4s;
-			}
+        	&::before {
+        	    content: '';
+        	    position: absolute;
+        	    top: 0;
+        	    left: 0;
+        	    width: 100%;
+        	    height: 100%;
+        	    background-color: $c-btn;
+        	    z-index: -1;
+        	    animation: scribble infinite 0.4s;
+        	}
 
             &:hover{
                 @media(min-width: 1300px) {
@@ -83,6 +83,11 @@
                     transition: 0.2s;
                 }
             }
+
+			@media (min-width: 600px) {
+				font-size: 27px;
+				padding: 15px 63px;
+			}
         }
 	}
 }

@@ -163,7 +163,7 @@ function isTouchDevice() {
 }
 
 /*lampe torche*/
-try {
+/*try {
     var __canvas_DOM = document.createElement('canvas'),
         __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
@@ -304,7 +304,7 @@ function initializeCanvas() {
 
 if (window.innerWidth >= 1200) {
   initializeCanvas();
-}
+}*/
 
 /*Le Jeu*/
 var $board = $('.card__list'),
@@ -462,7 +462,6 @@ $(document).ready(function() {
     setTimeout(function() {
       $('.overlay').addClass('invisible');
       revealElements();
-      console.log("skip");
     }, 1500);
   });
 
@@ -471,7 +470,6 @@ $(document).ready(function() {
     setTimeout(function() {
       $('.overlay').addClass('invisible');
       revealElements();
-      console.log("loaded");
     }, 1500);
   });
 
@@ -480,7 +478,6 @@ $(document).ready(function() {
     setTimeout(function() {
       $('.overlay').addClass('invisible');
       revealElements();
-      console.log("delay");
     }, 1500);
   }, 10000);
 
@@ -504,4 +501,53 @@ $(document).ready(function() {
     }
     return array;
   }
+});
+
+/*Disparition et apparition des cadres*/
+const titleProjets = document.querySelector('.projets__title');
+const boutonsProjets = document.querySelectorAll('.projets__btn');
+const listeProjets = document.querySelector('.projets__list');
+const presentation = document.querySelector('.projets__presentation');
+const presentationLink = document.querySelector('.projets__presentation a');
+
+boutonsProjets.forEach(bouton => {
+  bouton.addEventListener('click', () => {
+    const src = bouton.querySelector('img').getAttribute('src');
+    const srcset = bouton.querySelector('img').getAttribute('srcset');
+    const alt = bouton.querySelector('img').getAttribute('alt');
+
+    presentation.querySelector('img').setAttribute('src', src);
+    presentation.querySelector('img').setAttribute('srcset', srcset);
+    presentation.querySelector('img').setAttribute('alt', alt);
+
+    if (bouton.classList.contains('projets__btn--decembre')) {
+      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/decembre');
+    } else if (bouton.classList.contains('projets__btn--dataplay')) {
+      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/dataplay');
+    } else if (bouton.classList.contains('projets__btn--fyt')) {
+      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/rethinking-ux/');
+    }
+
+    const listItems = Array.from(listeProjets.children);
+    listItems.forEach(item => {
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.5s ease';
+        item.style.opacity = '0';
+      }, Math.random() * 500);
+    });
+
+    setTimeout(() => {
+      listeProjets.classList.add('hide');
+      presentation.classList.remove('hide');
+      titleProjets.classList.add('discussion');
+
+      setTimeout(() => {
+        presentation.scrollIntoView({ behavior: 'smooth' });
+
+        setTimeout(() => {
+        presentation.classList.add('fade-in');
+        }, 200);
+      }, 50);
+    }, 1000);
+  });
 });
