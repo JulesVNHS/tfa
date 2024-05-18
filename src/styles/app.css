@@ -970,12 +970,38 @@ button {
   font-size: 20px;
   padding: 11px 47px 11px 47px;
   margin: 36px 0;
-  background-color: #71289F;
+  position: relative;
 }
 @media (min-width: 1300px) {
   .success__btn:hover {
     transform: scale(1.1);
     transition: 0.2s;
+  }
+}
+.success__btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #71289F;
+  z-index: -1;
+  animation: scribble infinite 0.4s;
+}
+@media (min-width: 600px) {
+  .success__btn {
+    margin-top: 47px;
+  }
+}
+@media (min-width: 1900px) {
+  .success__btn {
+    margin-top: 63px;
+  }
+}
+@media (min-width: 2200px) {
+  .success__btn {
+    margin-top: 84px;
   }
 }
 
