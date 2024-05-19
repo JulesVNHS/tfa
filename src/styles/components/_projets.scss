@@ -209,7 +209,6 @@
         &:hover {
             @media (min-width: 1300px) {
                 transform: scale(1.1);
-                transition: 0.2s;
             }
         }
 
@@ -287,68 +286,73 @@
             column-gap: 84px;
         }
 
-        &__el:first-child{
-            transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);
+        &__el{
+            transition: transform 0.3s ease;
 
-            &:hover{
-                transform: translateX(20px) translatey(20px) rotate(10deg) scale(1);
-                transition: 0.3s;
-            }
-        }
-
-        &__el:nth-child(2){
-            transform: translateX(-50px) translatey(200px)  scale(0.7);
-
-            &:hover{
-                transform: translateX(-50px) translatey(200px) scale(0.8);
-                transition: 0.3s;
-            }
-        }
-
-        &__el:nth-child(3){
-            transform: translateX(-50px) translatey(20px)  rotate(-5deg);
-
-            &:hover{
-                transform: translateX(-50px) translatey(20px)  rotate(-5deg) scale(1.1);
-                transition: 0.3s;
-            }
-        }
-
-        &__el:nth-child(4){
-            display: block;
-            transform: translateX(50px) rotate(-5deg) scale(0.6);
-
-            &:hover{
-                transform: translateX(50px) rotate(-5deg) scale(0.7);
-                transition: 0.3s;
-            }
-        }
+            &:first-child{
+                transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);
     
-        &__el:nth-child(5){
-            transform: translateX(150px) translatey(200px) scale(0.95);
-
-            &:hover{
-                transform: translateX(150px) translatey(200px) scale(1.05);
-                transition: 0.3s;
+                &:hover{
+                    transform: translateX(20px) translatey(20px) rotate(10deg) scale(1);
+                }
+            }
+    
+            &:nth-child(2){
+                transform: translateX(-50px) translatey(200px)  scale(0.7);
+    
+                &:hover{
+                    transform: translateX(-50px) translatey(200px) scale(0.8);
+                }
+            }
+    
+            &:nth-child(3){
+                transform: translateX(-50px) translatey(20px)  rotate(-5deg);
+    
+                &:hover{
+                    transform: translateX(-50px) translatey(20px)  rotate(-5deg) scale(1.1);
+                }
+            }
+    
+            &:nth-child(4){
+                display: block;
+                transform: translateX(50px) rotate(-5deg) scale(0.6);
+    
+                &:hover{
+                    transform: translateX(50px) rotate(-5deg) scale(0.7);
+                }
+            }
+        
+            &:nth-child(5){
+                transform: translateX(150px) translatey(200px) scale(0.95);
+    
+                &:hover{
+                    transform: translateX(150px) translatey(200px) scale(1.05);
+                }
+            }
+    
+            &:nth-child(6){
+                display: block;
+                transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.5);
+    
+                &:hover{
+                    transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.6);
+                }
+            }
+    
+            &:nth-child(7){
+                transform: translateX(250px) translatey(-200px)  scale(0.5);
+    
+                &:hover{
+                    transform: translateX(250px) translatey(-200px) scale(0.6);
+                }
             }
         }
 
-        &__el:nth-child(6){
-            display: block;
-            transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.5);
+        &__link{
+            transition: transform 0.3s ease;
 
             &:hover{
-                transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.6);
-                transition: 0.3s;
-            }
-        }
-
-        &__el:nth-child(7){
-            transform: translateX(250px) translatey(-200px)  scale(0.5);
-
-            &:hover{
-                transform: translateX(250px) translatey(-200px) scale(0.6);
-                transition: 0.3s;
+                transform: scale(1.1);
             }
         }
     }

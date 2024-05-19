@@ -14,9 +14,12 @@
 
 @media(min-width: 1300px) {
     .footer {
-      &__el img:hover{
-        transform: scale(1.1);
-        transition: 0.2s;
+      &__el img{
+        transition: transform 0.2s ease;
+
+        &:hover{
+          transform: scale(1.1);
+        }
       }
     }
   }

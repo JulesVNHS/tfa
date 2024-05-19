@@ -139,6 +139,7 @@ $colors: (
 
     & img{
       opacity: 0.5;
+      transition: opacity 0.5s ease;
     }
 
     &.matched img {
@@ -149,7 +150,6 @@ $colors: (
       & img{
         @media (min-width: 1300px) {
           opacity: 1;
-          transition: 0.5s;
         }
       }
     }
@@ -262,11 +262,11 @@ $colors: (
     padding: 11px 47px 11px 47px;
     margin: 36px 0;
     position: relative;
+    transition: transform 0.2s ease;
 
     &:hover{
       @media (min-width: 1300px) {
         transform: scale(1.1);
-        transition: 0.2s;
       }
     }
 

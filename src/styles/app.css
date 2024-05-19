@@ -128,9 +128,11 @@ button {
   footer {
     margin-top: 472px;
   }
+  footer small a {
+    transition: opacity 0.2s ease;
+  }
   footer small a:hover {
     opacity: 0.8;
-    transition: opacity 0.2s;
   }
 }
 @media (min-width: 1900px) {
@@ -175,7 +177,7 @@ button {
   top: 0;
   transform: translateY(0%);
   z-index: 10;
-  transition: transform 0.5s;
+  transition: transform 0.5s ease;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -259,17 +261,23 @@ button {
     width: 143px;
     display: flex;
   }
+  .menu__btn {
+    transition: transform 0.2s ease;
+  }
   .menu__btn:hover {
     transform: scale(1.1);
-    transition: 0.2s;
+  }
+  .menu__logo {
+    transition: transform 0.2s ease;
   }
   .menu__logo:hover {
     transform: scale(1.1);
-    transition: 0.2s;
+  }
+  .menu__el {
+    transition: opacity 0.2s ease;
   }
   .menu__el:hover {
     opacity: 0.8;
-    transition: opacity 0.2s;
   }
 }
 .home {
@@ -436,9 +444,11 @@ button {
 }
 
 @media (min-width: 1300px) {
+  .footer__el img {
+    transition: transform 0.2s ease;
+  }
   .footer__el img:hover {
     transform: scale(1.1);
-    transition: 0.2s;
   }
 }
 .projets {
@@ -635,7 +645,6 @@ button {
 @media (min-width: 1300px) {
   .projets__back:hover {
     transform: scale(1.1);
-    transition: 0.2s;
   }
 }
 @media (min-width: 600px) {
@@ -703,26 +712,26 @@ button {
     -moz-column-gap: 84px;
          column-gap: 84px;
   }
+  .projets__el {
+    transition: transform 0.3s ease;
+  }
   .projets__el:first-child {
     transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);
   }
   .projets__el:first-child:hover {
     transform: translateX(20px) translatey(20px) rotate(10deg) scale(1);
-    transition: 0.3s;
   }
   .projets__el:nth-child(2) {
     transform: translateX(-50px) translatey(200px) scale(0.7);
   }
   .projets__el:nth-child(2):hover {
     transform: translateX(-50px) translatey(200px) scale(0.8);
-    transition: 0.3s;
   }
   .projets__el:nth-child(3) {
     transform: translateX(-50px) translatey(20px) rotate(-5deg);
   }
   .projets__el:nth-child(3):hover {
     transform: translateX(-50px) translatey(20px) rotate(-5deg) scale(1.1);
-    transition: 0.3s;
   }
   .projets__el:nth-child(4) {
     display: block;
@@ -730,14 +739,12 @@ button {
   }
   .projets__el:nth-child(4):hover {
     transform: translateX(50px) rotate(-5deg) scale(0.7);
-    transition: 0.3s;
   }
   .projets__el:nth-child(5) {
     transform: translateX(150px) translatey(200px) scale(0.95);
   }
   .projets__el:nth-child(5):hover {
     transform: translateX(150px) translatey(200px) scale(1.05);
-    transition: 0.3s;
   }
   .projets__el:nth-child(6) {
     display: block;
@@ -745,14 +752,18 @@ button {
   }
   .projets__el:nth-child(6):hover {
     transform: translateX(50px) translatey(50px) rotate(5deg) scale(0.6);
-    transition: 0.3s;
   }
   .projets__el:nth-child(7) {
     transform: translateX(250px) translatey(-200px) scale(0.5);
   }
   .projets__el:nth-child(7):hover {
     transform: translateX(250px) translatey(-200px) scale(0.6);
-    transition: 0.3s;
+  }
+  .projets__link {
+    transition: transform 0.3s ease;
+  }
+  .projets__link:hover {
+    transform: scale(1.1);
   }
 }
 @media (min-width: 2200px) {
@@ -808,7 +819,6 @@ button {
 @media (min-width: 1300px) {
   .jeu__btn:hover {
     transform: scale(1.1);
-    transition: 0.2s;
   }
 }
 .jeu__btn::before {
@@ -998,6 +1008,7 @@ button {
 }
 .card__el img {
   opacity: 0.5;
+  transition: opacity 0.5s ease;
 }
 .card__el.matched img {
   opacity: 1;
@@ -1005,7 +1016,6 @@ button {
 @media (min-width: 1300px) {
   .card__el:hover img {
     opacity: 1;
-    transition: 0.5s;
   }
 }
 
@@ -1102,11 +1112,11 @@ button {
   padding: 11px 47px 11px 47px;
   margin: 36px 0;
   position: relative;
+  transition: transform 0.2s ease;
 }
 @media (min-width: 1300px) {
   .success__btn:hover {
     transform: scale(1.1);
-    transition: 0.2s;
   }
 }
 .success__btn:before {
@@ -1275,7 +1285,6 @@ button {
 @media (min-width: 1300px) {
   .overlay .overlayContent .skip:hover {
     transform: scale(1.1);
-    transition: 0.2s;
   }
 }
 @media (min-width: 600px) {
