@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&family=Londrina+Solid:wght@100;300;400;900&display=swap');
 
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($c-btn, 0.7);
+  cursor: pointer;
+
+  &:hover{
+    background-color: $c-btn;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: $c-bg2;
+}
+
 html{
   scroll-behavior: smooth;
 }

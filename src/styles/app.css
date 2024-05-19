@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&family=Londrina+Solid:wght@100;300;400;900&display=swap");
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(113, 40, 159, 0.7);
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #71289F;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #09030D;
+}
+
 html {
   scroll-behavior: smooth;
 }
