@@ -9,6 +9,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
     position: relative;
 
@@ -37,7 +38,7 @@
         margin-bottom: 112px;
 
         &.discussion{
-            margin-bottom: 36px;
+            margin-bottom: 0px;
         }
     }
 
@@ -102,6 +103,7 @@
     }
 
     &__presentation{
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -109,6 +111,7 @@
         min-height: 100vh;
         opacity: 0;
         transition: opacity 0.2s ease;
+        padding-top: 87px;
 
         & a {
             margin-bottom: 36px;
@@ -135,6 +138,10 @@
 
         &.fade-in{
             opacity: 1;
+        }
+
+        @media(min-width: 600px) {
+            padding-top: 99px;
         }
     }
 

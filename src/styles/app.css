@@ -451,6 +451,7 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
   position: relative;
 }
@@ -475,7 +476,7 @@ button {
   margin-bottom: 112px;
 }
 .projets__title.discussion {
-  margin-bottom: 36px;
+  margin-bottom: 0px;
 }
 .projets__list {
   display: grid;
@@ -527,6 +528,7 @@ button {
   transition: transform 0.2s ease;
 }
 .projets__presentation {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -534,6 +536,7 @@ button {
   min-height: 100vh;
   opacity: 0;
   transition: opacity 0.2s ease;
+  padding-top: 87px;
 }
 .projets__presentation a {
   margin-bottom: 36px;
@@ -561,6 +564,11 @@ button {
 }
 .projets__presentation.fade-in {
   opacity: 1;
+}
+@media (min-width: 600px) {
+  .projets__presentation {
+    padding-top: 99px;
+  }
 }
 .projets__text {
   background-color: #09030D;
@@ -1045,7 +1053,7 @@ button {
   width: 100%;
   min-height: 100%;
   text-align: center;
-  background-color: rgba(9, 3, 13, 0.99);
+  background: linear-gradient(#1b0c21, #09030d);
   z-index: 10;
   opacity: 0;
   transform: translate3d(100%, 0, 0);

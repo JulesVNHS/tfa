@@ -201,7 +201,7 @@ $colors: (
   width: 100%;
   min-height: 100%;
   text-align: center;
-  background-color: rgba($c-bg2, 0.99);
+  background: linear-gradient(rgba($c-bg, 1), rgba($c-bg2, 1));
   z-index: 10;
   opacity: 0;
   transform: translate3d(100%,0,0);
