@@ -8,7 +8,7 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("../assets/images/texture2.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: 250vh;
     background-attachment: fixed;
     padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
     position: relative;
@@ -74,18 +74,17 @@
     & img{
         width: 266px;
         vertical-align: middle;
-        filter: drop-shadow(0 0 20px rgba($c-btn, 1));
-        animation: smoke 3s ease-in infinite;
+        animation: smoke 5s ease-in infinite;
 
         @keyframes smoke {
             0% {
-              filter: drop-shadow(0 0 40px rgba($c-btn, 0.5));
+              filter: drop-shadow(0 0 10px rgba($c-btn, 0.5));
             }
             50% {
-              filter: drop-shadow(0 0 40px rgba($c-btn, 1));
+              filter: drop-shadow(0 0 30px rgba($c-btn, 1));
             }
             100% {
-              filter: drop-shadow(0 0 40px rgba($c-btn, 0.5));
+              filter: drop-shadow(0 0 10px rgba($c-btn, 0.5));
             }
           }
     }
@@ -275,6 +274,8 @@
         --border-height: 63px;
         --padding-x: 12vw;
         --padding-y: 354px;
+
+        background-size: 150vw;
 
         &__title{
             margin-bottom: 199px;
