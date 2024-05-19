@@ -38,7 +38,7 @@ body.no-scroll {
 
 footer {
   position: relative;
-  z-index: 1;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1349,12 +1349,12 @@ button {
   }
 }
 .fall {
-  background-color: #7BEA44;
+  background-color: #71289F;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1363,7 +1363,7 @@ button {
   z-index: 50;
 }
 .fall__title {
-  color: #09030D;
+  color: #ffffff;
 }
 .fall.hide {
   display: none;

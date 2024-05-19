@@ -621,13 +621,15 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 }
 
 /*Chute*/
-window.addEventListener("orientationchange", function() {
-  var fallDiv = document.querySelector(".fall");
-  if (fallDiv) {
-      if (window.orientation === 0 || window.orientation === 180) {
-          fallDiv.classList.add("hide");
-      } else {
-          fallDiv.classList.remove("hide");
-      }
-  }
-});
+if (window.DeviceOrientationEvent) {
+  window.addEventListener("orientationchange", function() {
+    var fallDiv = document.querySelector(".fall");
+    if (fallDiv) {
+        if (window.orientation === 0 || window.orientation === 180) {
+            fallDiv.classList.add("hide");
+        } else {
+            fallDiv.classList.remove("hide");
+        }
+    }
+  });
+}
