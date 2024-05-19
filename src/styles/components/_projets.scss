@@ -146,7 +146,7 @@
 
     &__text{
         background-color: $c-bg2;
-        padding: 47px 20px;
+        padding: 36px 20px;
         border-radius: 15px;
         position: relative;
 
@@ -177,7 +177,7 @@
         }
 
         @media(min-width: 2200px) {
-            padding: 47px 36px;
+            padding: 63px 36px;
             border-radius: 27px;
         }
     }

@@ -450,7 +450,7 @@ button {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("../assets/images/texture2.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 250vh;
   background-attachment: fixed;
   padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
   position: relative;
@@ -504,18 +504,17 @@ button {
 .projets img {
   width: 266px;
   vertical-align: middle;
-  filter: drop-shadow(0 0 20px #71289f);
-  animation: smoke 3s ease-in infinite;
+  animation: smoke 5s ease-in infinite;
 }
 @keyframes smoke {
   0% {
-    filter: drop-shadow(0 0 40px rgba(113, 40, 159, 0.5));
+    filter: drop-shadow(0 0 10px rgba(113, 40, 159, 0.5));
   }
   50% {
-    filter: drop-shadow(0 0 40px #71289f);
+    filter: drop-shadow(0 0 30px #71289f);
   }
   100% {
-    filter: drop-shadow(0 0 40px rgba(113, 40, 159, 0.5));
+    filter: drop-shadow(0 0 10px rgba(113, 40, 159, 0.5));
   }
 }
 .projets__follow1 {
@@ -572,7 +571,7 @@ button {
 }
 .projets__text {
   background-color: #09030D;
-  padding: 47px 20px;
+  padding: 36px 20px;
   border-radius: 15px;
   position: relative;
 }
@@ -606,7 +605,7 @@ button {
 }
 @media (min-width: 2200px) {
   .projets__text {
-    padding: 47px 36px;
+    padding: 63px 36px;
     border-radius: 27px;
   }
 }
@@ -693,6 +692,7 @@ button {
     --border-height: 63px;
     --padding-x: 12vw;
     --padding-y: 354px;
+    background-size: 150vw;
   }
   .projets__title {
     margin-bottom: 199px;
