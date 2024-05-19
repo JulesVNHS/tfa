@@ -123,7 +123,6 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
       const gamma = event.gamma;
       const rotate = gamma * scaleFactor;
 
-      // Apply the rotation around the central pivot point
       images.forEach(image => {
           image.style.transformOrigin = 'center';
           image.style.transform = `rotate(${-rotate}deg)`;
@@ -620,3 +619,15 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
     });
   }
 }
+
+/*Chute*/
+window.addEventListener("orientationchange", function() {
+  var fallDiv = document.querySelector(".fall");
+  if (fallDiv) {
+      if (window.orientation === 0 || window.orientation === 180) {
+          fallDiv.classList.add("hide");
+      } else {
+          fallDiv.classList.remove("hide");
+      }
+  }
+});

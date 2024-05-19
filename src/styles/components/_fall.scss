@@ -1,0 +1,22 @@
+.fall{
+    background-color: $c-title;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: 50;
+
+    &__title{
+        color: $c-bg2;
+    }
+
+    &.hide{
+        display: none;
+    }
+}

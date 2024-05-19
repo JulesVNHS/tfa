@@ -1331,4 +1331,24 @@ button {
   100% {
     transform: rotate(-720deg);
   }
+}
+.fall {
+  background-color: #7BEA44;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 50;
+}
+.fall__title {
+  color: #09030D;
+}
+.fall.hide {
+  display: none;
 }/*# sourceMappingURL=app.css.map */
