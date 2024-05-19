@@ -509,6 +509,8 @@ const boutonsProjets = document.querySelectorAll('.projets__btn');
 const listeProjets = document.querySelector('.projets__list');
 const presentation = document.querySelector('.projets__presentation');
 const presentationLink = document.querySelector('.projets__presentation a');
+const boutonBack = document.querySelector('.projets__back');
+const projets = document.getElementById('projets');
 
 boutonsProjets.forEach(bouton => {
   bouton.addEventListener('click', () => {
@@ -550,4 +552,26 @@ boutonsProjets.forEach(bouton => {
       }, 50);
     }, 1000);
   });
+});
+
+boutonBack.addEventListener('click', () => {
+  presentation.classList.remove('fade-in');
+  
+  setTimeout(() => {
+    presentation.classList.add('hide');
+    listeProjets.classList.remove('hide');
+    titleProjets.classList.remove('discussion');
+    
+    const listItems = Array.from(listeProjets.children);
+    listItems.forEach(item => {
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.5s ease';
+        item.style.opacity = '1';
+      }, Math.random() * 500);
+    });
+
+    setTimeout(() => {
+      projets.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  }, 500);
 });
