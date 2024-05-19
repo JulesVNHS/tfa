@@ -28,15 +28,17 @@ document.querySelectorAll('.menu__list a').forEach(function(link) {
 /*Etat Actif*/
 const menuItems = document.querySelectorAll('.menu__el');
 
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    menuItems.forEach(item => {
-      item.classList.remove('menu__el--active');
-    });
+if (menuItems.length > 0) {
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuItems.forEach(item => {
+        item.classList.remove('menu__el--active');
+      });
 
-    item.classList.add('menu__el--active');
+      item.classList.add('menu__el--active');
+    });
   });
-});
+}
 
 /*Couleur Menu*/
 document.addEventListener('scroll', function() {
@@ -46,10 +48,13 @@ document.addEventListener('scroll', function() {
   var scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
   var color2 = '#09030D';
   var color1 = '#1B0C21';
-  
+
   var newColor = mixColors(color1, color2, scrollPercentage / 100);
   var menu = document.querySelector('.menu');
-  menu.style.background = newColor;
+  
+  if (menu) {
+    menu.style.background = newColor;
+  }
 });
 
 function mixColors(color1, color2, ratio) {
@@ -70,8 +75,6 @@ function mixColors(color1, color2, ratio) {
 
 /*Mouvements survol des tableaux*/
 const images = document.querySelectorAll('.move');
-let initialBeta = null;
-let initialGamma = null;
 
 function isMouseEventOrTrackpad(event) {
     return event.clientX !== undefined && event.clientY !== undefined;
@@ -93,12 +96,17 @@ function resetRotation() {
     this.style.setProperty('--rotatey', '0deg');
 }
 
-images.forEach(image => {
-    image.addEventListener('mousemove', updateRotation);
-    image.addEventListener('mouseleave', resetRotation);
-});
+if (images.length > 0) {
+    images.forEach(image => {
+        image.addEventListener('mousemove', updateRotation);
+        image.addEventListener('mouseleave', resetRotation);
+    });
+}
 
 if (window.DeviceOrientationEvent) {
+    let initialBeta = null;
+    let initialGamma = null;
+    
     window.addEventListener('deviceorientation', function(event) {
         const beta = event.beta;
         const gamma = event.gamma;
@@ -114,45 +122,49 @@ if (window.DeviceOrientationEvent) {
         rotateX = Math.max(-30, Math.min(30, rotateX));
         rotateY = Math.max(-30, Math.min(30, rotateY));
 
-        images.forEach(image => {
-            image.style.setProperty('--rotatex', rotateX + 'deg');
-            image.style.setProperty('--rotatey', rotateY + 'deg');
-        });
+        if (images.length > 0) {
+            images.forEach(image => {
+                image.style.setProperty('--rotatex', rotateX + 'deg');
+                image.style.setProperty('--rotatey', rotateY + 'deg');
+            });
+        }
     });
 }
 
-/*Parallaxe*/
+/*Follow*/
 const parallaxItems = document.querySelectorAll(".follow");
 
-document.addEventListener("mouseleave", function (e) {
-    parallaxItems.forEach(item => {
-        item.style.transform = "translate(0%, 0%)";
-    });
-});
-
-document.addEventListener("mousemove", function (e) {
-    if (isDesktop()) {
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
-        parallaxItems.forEach(parallaxItem => {
-            const parallaxItemRect = parallaxItem.getBoundingClientRect();
-            const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
-            const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
-
-            const deltaX = parallaxItemCenterX - mouseX;
-            const deltaY = parallaxItemCenterY - mouseY;
-
-            const newX = parallaxItemCenterX + deltaX * 0.03;
-            const newY = parallaxItemCenterY + deltaY * 0.03;
-
-            const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
-            const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
-
-            parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
+if (parallaxItems.length > 0) {
+    document.addEventListener("mouseleave", function (e) {
+        parallaxItems.forEach(item => {
+            item.style.transform = "translate(0%, 0%)";
         });
-    }
-});
+    });
+
+    document.addEventListener("mousemove", function (e) {
+        if (isDesktop()) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            parallaxItems.forEach(parallaxItem => {
+                const parallaxItemRect = parallaxItem.getBoundingClientRect();
+                const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
+                const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
+
+                const deltaX = parallaxItemCenterX - mouseX;
+                const deltaY = parallaxItemCenterY - mouseY;
+
+                const newX = parallaxItemCenterX + deltaX * 0.03;
+                const newY = parallaxItemCenterY + deltaY * 0.03;
+
+                const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
+                const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
+
+                parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
+            });
+        }
+    });
+}
 
 function isDesktop() {
     return !isTouchDevice();
@@ -163,9 +175,11 @@ function isTouchDevice() {
 }
 
 /*lampe torche*/
+var __canvas_DOM = null;
+
 try {
-    var __canvas_DOM = document.createElement('canvas'),
-        __content = document.getElementsByTagName('body')[0];
+    __canvas_DOM = document.createElement('canvas');
+    var __content = document.getElementsByTagName('body')[0];
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
         __content.style.position = 'relative';
     }
@@ -176,135 +190,147 @@ try {
 }
 
 function initializeCanvas() {
-    __canvas_DOM.width = window.innerWidth;
-    __canvas_DOM.height = window.innerHeight;
+    if (__canvas_DOM !== null) {
+        __canvas_DOM.width = window.innerWidth;
+        __canvas_DOM.height = window.innerHeight;
 
-    if (__canvas_DOM.getContext) {
-        var c = __canvas_DOM.getContext('2d'),
-            w = __canvas_DOM.width,
-            h = __canvas_DOM.height;
+        if (__canvas_DOM.getContext) {
+            var c = __canvas_DOM.getContext('2d'),
+                w = __canvas_DOM.width,
+                h = __canvas_DOM.height;
 
-        var centerPoint = {
-            x: w / 2,
-            y: h / 2
-        };
+            var centerPoint = {
+                x: w / 2,
+                y: h / 2
+            };
 
-        var pointerEvent = ('ontouchstart' in window) ? 'touchmove' : 'mousemove';
+            var pointerEvent = ('ontouchstart' in window) ? 'touchmove' : 'mousemove';
 
-        var mousePosition = {
-            x: centerPoint.x,
-            y: centerPoint.y
-        };
+            var mousePosition = {
+                x: centerPoint.x,
+                y: centerPoint.y
+            };
 
-        var flashlight_size = {
-            center: h / 6,
-            outside: h / 3
-        };
+            var flashlight_size = {
+                center: h / 6,
+                outside: h / 3
+            };
 
-        var original_flashlight_size = flashlight_size.outside;
+            var original_flashlight_size = flashlight_size.outside;
 
-        var gradient_color = {
-            first: "rgba(0,0,0,0.8)",
-            second: "rgba(0,0,0,0)"
-        };
+            var gradient_color = {
+                first: "rgba(0,0,0,0.8)",
+                second: "rgba(0,0,0,0)"
+            };
 
-        var gradient;
+            var gradient;
 
-        function draw() {
-            c.save();
-            c.clearRect(0, 0, w, h);
-            gradient = c.createRadialGradient(mousePosition.x, mousePosition.y, flashlight_size.center, mousePosition.x, mousePosition.y, flashlight_size.outside);
-            gradient.addColorStop(0, gradient_color.first);
-            gradient.addColorStop(1, gradient_color.second);
+            function draw() {
+                c.save();
+                c.clearRect(0, 0, w, h);
+                gradient = c.createRadialGradient(mousePosition.x, mousePosition.y, flashlight_size.center, mousePosition.x, mousePosition.y, flashlight_size.outside);
+                gradient.addColorStop(0, gradient_color.first);
+                gradient.addColorStop(1, gradient_color.second);
 
-            c.fillStyle = '#000';
-            c.fillRect(0, 0, w, h);
+                c.fillStyle = '#000';
+                c.fillRect(0, 0, w, h);
 
-            c.globalCompositeOperation = 'destination-out';
-            c.fillStyle = gradient;
-            c.beginPath();
-            c.arc(mousePosition.x, mousePosition.y, flashlight_size.outside, 0, Math.PI * 2, false);
-            c.fill();
-            c.restore();
-        }
+                c.globalCompositeOperation = 'destination-out';
+                c.fillStyle = gradient;
+                c.beginPath();
+                c.arc(mousePosition.x, mousePosition.y, flashlight_size.outside, 0, Math.PI * 2, false);
+                c.fill();
+                c.restore();
+            }
 
-        function animateSize(targetSize) {
-            var startTime = performance.now();
-            var startSize = flashlight_size.outside;
+            function animateSize(targetSize) {
+                var startTime = performance.now();
+                var startSize = flashlight_size.outside;
 
-            function updateSize(timestamp) {
-                var progress = timestamp - startTime;
-                if (progress < 300) { // Durée de l'animation en millisecondes
-                    flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
-                    draw();
-                    requestAnimationFrame(updateSize);
-                } else {
-                    flashlight_size.outside = targetSize;
-                    draw();
+                function updateSize(timestamp) {
+                    var progress = timestamp - startTime;
+                    if (progress < 300) { // Durée de l'animation en millisecondes
+                        flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
+                        draw();
+                        requestAnimationFrame(updateSize);
+                    } else {
+                        flashlight_size.outside = targetSize;
+                        draw();
+                    }
                 }
+
+                requestAnimationFrame(updateSize);
             }
 
-            requestAnimationFrame(updateSize);
-        }
-
-        function updatePosition(x, y) {
-            mousePosition.x = x;
-            mousePosition.y = y;
-            draw();
-        }
-
-        window.addEventListener(pointerEvent, function (e) {
-            if (pointerEvent === 'touchmove') {
-                var touch = e.touches[0];
-                updatePosition(touch.clientX, touch.clientY);
-            } else {
-                updatePosition(e.clientX, e.clientY);
+            function updatePosition(x, y) {
+                mousePosition.x = x;
+                mousePosition.y = y;
+                draw();
             }
-        });
 
-        __canvas_DOM.addEventListener('mouseleave', function () {
-            mousePosition.x = centerPoint.x;
-            mousePosition.y = centerPoint.y;
+            window.addEventListener(pointerEvent, function (e) {
+                if (pointerEvent === 'touchmove') {
+                    var touch = e.touches[0];
+                    updatePosition(touch.clientX, touch.clientY);
+                } else {
+                    updatePosition(e.clientX, e.clientY);
+                }
+            });
+
+            __canvas_DOM.addEventListener('mouseleave', function () {
+                mousePosition.x = centerPoint.x;
+                mousePosition.y = centerPoint.y;
+                draw();
+            });
+
+            var expandElements = document.querySelectorAll('.expand');
+            expandElements.forEach(function (element) {
+                element.addEventListener('mouseenter', function () {
+                    var targetSize = original_flashlight_size * 4;
+                    animateSize(targetSize);
+                });
+
+                element.addEventListener('mouseleave', function () {
+                    var targetSize = original_flashlight_size * 2;
+                    animateSize(targetSize);
+                });
+            });
+
+            var inspectElements = document.querySelectorAll('.inspect');
+            inspectElements.forEach(function (element) {
+                element.addEventListener('mouseenter', function () {
+                    var targetSize = original_flashlight_size;
+                    animateSize(targetSize);
+                });
+
+                element.addEventListener('mouseleave', function () {
+                    var targetSize = original_flashlight_size * 2;
+                    animateSize(targetSize);
+                });
+            });
+
             draw();
-        });
-
-        window.addEventListener('resize', function () {
-            initializeCanvas();
-        });
-
-        var expandElements = document.querySelectorAll('.expand');
-        expandElements.forEach(function (element) {
-            element.addEventListener('mouseenter', function () {
-                var targetSize = original_flashlight_size * 4;
-                animateSize(targetSize);
-            });
-
-            element.addEventListener('mouseleave', function () {
-                var targetSize = original_flashlight_size * 2;
-                animateSize(targetSize);
-            });
-        });
-
-        var inspectElements = document.querySelectorAll('.inspect');
-        inspectElements.forEach(function (element) {
-            element.addEventListener('mouseenter', function () {
-                var targetSize = original_flashlight_size;
-                animateSize(targetSize);
-            });
-
-            element.addEventListener('mouseleave', function () {
-                var targetSize = original_flashlight_size * 2;
-                animateSize(targetSize);
-            });
-        });
-
-        draw();
+        }
     }
 }
 
-if (window.innerWidth >= 1200) {
-  initializeCanvas();
+function clearCanvas() {
+    if (__canvas_DOM !== null) {
+        __canvas_DOM.remove();
+        __canvas_DOM = null;
+    }
 }
+
+function checkWindowSize() {
+    if (window.innerWidth >= 1200) {
+        initializeCanvas();
+    } else {
+        clearCanvas();
+    }
+}
+
+window.addEventListener('resize', checkWindowSize);
+checkWindowSize();
 
 /*Le Jeu*/
 var $board = $('.card__list'),
@@ -454,39 +480,46 @@ function shuffleCards() {
   }
 }
 
-
-/*Chargement*/
-$(document).ready(function() {
-  $('.skip').click(function() {
-    $('.overlay, body').addClass('loaded');
-    setTimeout(function() {
-      $('.overlay').addClass('invisible');
-      revealElements();
-    }, 1500);
-  });
-
-  $(window).bind('load', function() {
-    $('.overlay, body').addClass('loaded');
-    setTimeout(function() {
-      $('.overlay').addClass('invisible');
-      revealElements();
-    }, 1500);
-  });
-
-  setTimeout(function() {
-    $('.overlay, body').removeClass('loaded');
-    setTimeout(function() {
-      $('.overlay').addClass('invisible');
-      revealElements();
-    }, 1500);
-  }, 10000);
-
-  /*Apparitions Cartes*/
+/* Chargement */
+document.addEventListener('DOMContentLoaded', function() {
+  const skipButton = document.querySelector('.skip');
+  const overlay = document.querySelector('.overlay');
+  const body = document.querySelector('body');
   const cardElements = Array.from(document.querySelectorAll('.card__pop'));
 
+  if (skipButton && overlay && body) {
+    skipButton.addEventListener('click', function() {
+      overlay.classList.add('loaded');
+      body.classList.add('loaded');
+      setTimeout(function() {
+        overlay.classList.add('invisible');
+        revealElements();
+      }, 1500);
+    });
+
+    window.onload = function() {
+      overlay.classList.add('loaded');
+      body.classList.add('loaded');
+      setTimeout(function() {
+        overlay.classList.add('invisible');
+        revealElements();
+      }, 1500);
+    };
+
+    setTimeout(function() {
+      overlay.classList.remove('loaded');
+      body.classList.remove('loaded');
+      setTimeout(function() {
+        overlay.classList.add('invisible');
+        revealElements();
+      }, 1500);
+    }, 10000);
+  }
+
+  /* Apparitions Cartes */
   function revealElements() {
     const shuffledElements = shuffleArray(cardElements);
-    
+
     shuffledElements.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('visible');
@@ -512,66 +545,88 @@ const presentationLink = document.querySelector('.projets__presentation a');
 const boutonBack = document.querySelector('.projets__back');
 const projets = document.getElementById('projets');
 
-boutonsProjets.forEach(bouton => {
-  bouton.addEventListener('click', () => {
-    const src = bouton.querySelector('img').getAttribute('src');
-    const srcset = bouton.querySelector('img').getAttribute('srcset');
-    const alt = bouton.querySelector('img').getAttribute('alt');
+if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets) {
+  boutonsProjets.forEach(bouton => {
+    bouton.addEventListener('click', () => {
+      const src = bouton.querySelector('img')?.getAttribute('src');
+      const srcset = bouton.querySelector('img')?.getAttribute('srcset');
+      const alt = bouton.querySelector('img')?.getAttribute('alt');
 
-    presentation.querySelector('img').setAttribute('src', src);
-    presentation.querySelector('img').setAttribute('srcset', srcset);
-    presentation.querySelector('img').setAttribute('alt', alt);
+      if (src && srcset && alt) {
+        presentation.querySelector('img').setAttribute('src', src);
+        presentation.querySelector('img').setAttribute('srcset', srcset);
+        presentation.querySelector('img').setAttribute('alt', alt);
+      }
 
-    if (bouton.classList.contains('projets__btn--decembre')) {
-      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/decembre');
-    } else if (bouton.classList.contains('projets__btn--dataplay')) {
-      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/dataplay');
-    } else if (bouton.classList.contains('projets__btn--fyt')) {
-      presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/rethinking-ux/');
-    }
+      if (bouton.classList.contains('projets__btn--decembre')) {
+        presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/decembre');
+      } else if (bouton.classList.contains('projets__btn--dataplay')) {
+        presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/dataplay');
+      } else if (bouton.classList.contains('projets__btn--fyt')) {
+        presentationLink.setAttribute('href', 'https://jules-vanhuysse.be/projets/rethinking-ux/');
+      }
 
-    const listItems = Array.from(listeProjets.children);
-    listItems.forEach(item => {
-      setTimeout(() => {
-        item.style.transition = 'opacity 0.5s ease';
-        item.style.opacity = '0';
-      }, Math.random() * 500);
-    });
-
-    setTimeout(() => {
-      listeProjets.classList.add('hide');
-      presentation.classList.remove('hide');
-      titleProjets.classList.add('discussion');
-
-      setTimeout(() => {
-        presentation.scrollIntoView({ behavior: 'smooth' });
-
+      const listItems = Array.from(listeProjets.children);
+      listItems.forEach(item => {
         setTimeout(() => {
-        presentation.classList.add('fade-in');
-        }, 200);
-      }, 50);
-    }, 1000);
-  });
-});
+          if (item) {
+            item.style.transition = 'opacity 0.5s ease';
+            item.style.opacity = '0';
+          }
+        }, Math.random() * 500);
+      });
 
-boutonBack.addEventListener('click', () => {
-  presentation.classList.remove('fade-in');
-  
-  setTimeout(() => {
-    presentation.classList.add('hide');
-    listeProjets.classList.remove('hide');
-    titleProjets.classList.remove('discussion');
-    
-    const listItems = Array.from(listeProjets.children);
-    listItems.forEach(item => {
       setTimeout(() => {
-        item.style.transition = 'opacity 0.5s ease';
-        item.style.opacity = '1';
-      }, Math.random() * 500);
+        if (listeProjets && presentation && titleProjets) {
+          listeProjets.classList.add('hide');
+          presentation.classList.remove('hide');
+          titleProjets.classList.add('discussion');
+
+          setTimeout(() => {
+            if (presentation) {
+              presentation.scrollIntoView({ behavior: 'smooth' });
+
+              setTimeout(() => {
+                presentation.classList.add('fade-in');
+              }, 200);
+            }
+          }, 50);
+        }
+      }, 1000);
+    });
+  });
+
+  if (boutonBack) {
+    boutonBack.addEventListener('click', () => {
+      presentation.classList.remove('fade-in');
+
+      setTimeout(() => {
+        if (presentation && listeProjets && titleProjets) {
+          presentation.classList.add('hide');
+          listeProjets.classList.remove('hide');
+          titleProjets.classList.remove('discussion');
+
+          const listItems = Array.from(listeProjets.children);
+          listItems.forEach(item => {
+            setTimeout(() => {
+              if (item) {
+                item.style.transition = 'opacity 0.5s ease';
+                item.style.opacity = '1';
+              }
+            }, Math.random() * 500);
+          });
+
+          setTimeout(() => {
+            if (projets) {
+              projets.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 50);
+        }
+      }, 500);
     });
 
-    setTimeout(() => {
-      projets.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
-  }, 500);
-});
+
+
+
+  }
+}
