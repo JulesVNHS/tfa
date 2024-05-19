@@ -114,32 +114,21 @@ if (isDesktop()) {
     }
 }
 
+/* Mouvement Gyroscope*/
 if (window.DeviceOrientationEvent && isTouchDevice()) {
-    let initialBeta = null;
-    let initialGamma = null;
-    
-    window.addEventListener('deviceorientation', function(event) {
-        const beta = event.beta;
-        const gamma = event.gamma;
-        
-        if (initialBeta === null || initialGamma === null) {
-            initialBeta = beta;
-            initialGamma = gamma;
-        }
+  const images = document.querySelectorAll('.move');
+  const scaleFactor = 0.5;  // Adjust this factor to control sensitivity
+  
+  window.addEventListener('deviceorientation', function(event) {
+      const gamma = event.gamma;
 
-        let rotateX = ((beta - initialBeta) / 90) * 30;
-        let rotateY = ((gamma - initialGamma) / 90) * 30;
+      const rotateX = gamma * scaleFactor;
 
-        rotateX = Math.max(-30, Math.min(30, rotateX));
-        rotateY = Math.max(-30, Math.min(30, rotateY));
-
-        if (images.length > 0) {
-            images.forEach(image => {
-                image.style.setProperty('--rotatex', rotateX + 'deg');
-                image.style.setProperty('--rotatey', rotateY + 'deg');
-            });
-        }
-    });
+      images.forEach(image => {
+          image.style.transformOrigin = 'center';
+          image.style.transform = `rotateX(${rotateX}deg)`;
+      });
+  });
 }
 
 /*Follow*/
