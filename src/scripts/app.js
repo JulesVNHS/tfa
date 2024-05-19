@@ -117,16 +117,16 @@ if (isDesktop()) {
 /* Mouvement Gyroscope*/
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   const images = document.querySelectorAll('.move');
-  const scaleFactor = 0.5;  // Adjust this factor to control sensitivity
+  const scaleFactor = 0.5;
   
   window.addEventListener('deviceorientation', function(event) {
       const gamma = event.gamma;
+      const rotate = gamma * scaleFactor;
 
-      const rotateX = gamma * scaleFactor;
-
+      // Apply the rotation around the central pivot point
       images.forEach(image => {
           image.style.transformOrigin = 'center';
-          image.style.transform = `rotateX(${rotateX}deg)`;
+          image.style.transform = `rotate(${-rotate}deg)`;
       });
   });
 }

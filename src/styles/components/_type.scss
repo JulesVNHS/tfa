@@ -12,6 +12,7 @@ body {
   font-family: $font-text;
   font-size: $size-text;
   color: #ffffff;
+  overflow-x: hidden;
 
   &.loaded {
 		overflow-y: auto;
