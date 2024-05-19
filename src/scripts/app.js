@@ -1,5 +1,14 @@
 "use strict";
 
+/*Vérification Tactile*/
+function isDesktop() {
+  return !isTouchDevice();
+}
+
+function isTouchDevice() {
+  return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+}
+
 /*Sticky Menu*/
 let lastScrollTop = 0;
 const menu = document.querySelector('.menu');
@@ -96,14 +105,16 @@ function resetRotation() {
     this.style.setProperty('--rotatey', '0deg');
 }
 
-if (images.length > 0) {
-    images.forEach(image => {
-        image.addEventListener('mousemove', updateRotation);
-        image.addEventListener('mouseleave', resetRotation);
-    });
+if (isDesktop()) {
+    if (images.length > 0) {
+        images.forEach(image => {
+            image.addEventListener('mousemove', updateRotation);
+            image.addEventListener('mouseleave', resetRotation);
+        });
+    }
 }
 
-if (window.DeviceOrientationEvent) {
+if (window.DeviceOrientationEvent && isTouchDevice()) {
     let initialBeta = null;
     let initialGamma = null;
     
@@ -164,14 +175,6 @@ if (parallaxItems.length > 0) {
             });
         }
     });
-}
-
-function isDesktop() {
-    return !isTouchDevice();
-}
-
-function isTouchDevice() {
-    return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 }
 
 /*lampe torche*/
@@ -249,7 +252,7 @@ function initializeCanvas() {
 
                 function updateSize(timestamp) {
                     var progress = timestamp - startTime;
-                    if (progress < 300) { // Durée de l'animation en millisecondes
+                    if (progress < 300) {
                         flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
                         draw();
                         requestAnimationFrame(updateSize);
@@ -321,16 +324,18 @@ function clearCanvas() {
     }
 }
 
-function checkWindowSize() {
-    if (window.innerWidth >= 1200) {
-        initializeCanvas();
-    } else {
-        clearCanvas();
-    }
+function checkDevice() {
+  if (isDesktop()) {
+      initializeCanvas();
+  } else {
+      clearCanvas();
+  }
 }
 
-window.addEventListener('resize', checkWindowSize);
-checkWindowSize();
+checkDevice();
+
+window.addEventListener('resize', checkDevice);
+window.addEventListener('orientationchange', checkDevice);
 
 /*Le Jeu*/
 var $board = $('.card__list'),
@@ -624,9 +629,5 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
         }
       }, 500);
     });
-
-
-
-
   }
 }
