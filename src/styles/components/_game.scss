@@ -1,20 +1,22 @@
 $p: 7px;
 $cardPadding: $p * 2;
-$cardWidth: ($p*18) + $cardPadding;
-$cardHeight: $cardWidth + ($cardPadding*2.5);
+$cardWidth: (
+  $p*18) + $cardPadding;
+$cardHeight: $cardWidth + ($cardPadding*2.5
+);
 
 $colors: (
-  score: (
-    last: red
-  )
+  score: (last: red)
 );
 
 @function key($map, $key, $sub-key: null) {
   @if map-has-key($map, $key) {
     $val: map-get($map, $key);
+
     @if $sub-key and map-has-key($val, $sub-key) {
       $val: map-get($val, $sub-key);
     }
+
     @return $val;
   }
 }
@@ -38,11 +40,11 @@ $colors: (
   }
 }
 
-.footer--jeu{
+.footer--jeu {
   margin-top: 0;
 }
 
-.card{
+.card {
   &__list {
     box-sizing: border-box;
     display: flex;
@@ -57,9 +59,9 @@ $colors: (
     }
   }
 
-  &__pop{
+  &__pop {
     opacity: 0;
-      
+
     &.visible {
       opacity: 1;
       animation: bounce 0.5s ease forwards;
@@ -74,7 +76,7 @@ $colors: (
     width: $cardWidth/2;
     height: $cardHeight/2;
     cursor: pointer;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     transform-style: preserve-3d;
     transition: transform 0.4s ease-out;
     border-radius: 3px;
@@ -83,7 +85,7 @@ $colors: (
     .front::before,
     .front::after,
     .back::before,
-    .back::after{
+    .back::after {
       top: $cardPadding*3/2;
       left: $cardPadding/2;
       transform: scale(0.5);
@@ -99,26 +101,27 @@ $colors: (
       .front::before,
       .front::after,
       .back::before,
-      .back::after{
+      .back::after {
         top: $cardPadding*3;
         left: $cardPadding;
         transform: scale(1);
       }
-      
-    }
-  
-    .front,
-    .back {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-            width: 70%;
-            max-height: 100%;
-        }
+
     }
 
-    & img{
+    .front,
+    .back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 70%;
+        max-height: 100%;
+      }
+    }
+
+    & img {
       opacity: 0.5;
       transition: opacity 0.5s ease;
     }
@@ -127,8 +130,8 @@ $colors: (
       opacity: 1;
     }
 
-    &:hover{
-      & img{
+    &:hover {
+      & img {
         @media (min-width: 1300px) {
           opacity: 1;
         }
@@ -149,9 +152,11 @@ $colors: (
 
     span {
       color: $c-title;
+
       &.is-updating {
         animation: bounce 1s;
       }
+
       &.last-turn {
         color: color(score, last);
       }
@@ -165,8 +170,9 @@ $colors: (
 
 .is-selected,
 [data-matched=true] {
-  transform: translate3d(0,0,0) rotateY(180deg);
+  transform: translate3d(0, 0, 0) rotateY(180deg);
 }
+
 [data-matched=true] {
   animation: matchSuccess 0.4s ease-out 3;
 }
@@ -178,22 +184,23 @@ $colors: (
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   min-height: 100%;
   text-align: center;
   background: linear-gradient(rgba($c-bg, 1), rgba($c-bg2, 1));
   z-index: 20;
   opacity: 0;
-  transform: translate3d(100%,0,0);
-  transition: 
+  transform: translate3d(100%, 0, 0);
+  transition:
     opacity 0.2s ease-out,
     transform 0s 0.2s;
 
   &.is-visible {
     opacity: 1;
-    transform: translate3d(0,0,100px);
-    transition: 
+    transform: translate3d(0, 0, 100px);
+    transition:
       opacity 0.2s ease-out,
       transform 0s;
   }
@@ -209,7 +216,7 @@ $colors: (
     &__el {
       margin-bottom: 11px;
 
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
     }
@@ -225,12 +232,13 @@ $colors: (
     transform: rotateY(0);
     opacity: 0;
     transition: opacity 0.2s 0.4s;
+
     .is-visible & {
       opacity: 1;
       animation: bounce 0.5s 0.4s ease-out forwards;
     }
 
-    & img{
+    & img {
       width: 100%;
     }
   }
@@ -245,7 +253,7 @@ $colors: (
     position: relative;
     transition: transform 0.2s ease;
 
-    &:hover{
+    &:hover {
       @media (min-width: 1300px) {
         transform: scale(1.1);
       }
@@ -280,7 +288,10 @@ $colors: (
 .front,
 .back {
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   margin: auto;
   width: 100%;
   height: 100%;
@@ -288,6 +299,7 @@ $colors: (
   box-shadow: -6px -6px 36px 2px rgba(black, 0.15) inset;
   backface-visibility: hidden;
   overflow: hidden;
+
   &::before,
   &::after {
     content: "";
@@ -310,16 +322,41 @@ $colors: (
 }
 
 @keyframes matchSuccess {
-  0% { transform: translate3d(0,0,0) rotateY(180deg) scale(1); }
-  50% { transform: translate3d(0,0,0) rotateY(180deg) scale(1.05); }
-  100% { transform: translate3d(0,0,0) rotateY(180deg) scale(1); }
+  0% {
+    transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0) rotateY(180deg) scale(1.05);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+  }
 }
 
 @keyframes bounce {
-  0% { transform: scale(0.1); }
-  20% { transform: scale(1.2); }
-  40% { transform: scale(0.8); }
-  60% { transform: scale(1.1); }
-  80% { transform: scale(0.9); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.1);
+  }
+
+  20% {
+    transform: scale(1.2);
+  }
+
+  40% {
+    transform: scale(0.8);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  80% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

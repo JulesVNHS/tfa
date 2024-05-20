@@ -1,4 +1,4 @@
-.fall{
+.fall {
     background-color: $c-btn;
     position: fixed;
     top: 0;
@@ -12,11 +12,11 @@
     overflow: hidden;
     z-index: 50;
 
-    &__title{
+    &__title {
         color: $c-text;
     }
 
-    &.hide{
+    &.hide {
         display: none;
     }
 }

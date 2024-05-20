@@ -13,24 +13,24 @@ function isTouchDevice() {
 let lastScrollTop = 0;
 const menu = document.querySelector('.menu');
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
+
   if (scrollTop > lastScrollTop) {
     menu.classList.add('menu--hidden');
-  } else if(!document.body.classList.contains('stop-hidden')) {
+  } else if (!document.body.classList.contains('stop-hidden')) {
     menu.classList.remove('menu--hidden');
   }
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
-document.querySelectorAll('.menu__list a').forEach(function(link) {
-  link.addEventListener('click', function() {
-      document.body.classList.add('stop-hidden');
-      setTimeout(function() {
-        document.body.classList.remove('stop-hidden');
-      }, 1000);
-      menu.classList.add('menu--hidden');
+document.querySelectorAll('.menu__list a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.body.classList.add('stop-hidden');
+    setTimeout(function () {
+      document.body.classList.remove('stop-hidden');
+    }, 1000);
+    menu.classList.add('menu--hidden');
   });
 });
 
@@ -50,7 +50,7 @@ if (menuItems.length > 0) {
 }
 
 /*Couleur Menu*/
-document.addEventListener('scroll', function() {
+document.addEventListener('scroll', function () {
   var scrollTop = window.scrollY;
   var windowHeight = window.innerHeight;
   var documentHeight = document.body.scrollHeight;
@@ -60,7 +60,7 @@ document.addEventListener('scroll', function() {
 
   var newColor = mixColors(color1, color2, scrollPercentage / 100);
   var menu = document.querySelector('.menu');
-  
+
   if (menu) {
     menu.style.background = newColor;
   }
@@ -86,47 +86,47 @@ function mixColors(color1, color2, ratio) {
 const images = document.querySelectorAll('.move');
 
 function isMouseEventOrTrackpad(event) {
-    return event.clientX !== undefined && event.clientY !== undefined;
+  return event.clientX !== undefined && event.clientY !== undefined;
 }
 
 function updateRotation(event) {
-    if (!isMouseEventOrTrackpad(event)) return;
-    const imageRect = this.getBoundingClientRect();
-    const mouseX = event.clientX - imageRect.left;
-    const mouseY = event.clientY - imageRect.top;
-    const rotateX = (mouseY / imageRect.height - 0.5) * 30;
-    const rotateY = (mouseX / imageRect.width - 0.5) * 30;
-    this.style.setProperty('--rotatex', rotateX + 'deg');
-    this.style.setProperty('--rotatey', rotateY + 'deg');
+  if (!isMouseEventOrTrackpad(event)) return;
+  const imageRect = this.getBoundingClientRect();
+  const mouseX = event.clientX - imageRect.left;
+  const mouseY = event.clientY - imageRect.top;
+  const rotateX = (mouseY / imageRect.height - 0.5) * 30;
+  const rotateY = (mouseX / imageRect.width - 0.5) * 30;
+  this.style.setProperty('--rotatex', rotateX + 'deg');
+  this.style.setProperty('--rotatey', rotateY + 'deg');
 }
 
 function resetRotation() {
-    this.style.setProperty('--rotatex', '0deg');
-    this.style.setProperty('--rotatey', '0deg');
+  this.style.setProperty('--rotatex', '0deg');
+  this.style.setProperty('--rotatey', '0deg');
 }
 
 if (isDesktop()) {
-    if (images.length > 0) {
-        images.forEach(image => {
-            image.addEventListener('mousemove', updateRotation);
-            image.addEventListener('mouseleave', resetRotation);
-        });
-    }
+  if (images.length > 0) {
+    images.forEach(image => {
+      image.addEventListener('mousemove', updateRotation);
+      image.addEventListener('mouseleave', resetRotation);
+    });
+  }
 }
 
 /* Mouvement Gyroscope*/
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   const images = document.querySelectorAll('.move');
   const scaleFactor = 0.5;
-  
-  window.addEventListener('deviceorientation', function(event) {
-      const gamma = event.gamma;
-      const rotate = gamma * scaleFactor;
 
-      images.forEach(image => {
-          image.style.transformOrigin = 'center';
-          image.style.transform = `rotate(${-rotate}deg)`;
-      });
+  window.addEventListener('deviceorientation', function (event) {
+    const gamma = event.gamma;
+    const rotate = gamma * scaleFactor;
+
+    images.forEach(image => {
+      image.style.transformOrigin = 'center';
+      image.style.transform = `rotate(${-rotate}deg)`;
+    });
   });
 }
 
@@ -134,189 +134,189 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
 const parallaxItems = document.querySelectorAll(".follow");
 
 if (parallaxItems.length > 0) {
-    document.addEventListener("mouseleave", function (e) {
-        parallaxItems.forEach(item => {
-            item.style.transform = "translate(0%, 0%)";
-        });
+  document.addEventListener("mouseleave", function (e) {
+    parallaxItems.forEach(item => {
+      item.style.transform = "translate(0%, 0%)";
     });
+  });
 
-    document.addEventListener("mousemove", function (e) {
-        if (isDesktop()) {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+  document.addEventListener("mousemove", function (e) {
+    if (isDesktop()) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
 
-            parallaxItems.forEach(parallaxItem => {
-                const parallaxItemRect = parallaxItem.getBoundingClientRect();
-                const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
-                const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
+      parallaxItems.forEach(parallaxItem => {
+        const parallaxItemRect = parallaxItem.getBoundingClientRect();
+        const parallaxItemCenterX = parallaxItemRect.left + parallaxItemRect.width / 2;
+        const parallaxItemCenterY = parallaxItemRect.top + parallaxItemRect.height / 2;
 
-                const deltaX = parallaxItemCenterX - mouseX;
-                const deltaY = parallaxItemCenterY - mouseY;
+        const deltaX = parallaxItemCenterX - mouseX;
+        const deltaY = parallaxItemCenterY - mouseY;
 
-                const newX = parallaxItemCenterX + deltaX * 0.03;
-                const newY = parallaxItemCenterY + deltaY * 0.03;
+        const newX = parallaxItemCenterX + deltaX * 0.03;
+        const newY = parallaxItemCenterY + deltaY * 0.03;
 
-                const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
-                const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
+        const translateX = (parallaxItemCenterX - newX) / parallaxItemRect.width * 100;
+        const translateY = (parallaxItemCenterY - newY) / parallaxItemRect.height * 100;
 
-                parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
-            });
-        }
-    });
+        parallaxItem.style.transform = `translate(${translateX}%, ${translateY}%)`;
+      });
+    }
+  });
 }
 
 /*lampe torche*/
 var __canvas_DOM = null;
 
 try {
-    __canvas_DOM = document.createElement('canvas');
-    var __content = document.getElementsByTagName('body')[0];
-    if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
-        __content.style.position = 'relative';
-    }
-    __canvas_DOM.setAttribute("style", "position: fixed; top: 0; left: 0; pointer-events: none; z-index: 5;");
-    __content.appendChild(__canvas_DOM);
+  __canvas_DOM = document.createElement('canvas');
+  var __content = document.getElementsByTagName('body')[0];
+  if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
+    __content.style.position = 'relative';
+  }
+  __canvas_DOM.classList.add('canvas-lampe');
+  __content.appendChild(__canvas_DOM);
 } catch (e) {
-    console.info("Une exception s'est produite : " + e);
+  console.info("Une exception s'est produite : " + e);
 }
 
 function initializeCanvas() {
-    if (__canvas_DOM !== null) {
-        __canvas_DOM.width = window.innerWidth;
-        __canvas_DOM.height = window.innerHeight;
+  if (__canvas_DOM !== null) {
+    __canvas_DOM.width = window.innerWidth;
+    __canvas_DOM.height = window.innerHeight;
 
-        if (__canvas_DOM.getContext) {
-            var c = __canvas_DOM.getContext('2d'),
-                w = __canvas_DOM.width,
-                h = __canvas_DOM.height;
+    if (__canvas_DOM.getContext) {
+      var c = __canvas_DOM.getContext('2d'),
+        w = __canvas_DOM.width,
+        h = __canvas_DOM.height;
 
-            var centerPoint = {
-                x: w / 2,
-                y: h / 2
-            };
+      var centerPoint = {
+        x: w / 2,
+        y: h / 2
+      };
 
-            var pointerEvent = ('ontouchstart' in window) ? 'touchmove' : 'mousemove';
+      var pointerEvent = ('ontouchstart' in window) ? 'touchmove' : 'mousemove';
 
-            var mousePosition = {
-                x: centerPoint.x,
-                y: centerPoint.y
-            };
+      var mousePosition = {
+        x: centerPoint.x,
+        y: centerPoint.y
+      };
 
-            var flashlight_size = {
-                center: h / 6,
-                outside: h / 3
-            };
+      var flashlight_size = {
+        center: h / 6,
+        outside: h / 3
+      };
 
-            var original_flashlight_size = flashlight_size.outside;
+      var original_flashlight_size = flashlight_size.outside;
 
-            var gradient_color = {
-                first: "rgba(0,0,0,0.8)",
-                second: "rgba(0,0,0,0)"
-            };
+      var gradient_color = {
+        first: "rgba(0,0,0,0.8)",
+        second: "rgba(0,0,0,0)"
+      };
 
-            var gradient;
+      var gradient;
 
-            function draw() {
-                c.save();
-                c.clearRect(0, 0, w, h);
-                gradient = c.createRadialGradient(mousePosition.x, mousePosition.y, flashlight_size.center, mousePosition.x, mousePosition.y, flashlight_size.outside);
-                gradient.addColorStop(0, gradient_color.first);
-                gradient.addColorStop(1, gradient_color.second);
+      function draw() {
+        c.save();
+        c.clearRect(0, 0, w, h);
+        gradient = c.createRadialGradient(mousePosition.x, mousePosition.y, flashlight_size.center, mousePosition.x, mousePosition.y, flashlight_size.outside);
+        gradient.addColorStop(0, gradient_color.first);
+        gradient.addColorStop(1, gradient_color.second);
 
-                c.fillStyle = '#000';
-                c.fillRect(0, 0, w, h);
+        c.fillStyle = '#000';
+        c.fillRect(0, 0, w, h);
 
-                c.globalCompositeOperation = 'destination-out';
-                c.fillStyle = gradient;
-                c.beginPath();
-                c.arc(mousePosition.x, mousePosition.y, flashlight_size.outside, 0, Math.PI * 2, false);
-                c.fill();
-                c.restore();
-            }
+        c.globalCompositeOperation = 'destination-out';
+        c.fillStyle = gradient;
+        c.beginPath();
+        c.arc(mousePosition.x, mousePosition.y, flashlight_size.outside, 0, Math.PI * 2, false);
+        c.fill();
+        c.restore();
+      }
 
-            function animateSize(targetSize) {
-                var startTime = performance.now();
-                var startSize = flashlight_size.outside;
+      function animateSize(targetSize) {
+        var startTime = performance.now();
+        var startSize = flashlight_size.outside;
 
-                function updateSize(timestamp) {
-                    var progress = timestamp - startTime;
-                    if (progress < 300) {
-                        flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
-                        draw();
-                        requestAnimationFrame(updateSize);
-                    } else {
-                        flashlight_size.outside = targetSize;
-                        draw();
-                    }
-                }
-
-                requestAnimationFrame(updateSize);
-            }
-
-            function updatePosition(x, y) {
-                mousePosition.x = x;
-                mousePosition.y = y;
-                draw();
-            }
-
-            window.addEventListener(pointerEvent, function (e) {
-                if (pointerEvent === 'touchmove') {
-                    var touch = e.touches[0];
-                    updatePosition(touch.clientX, touch.clientY);
-                } else {
-                    updatePosition(e.clientX, e.clientY);
-                }
-            });
-
-            __canvas_DOM.addEventListener('mouseleave', function () {
-                mousePosition.x = centerPoint.x;
-                mousePosition.y = centerPoint.y;
-                draw();
-            });
-
-            var expandElements = document.querySelectorAll('.expand');
-            expandElements.forEach(function (element) {
-                element.addEventListener('mouseenter', function () {
-                    var targetSize = original_flashlight_size * 4;
-                    animateSize(targetSize);
-                });
-
-                element.addEventListener('mouseleave', function () {
-                    var targetSize = original_flashlight_size * 2;
-                    animateSize(targetSize);
-                });
-            });
-
-            var inspectElements = document.querySelectorAll('.inspect');
-            inspectElements.forEach(function (element) {
-                element.addEventListener('mouseenter', function () {
-                    var targetSize = original_flashlight_size;
-                    animateSize(targetSize);
-                });
-
-                element.addEventListener('mouseleave', function () {
-                    var targetSize = original_flashlight_size * 2;
-                    animateSize(targetSize);
-                });
-            });
-
+        function updateSize(timestamp) {
+          var progress = timestamp - startTime;
+          if (progress < 300) {
+            flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
             draw();
+            requestAnimationFrame(updateSize);
+          } else {
+            flashlight_size.outside = targetSize;
+            draw();
+          }
         }
+
+        requestAnimationFrame(updateSize);
+      }
+
+      function updatePosition(x, y) {
+        mousePosition.x = x;
+        mousePosition.y = y;
+        draw();
+      }
+
+      window.addEventListener(pointerEvent, function (e) {
+        if (pointerEvent === 'touchmove') {
+          var touch = e.touches[0];
+          updatePosition(touch.clientX, touch.clientY);
+        } else {
+          updatePosition(e.clientX, e.clientY);
+        }
+      });
+
+      __canvas_DOM.addEventListener('mouseleave', function () {
+        mousePosition.x = centerPoint.x;
+        mousePosition.y = centerPoint.y;
+        draw();
+      });
+
+      var expandElements = document.querySelectorAll('.expand');
+      expandElements.forEach(function (element) {
+        element.addEventListener('mouseenter', function () {
+          var targetSize = original_flashlight_size * 4;
+          animateSize(targetSize);
+        });
+
+        element.addEventListener('mouseleave', function () {
+          var targetSize = original_flashlight_size * 2;
+          animateSize(targetSize);
+        });
+      });
+
+      var inspectElements = document.querySelectorAll('.inspect');
+      inspectElements.forEach(function (element) {
+        element.addEventListener('mouseenter', function () {
+          var targetSize = original_flashlight_size;
+          animateSize(targetSize);
+        });
+
+        element.addEventListener('mouseleave', function () {
+          var targetSize = original_flashlight_size * 2;
+          animateSize(targetSize);
+        });
+      });
+
+      draw();
     }
+  }
 }
 
 function clearCanvas() {
-    if (__canvas_DOM !== null) {
-        __canvas_DOM.remove();
-        __canvas_DOM = null;
-    }
+  if (__canvas_DOM !== null) {
+    __canvas_DOM.remove();
+    __canvas_DOM = null;
+  }
 }
 
 function checkDevice() {
   if (isDesktop()) {
-      initializeCanvas();
+    initializeCanvas();
   } else {
-      clearCanvas();
+    clearCanvas();
   }
 }
 
@@ -327,32 +327,32 @@ window.addEventListener('orientationchange', checkDevice);
 
 /*Le Jeu*/
 var $board = $('.card__list'),
-    $card = $('.card__el'),
-    $itemCount = $('info__list span'),
-    $wins = $('.wins span'),
-    $turns = $('.turns span'),
-    $attempts = $('.attempts span'),
-    $attemptsOverall = $('.attempts-overall span'),
-    $success = $('.success'),
-    $successMsg = $('.success__message'),
-    $btnContinue = $('.success__btn'),
-    selectedClass = 'is-selected',
-    visibleClass = 'is-visible',
-    scoreUpdateClass = 'is-updating',
-    lastTurnClass = 'last-turn',
-    dataMatch = 'data-matched',
-    dataType = 'data-type',
-    turnsCount = 2,
-    winsCount = 0,
-    attemptsCount = 0,
-    attemptsOverallCount = 0,
-    tooManyAttempts = 8,
-    timeoutLength = 600,
-    card1, card2, msg;
+  $card = $('.card__el'),
+  $itemCount = $('info__list span'),
+  $wins = $('.wins span'),
+  $turns = $('.turns span'),
+  $attempts = $('.attempts span'),
+  $attemptsOverall = $('.attempts-overall span'),
+  $success = $('.success'),
+  $successMsg = $('.success__message'),
+  $btnContinue = $('.success__btn'),
+  selectedClass = 'is-selected',
+  visibleClass = 'is-visible',
+  scoreUpdateClass = 'is-updating',
+  lastTurnClass = 'last-turn',
+  dataMatch = 'data-matched',
+  dataType = 'data-type',
+  turnsCount = 2,
+  winsCount = 0,
+  attemptsCount = 0,
+  attemptsOverallCount = 0,
+  tooManyAttempts = 8,
+  timeoutLength = 600,
+  card1, card2, msg;
 
 shuffleCards();
 
-$card.on('click', function() {
+$card.on('click', function () {
   if ($(this).attr(dataMatch) == 'false') {
     $(this).addClass(selectedClass);
   }
@@ -370,7 +370,7 @@ $card.on('click', function() {
         .addClass('matched');
 
     } else {
-      setTimeout(function() {
+      setTimeout(function () {
         turnsCount--;
         $turns
           .addClass(scoreUpdateClass)
@@ -378,14 +378,14 @@ $card.on('click', function() {
         selectedCards.removeClass(selectedClass);
       }, timeoutLength);
 
-      if(turnsCount === 1) {
-        setTimeout(function() {
+      if (turnsCount === 1) {
+        setTimeout(function () {
           $turns.addClass(lastTurnClass);
         }, timeoutLength);
       }
 
-      if(turnsCount <= 0) {
-        setTimeout(function() {
+      if (turnsCount <= 0) {
+        setTimeout(function () {
           turnsCount = 2;
           $turns
             .removeClass(lastTurnClass)
@@ -406,7 +406,7 @@ $card.on('click', function() {
     $success.addClass(visibleClass);
     $card.removeClass('matched');
 
-    switch(true) {
+    switch (true) {
       case (attemptsCount <= 2):
         msg = "Parfait !!!";
         break;
@@ -422,7 +422,7 @@ $card.on('click', function() {
     }
     $successMsg.text(msg);
 
-    setTimeout(function() {
+    setTimeout(function () {
       attemptsOverallCount += attemptsCount;
       $attemptsOverall
         .addClass(scoreUpdateClass)
@@ -439,16 +439,16 @@ $card.on('click', function() {
 
 $itemCount.on(
   "webkitAnimationEnd oanimationend msAnimationEnd animationend",
-  function() {
+  function () {
     $itemCount.removeClass(scoreUpdateClass);
   }
 );
 
-$btnContinue.on('click', function() {
+$btnContinue.on('click', function () {
   $success.removeClass(visibleClass);
   $('body').removeClass('no-scroll');
   shuffleCards();
-  setTimeout(function() {
+  setTimeout(function () {
     turnsCount = 2;
     $turns
       .removeClass(lastTurnClass)
@@ -458,7 +458,7 @@ $btnContinue.on('click', function() {
   }, 300);
 });
 
-$success.on('transitionend', function() {
+$success.on('transitionend', function () {
   if ($success.hasClass(visibleClass)) {
     $('body').addClass('no-scroll');
   } else {
@@ -474,35 +474,35 @@ function shuffleCards() {
 }
 
 /* Chargement */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const skipButton = document.querySelector('.skip');
   const overlay = document.querySelector('.overlay');
   const body = document.querySelector('body');
   const cardElements = Array.from(document.querySelectorAll('.card__pop'));
 
   if (skipButton && overlay && body) {
-    skipButton.addEventListener('click', function() {
+    skipButton.addEventListener('click', function () {
       overlay.classList.add('loaded');
       body.classList.add('loaded');
-      setTimeout(function() {
+      setTimeout(function () {
         overlay.classList.add('invisible');
         revealElements();
       }, 1500);
     });
 
-    window.onload = function() {
+    window.onload = function () {
       overlay.classList.add('loaded');
       body.classList.add('loaded');
-      setTimeout(function() {
+      setTimeout(function () {
         overlay.classList.add('invisible');
         revealElements();
       }, 1500);
     };
 
-    setTimeout(function() {
+    setTimeout(function () {
       overlay.classList.remove('loaded');
       body.classList.remove('loaded');
-      setTimeout(function() {
+      setTimeout(function () {
         overlay.classList.add('invisible');
         revealElements();
       }, 1500);
@@ -641,14 +641,14 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 
 /*Chute*/
 if (window.DeviceOrientationEvent && isTouchDevice()) {
-  window.addEventListener("orientationchange", function() {
+  window.addEventListener("orientationchange", function () {
     var fallDiv = document.querySelector(".fall");
     if (fallDiv) {
-        if (window.orientation === 0 || window.orientation === 180) {
-            fallDiv.classList.add("hide");
-        } else {
-            fallDiv.classList.remove("hide");
-        }
+      if (window.orientation === 0 || window.orientation === 180) {
+        fallDiv.classList.add("hide");
+      } else {
+        fallDiv.classList.remove("hide");
+      }
     }
   });
 }
@@ -679,12 +679,12 @@ document.addEventListener('DOMContentLoaded', function () {
 /*Défilement Dialogues*/
 document.querySelectorAll('.textbox__text').forEach(button => {
   button.addEventListener('click', function () {
-      let currentEl = this.closest('.textbox__underel');
-      let nextEl = currentEl.nextElementSibling;
+    let currentEl = this.closest('.textbox__underel');
+    let nextEl = currentEl.nextElementSibling;
 
-      if (nextEl) {
-          currentEl.classList.remove('visible');
-          nextEl.classList.add('visible');
-      }
+    if (nextEl) {
+      currentEl.classList.remove('visible');
+      nextEl.classList.add('visible');
+    }
   });
 });

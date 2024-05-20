@@ -1,11 +1,11 @@
-.jeu{
+.jeu {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: calc(150px - 112px) 36px 0 36px;
     position: relative;
 
-    &__title{
+    &__title {
         padding-top: 112px;
     }
 
@@ -20,16 +20,16 @@
         z-index: -1;
     }
 
-    &__list{
+    &__list {
         max-width: 354px;
         z-index: 9;
     }
 
-    &__img1{
+    &__img1 {
         margin: 84px 0;
     }
 
-    &__img2{
+    &__img2 {
         display: none;
     }
 
@@ -43,13 +43,13 @@
         font-size: 20px;
         padding: 11px 47px;
         position: relative;
-    
+
         &:hover {
             @media (min-width: 1300px) {
                 transform: scale(1.1);
             }
         }
-    
+
         &::before {
             content: '';
             position: absolute;
@@ -63,11 +63,11 @@
         }
     }
 
-    &__container{
+    &__container {
         transform: rotate(-10deg);
     }
 
-    &__follow{
+    &__follow {
         display: flex;
         justify-content: center;
         transition: transform 0.1s ease;
@@ -75,67 +75,67 @@
 }
 
 @media(min-width: 600px) {
-    .jeu{
+    .jeu {
         padding: calc(199px - 112px) 84px 0 84px;
 
-        &__list{
+        &__list {
             max-width: 472px;
         }
 
-        &__btn{
+        &__btn {
             font-size: 27px;
             padding: 15px 63px 15px 63px;
         }
 
-        &__img1{
+        &__img1 {
             margin: 112px 0;
         }
     }
 }
 
 @media(min-width: 1300px) {
-    .jeu{
+    .jeu {
         padding: calc(354px - 112px) 12vw 0 12vw;
         flex-direction: row-reverse;
         justify-content: space-between;
 
-        &__img1{
+        &__img1 {
             display: none;
         }
 
-        &__img2{
+        &__img2 {
             display: block;
         }
 
-        &__btn{
+        &__btn {
             width: fit-content;
             margin: 0;
             margin-top: 47px;
         }
 
-        &__list{
+        &__list {
             margin-bottom: 112px;
         }
     }
 }
 
 @media(min-width: 1900px) {
-    .jeu{
-        &__btn{
+    .jeu {
+        &__btn {
             margin-top: 63px;
         }
     }
 }
 
 @media(min-width: 2200px) {
-    .jeu{
+    .jeu {
         padding: calc(472px - 112px) 12vw 0 12vw;
 
-        &__list{
+        &__list {
             max-width: 629px;
         }
 
-        &__btn{
+        &__btn {
             margin-top: 84px;
             font-size: 36px;
             padding: 20px 84px 20px 84px;

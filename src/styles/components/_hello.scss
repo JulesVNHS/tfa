@@ -1,29 +1,29 @@
-.hello{
+.hello {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: calc(150px - 112px) 36px 150px 36px;
     position: relative;
 
-    &__list{
+    &__list {
         margin-bottom: 84px;
         max-width: 354px;
         z-index: 9;
     }
 
-    &__el:nth-child(2){
+    &__el:nth-child(2) {
         margin-bottom: 20px;
     }
 
-    &__container{
+    &__container {
         transform: rotate(10deg);
     }
 
-    &__me{
+    &__me {
         width: 266px;
     }
 
-    &__title{
+    &__title {
         padding-top: 112px;
     }
 
@@ -38,41 +38,41 @@
         z-index: -1;
     }
 
-    &__follow{
+    &__follow {
         transition: transform 0.1s ease;
     }
 }
 
 @media(min-width: 600px) {
-    .hello{
+    .hello {
         padding: calc(199px - 112px) 84px 199px 84px;
 
-        &__list{
+        &__list {
             margin-bottom: 112px;
             max-width: 472px;
         }
 
-        &__el:nth-child(2){
+        &__el:nth-child(2) {
             margin-bottom: 27px;
         }
 
-        &__me{
+        &__me {
             width: 354px;
         }
     }
 }
 
 @media(min-width: 1300px) {
-    .hello{
+    .hello {
         padding: calc(354px - 112px) 12vw 354px 12vw;
         flex-direction: row;
         justify-content: space-between;
-    
-        &__list{
+
+        &__list {
             margin-bottom: 0;
         }
 
-        &__me{
+        &__me {
             width: 30vw;
             padding-top: 112px;
         }
@@ -80,27 +80,27 @@
 }
 
 @media(min-width: 1900px) {
-    .hello{
-        &__me{
+    .hello {
+        &__me {
             width: 629px;
         }
     }
 }
 
 @media(min-width: 2200px) {
-    .hello{
+    .hello {
         padding: calc(472px - 112px) 12vw 472px 12vw;
 
-        &__list{
+        &__list {
             margin-bottom: 112px;
             max-width: 629px;
         }
 
-        &__el:nth-child(2){
+        &__el:nth-child(2) {
             margin-bottom: 36px;
         }
 
-        &__me{
+        &__me {
             width: 35vw;
         }
     }

@@ -1,5 +1,5 @@
-.textbox{
-    &__list{
+.textbox {
+    &__list {
         background-color: $c-bg2;
         border-radius: 15px;
         position: relative;
@@ -19,7 +19,8 @@
 
             @media(min-width: 600px) {
                 border-radius: 20px;
-            }   
+            }
+
             @media(min-width: 2200px) {
                 border-radius: 27px;
             }
@@ -38,7 +39,7 @@
             right: 10%;
             transform: translateX(50%) translateY(50%);
             z-index: 2;
-            animation: continue 0.5s infinite;
+            animation: continue 1s infinite;
             transition: transform opacity 0.2s ease;
             opacity: 1;
 
@@ -53,16 +54,19 @@
             }
 
             @keyframes continue {
-                0%{
+                0% {
                     transform: translateX(50%) translateY(50%);
+                    opacity: 1;
                 }
 
-                50%{
+                50% {
                     transform: translateX(50%) translateY(60%);
+                    opacity: 0.5;
                 }
 
-                100%{
+                100% {
                     transform: translateX(50%) translateY(50%);
+                    opacity: 1;
                 }
             }
         }
@@ -70,19 +74,19 @@
         @media(min-width: 600px) {
             border-radius: 20px;
         }
-    
+
         @media(min-width: 2200px) {
             border-radius: 27px;
         }
     }
 
-    &__el{
-        &.hide{
+    &__el {
+        &.hide {
             display: none;
         }
     }
 
-    &__text{
+    &__text {
         position: relative;
         font-size: 20px;
         font-family: $font-text;
@@ -95,7 +99,7 @@
         transform: translateY(-20px);
         transition: opacity 0.2s ease, transform 0.2s ease;
 
-        &.animation{
+        &.animation {
             animation: appear 1s forwards;
         }
 
@@ -107,7 +111,7 @@
             padding: 47px 27px;
             font-size: 27px;
         }
-    
+
         @media(min-width: 2200px) {
             padding: 63px 36px;
             font-size: 36px;
@@ -118,6 +122,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -125,10 +130,10 @@
         }
     }
 
-    &__underel{
+    &__underel {
         display: none;
 
-        &.visible{
+        &.visible {
             display: block;
         }
     }

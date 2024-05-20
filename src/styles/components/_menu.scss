@@ -1,4 +1,4 @@
-.menu{
+.menu {
     position: fixed;
     width: 100%;
     box-sizing: border-box;
@@ -11,69 +11,69 @@
     justify-content: space-evenly;
     align-items: center;
     font-family: $font-title;
-    padding:  20px;
+    padding: 20px;
     background: $c-bg;
     border-bottom: 6px solid $c-btn;
 
-    &__list{
+    &__list {
         display: flex;
         flex-direction: row;
     }
 
-    &__el{
+    &__el {
         margin-right: 20px;
         opacity: 0.6;
 
-        &--active{
+        &--active {
             opacity: 1;
         }
     }
 
-    &__el:last-child{
+    &__el:last-child {
         margin-right: 0;
     }
 
-    &__logo img{
+    &__logo img {
         max-height: 36px;
         width: fit-content;
     }
 
-    &__btn{
+    &__btn {
         display: none;
     }
 
     &--hidden {
         transform: translateY(-100%);
     }
-    
+
     &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: inherit;
-      z-index: -1;
-      animation: scribble infinite 0.4s;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: inherit;
+        z-index: -1;
+        animation: scribble infinite 0.4s;
     }
 }
 
 @media(min-width: 600px) {
-    .menu{
+    .menu {
         font-size: 27px;
         justify-content: space-between;
 
-        &__el{
+        &__el {
             margin-right: 36px;
         }
 
-        &__btn{
+        &__btn {
             display: block;
             font-size: 20px;
             padding: 11px 47px 11px 47px;
             position: relative;
-        
+
             &::before {
                 content: '';
                 position: absolute;
@@ -87,43 +87,43 @@
             }
         }
 
-        &__logo img{
+        &__logo img {
             max-height: 47px;
         }
     }
 }
 
 @media(min-width: 1300px) {
-  .menu{
-    padding:  20px 47px;
+    .menu {
+        padding: 20px 47px;
 
-    &__container{
-        width: 143px;
-        display: flex;
-    }
+        &__container {
+            width: 143px;
+            display: flex;
+        }
 
-    &__btn{
-        transition: transform 0.2s ease;
+        &__btn {
+            transition: transform 0.2s ease;
 
-        &:hover{
-            transform: scale(1.1);
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &__logo {
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &__el {
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
-
-    &__logo{
-        transition: transform 0.2s ease;
-
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
-    
-    &__el{
-        transition: opacity 0.2s ease;
-
-        &:hover{
-            opacity: 0.8;
-        }
-    }
-  }
 }

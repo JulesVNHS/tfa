@@ -9,7 +9,7 @@
   background-color: rgba($c-btn, 0.7);
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: $c-btn;
   }
 }
@@ -18,7 +18,7 @@
   background-color: $c-bg2;
 }
 
-html{
+html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -32,7 +32,7 @@ body {
   color: #ffffff;
   overflow-x: hidden;
 
-  &::before{
+  &::before {
     content: "";
     position: fixed;
     top: 0;
@@ -46,17 +46,18 @@ body {
   }
 
   &.loaded {
-		overflow-y: auto;
-	}
+    overflow-y: auto;
+  }
 
   &.no-scroll {
     overflow: hidden;
   }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .body::before {
-      background-image: url("../assets/images/texture1@2x.png");
+    background-image: url("../assets/images/texture1@2x.png");
   }
 }
 
@@ -70,15 +71,15 @@ footer {
   padding: 27px 0 15px 0;
   margin-top: 266px;
 
-  & img{
+  & img {
     vertical-align: middle;
   }
 
-  & small{
+  & small {
     margin-top: 15px;
   }
 
-  & small a{
+  & small a {
     text-decoration: underline;
   }
 
@@ -96,19 +97,19 @@ footer {
   }
 }
 
-p{
+p {
   line-height: 140%;
   margin: 0;
 }
 
-h1{
+h1 {
   font-family: $font-title;
   color: $c-title;
   margin: 0;
   animation: scribble infinite 0.4s;
 }
 
-h2{
+h2 {
   font-size: 84px;
   font-family: $font-title;
   color: $c-title;
@@ -118,27 +119,27 @@ h2{
   line-height: 120%;
 }
 
-h3{
+h3 {
   font-family: $font-title;
   color: $c-title;
   margin: 0;
 }
 
-.filtre--titre{
+.filtre--titre {
   display: none;
 }
 
-small{
+small {
   font-size: 15px
 }
 
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-a{
+a {
   color: $c-text;
   text-decoration: none;
 }
@@ -151,11 +152,19 @@ button {
   margin: 0;
 }
 
-.move{
+.move {
   --rotatex: 0deg;
   --rotatey: 0deg;
   transform: rotateX(var(--rotatex)) rotateY(var(--rotatey));
   transition: transform 0.1s ease;
+}
+
+.canvas-lampe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
 @media(min-width: 600px) {
@@ -164,11 +173,11 @@ button {
   }
 
 
-  p{
+  p {
     font-size: 27px;
   }
-  
-  h2{
+
+  h2 {
     font-size: 112px;
     margin-bottom: 47px;
   }
@@ -178,10 +187,10 @@ button {
   footer {
     margin-top: 472px;
 
-    & small a{
+    & small a {
       transition: opacity 0.2s ease;
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
     }
@@ -189,7 +198,7 @@ button {
 }
 
 @media(min-width: 1900px) {
-  h2{
+  h2 {
     font-size: 150px;
     margin-bottom: 63px;
   }
@@ -200,11 +209,11 @@ button {
     margin-top: 629px;
   }
 
-  p{
+  p {
     font-size: 36px;
   }
 
-  h2{
+  h2 {
     font-size: 199px;
     margin-bottom: 84px;
   }
@@ -214,15 +223,19 @@ button {
   0% {
     filter: url("#scribble--0");
   }
+
   25% {
     filter: url("#scribble--1");
   }
+
   50% {
     filter: url("#scribble--2");
   }
+
   75% {
     filter: url("#scribble--3");
   }
+
   100% {
     filter: url("#scribble--4");
   }
