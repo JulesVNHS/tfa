@@ -651,6 +651,9 @@ button {
     padding: 20px 84px 20px 84px;
   }
 }
+.projets__btn.disabled {
+  pointer-events: none;
+}
 
 @media (min-width: 600px) {
   .projets {
