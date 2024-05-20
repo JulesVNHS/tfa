@@ -5,7 +5,7 @@
         position: relative;
         z-index: 9;
 
-        &:before {
+        &::before {
             content: '';
             position: absolute;
             top: 0;
@@ -22,6 +22,48 @@
             }   
             @media(min-width: 2200px) {
                 border-radius: 27px;
+            }
+        }
+
+        &::after {
+            content: "";
+            background-image: url('../assets/images/indicateur.svg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            height: fit-content;
+            height: 11px;
+            width: 20px;
+            bottom: 15%;
+            right: 10%;
+            transform: translateX(50%) translateY(50%);
+            z-index: 2;
+            animation: continue 0.5s infinite;
+            transition: transform opacity 0.2s ease;
+            opacity: 1;
+
+            @media(min-width: 600px) {
+                height: 15px;
+                width: 27px;
+            }
+
+            @media(min-width: 2200px) {
+                height: 20px;
+                width: 36px;
+            }
+
+            @keyframes continue {
+                0%{
+                    transform: translateX(50%) translateY(50%);
+                }
+
+                50%{
+                    transform: translateX(50%) translateY(60%);
+                }
+
+                100%{
+                    transform: translateX(50%) translateY(50%);
+                }
             }
         }
 

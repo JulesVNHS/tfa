@@ -640,7 +640,7 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 }
 
 /*Chute*/
-if (window.DeviceOrientationEvent) {
+if (window.DeviceOrientationEvent && isTouchDevice()) {
   window.addEventListener("orientationchange", function() {
     var fallDiv = document.querySelector(".fall");
     if (fallDiv) {

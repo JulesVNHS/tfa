@@ -4,7 +4,7 @@
     box-sizing: border-box;
     top: 0;
     transform: translateY(0%);
-    z-index: 10;
+    z-index: 15;
     transition: transform 0.5s ease;
     display: flex;
     flex-direction: row;
@@ -46,7 +46,7 @@
         transform: translateY(-100%);
     }
     
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       top: 0;
