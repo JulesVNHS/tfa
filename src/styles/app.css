@@ -1380,6 +1380,12 @@ button {
   padding: 36px 20px;
   text-align: start;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.textbox__text.animation {
+  animation: appear 1s forwards;
 }
 .textbox__text span {
   display: block;
@@ -1394,6 +1400,16 @@ button {
   .textbox__text {
     padding: 63px 36px;
     font-size: 36px;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 .textbox__underel {

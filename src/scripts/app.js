@@ -537,11 +537,12 @@ const presentation = document.querySelector('.projets__presentation');
 const presentationLink = document.querySelector('.projets__presentation a');
 const boutonBack = document.querySelector('.projets__back');
 const projets = document.getElementById('projets');
-const textElement = document.querySelectorAll('.textbox__el');
+const textboxElement = document.querySelectorAll('.textbox__el');
+const textElement = document.querySelectorAll('.textbox__text');
 const firstContent = document.querySelectorAll('.textbox__underel:first-child');
 const allContent = document.querySelectorAll('.textbox__underel');
 
-if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets && textElement && firstContent) {
+if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets && textboxElement && firstContent) {
   boutonsProjets.forEach(bouton => {
     bouton.addEventListener('click', () => {
       const src = bouton.querySelector('img')?.getAttribute('src');
@@ -584,6 +585,9 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 
               setTimeout(() => {
                 presentation.classList.add('fade-in');
+                textElement.forEach(text => {
+                  text.classList.add('animation');
+                });
               }, 200);
             }
           }, 50);
@@ -595,12 +599,15 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
   if (boutonBack) {
     boutonBack.addEventListener('click', () => {
       presentation.classList.remove('fade-in');
+      textElement.forEach(text => {
+        text.classList.remove('animation');
+      });
 
       setTimeout(() => {
         if (presentation && listeProjets && titleProjets) {
           presentation.classList.add('hide');
-          textElement.forEach(texte => {
-            texte.classList.add('hide');
+          textboxElement.forEach(textbox => {
+            textbox.classList.add('hide');
           });
           listeProjets.classList.remove('hide');
           titleProjets.classList.remove('discussion');
