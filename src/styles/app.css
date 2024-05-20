@@ -1358,6 +1358,18 @@ button {
     border-radius: 27px;
   }
 }
+.textbox__list::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 27px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-image: url("../assets/images/indicateur.svg");
+  background-size: cover;
+  z-index: 2;
+}
 @media (min-width: 600px) {
   .textbox__list {
     border-radius: 20px;

@@ -32,6 +32,19 @@ body {
   color: #ffffff;
   overflow-x: hidden;
 
+  &::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/images/texture1.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
   &.loaded {
 		overflow-y: auto;
 	}
@@ -41,9 +54,15 @@ body {
   }
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .body::before {
+      background-image: url("../assets/images/texture1@2x.png");
+  }
+}
+
 footer {
   position: relative;
-  z-index: 5;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;

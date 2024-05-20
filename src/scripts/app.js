@@ -174,7 +174,7 @@ try {
     if (window.getComputedStyle(__content).getPropertyValue('position') !== 'relative') {
         __content.style.position = 'relative';
     }
-    __canvas_DOM.setAttribute("style", "position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;");
+    __canvas_DOM.setAttribute("style", "position: fixed; top: 0; left: 0; pointer-events: none; z-index: 5;");
     __content.appendChild(__canvas_DOM);
 } catch (e) {
     console.info("Une exception s'est produite : " + e);
