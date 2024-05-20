@@ -546,6 +546,7 @@ const presentation = document.querySelector('.projets__presentation');
 const presentationLink = document.querySelector('.projets__presentation a');
 const boutonBack = document.querySelector('.projets__back');
 const projets = document.getElementById('projets');
+const textboxList = document.querySelector('.textbox__list');
 const textboxElement = document.querySelectorAll('.textbox__el');
 const textElement = document.querySelectorAll('.textbox__text');
 const firstContent = document.querySelectorAll('.textbox__underel:first-child');
@@ -585,6 +586,7 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
       setTimeout(() => {
         if (listeProjets && presentation && titleProjets) {
           listeProjets.classList.add('hide');
+          textboxList.classList.remove('hide');
           presentation.classList.remove('hide');
           titleProjets.classList.add('discussion');
 
@@ -694,6 +696,11 @@ document.querySelectorAll('.textbox__text').forEach(button => {
     if (nextEl) {
       currentEl.classList.remove('visible');
       nextEl.classList.add('visible');
+
+      // Vérifiez si le prochain élément est le dernier
+      if (!nextEl.nextElementSibling) {
+        document.querySelector('.textbox__list').classList.add('hide');
+      }
     }
   });
 });

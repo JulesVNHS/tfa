@@ -71,6 +71,10 @@
             }
         }
 
+        &.hide::after{
+            content: none;
+        }
+
         @media(min-width: 600px) {
             border-radius: 20px;
         }
