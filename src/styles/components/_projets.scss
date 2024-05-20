@@ -56,7 +56,7 @@
 
     &__el {
         display: none;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.5s ease;
     }
 
     &__el:first-child {

@@ -580,7 +580,6 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
       listItems.forEach(item => {
         setTimeout(() => {
           if (item) {
-            item.style.transition = 'transform opacity 0.5s ease';
             item.style.opacity = '0';
           }
         }, Math.random() * 500);
@@ -640,7 +639,6 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
           listItems.forEach(item => {
             setTimeout(() => {
               if (item) {
-                item.style.transition = 'transform opacity 0.5s ease';
                 item.style.opacity = '1';
               }
             }, Math.random() * 500);
