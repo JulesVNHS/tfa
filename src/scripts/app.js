@@ -555,6 +555,9 @@ const allContent = document.querySelectorAll('.textbox__underel');
 if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets && textboxElement && firstContent) {
   boutonsProjets.forEach(bouton => {
     bouton.addEventListener('click', () => {
+      // Désactiver tous les boutons
+      boutonsProjets.forEach(b => b.classList.add('disabled'));
+
       const src = bouton.querySelector('img')?.getAttribute('src');
       const srcset = bouton.querySelector('img')?.getAttribute('srcset');
       const alt = bouton.querySelector('img')?.getAttribute('alt');
@@ -599,6 +602,10 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
                 textElement.forEach(text => {
                   text.classList.add('animation');
                 });
+
+                setTimeout(() => {
+                  boutonsProjets.forEach(b => b.classList.remove('disabled'));
+                }, 2000);
               }, 200);
             }
           }, 50);
