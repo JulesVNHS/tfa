@@ -235,14 +235,23 @@ function initializeCanvas() {
       }
 
       function animateSize(targetSize) {
+        var duration = 300; // Durée de l'animation en millisecondes
         var startTime = performance.now();
         var startSize = flashlight_size.outside;
 
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
         function updateSize(timestamp) {
-          var progress = timestamp - startTime;
-          if (progress < 300) {
-            flashlight_size.outside = startSize + (targetSize - startSize) * (progress / 500);
-            draw();
+          var elapsed = timestamp - startTime;
+          var progress = Math.min(elapsed / duration, 1); // Progression entre 0 et 1
+          var easingProgress = easeInOutQuad(progress);
+
+          flashlight_size.outside = startSize + (targetSize - startSize) * easingProgress;
+          draw();
+
+          if (progress < 1) {
             requestAnimationFrame(updateSize);
           } else {
             flashlight_size.outside = targetSize;
