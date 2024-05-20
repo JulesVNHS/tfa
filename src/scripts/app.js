@@ -537,9 +537,11 @@ const presentation = document.querySelector('.projets__presentation');
 const presentationLink = document.querySelector('.projets__presentation a');
 const boutonBack = document.querySelector('.projets__back');
 const projets = document.getElementById('projets');
-const tousLesTextes = document.querySelectorAll('.textbox__el');
+const textElement = document.querySelectorAll('.textbox__el');
+const firstContent = document.querySelectorAll('.textbox__underel:first-child');
+const allContent = document.querySelectorAll('.textbox__underel');
 
-if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets) {
+if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets && textElement && firstContent) {
   boutonsProjets.forEach(bouton => {
     bouton.addEventListener('click', () => {
       const src = bouton.querySelector('img')?.getAttribute('src');
@@ -597,11 +599,17 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
       setTimeout(() => {
         if (presentation && listeProjets && titleProjets) {
           presentation.classList.add('hide');
-          tousLesTextes.forEach(texte => {
+          textElement.forEach(texte => {
             texte.classList.add('hide');
           });
           listeProjets.classList.remove('hide');
           titleProjets.classList.remove('discussion');
+          allContent.forEach(el => {
+            el.classList.remove('visible');
+          });
+          firstContent.forEach(el => {
+            el.classList.add('visible');
+          });
 
           const listItems = Array.from(listeProjets.children);
           listItems.forEach(item => {
@@ -661,4 +669,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/*Effet d'écriture*/
+/*Défilement Dialogues*/
+document.querySelectorAll('.textbox__text').forEach(button => {
+  button.addEventListener('click', function () {
+      let currentEl = this.closest('.textbox__underel');
+      let nextEl = currentEl.nextElementSibling;
+
+      if (nextEl) {
+          currentEl.classList.remove('visible');
+          nextEl.classList.add('visible');
+      }
+  });
+});

@@ -88,6 +88,7 @@ h2 {
   margin: 0;
   margin-bottom: 36px;
   animation: scribble infinite 0.4s;
+  line-height: 120%;
 }
 
 h3 {
@@ -595,46 +596,6 @@ button {
 @media (min-width: 600px) {
   .projets__presentation {
     padding-top: 99px;
-  }
-}
-.projets__text {
-  background-color: #09030D;
-  padding: 36px 20px;
-  border-radius: 15px;
-  position: relative;
-}
-.projets__text:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border: 6px solid #71289F;
-  border-radius: 15px;
-  z-index: 1;
-  animation: scribble infinite 0.4s;
-}
-@media (min-width: 600px) {
-  .projets__text:before {
-    border-radius: 20px;
-  }
-}
-@media (min-width: 2200px) {
-  .projets__text:before {
-    border-radius: 27px;
-  }
-}
-@media (min-width: 600px) {
-  .projets__text {
-    padding: 47px 27px;
-    border-radius: 20px;
-  }
-}
-@media (min-width: 2200px) {
-  .projets__text {
-    padding: 63px 36px;
-    border-radius: 27px;
   }
 }
 .projets__back {
@@ -1368,4 +1329,76 @@ button {
 }
 .fall.hide {
   display: none;
+}
+
+.textbox__list {
+  background-color: #09030D;
+  border-radius: 15px;
+  position: relative;
+}
+.textbox__list:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 6px solid #71289F;
+  border-radius: 15px;
+  z-index: 1;
+  animation: scribble infinite 0.4s;
+}
+@media (min-width: 600px) {
+  .textbox__list:before {
+    border-radius: 20px;
+  }
+}
+@media (min-width: 2200px) {
+  .textbox__list:before {
+    border-radius: 27px;
+  }
+}
+@media (min-width: 600px) {
+  .textbox__list {
+    border-radius: 20px;
+  }
+}
+@media (min-width: 2200px) {
+  .textbox__list {
+    border-radius: 27px;
+  }
+}
+.textbox__el.hide {
+  display: none;
+}
+.textbox__text {
+  position: relative;
+  font-size: 20px;
+  font-family: "Eczar", serif;
+  line-height: 140%;
+  color: #ffffff;
+  padding: 36px 20px;
+  text-align: start;
+  z-index: 1;
+}
+.textbox__text span {
+  display: block;
+}
+@media (min-width: 600px) {
+  .textbox__text {
+    padding: 47px 27px;
+    font-size: 27px;
+  }
+}
+@media (min-width: 2200px) {
+  .textbox__text {
+    padding: 63px 36px;
+    font-size: 36px;
+  }
+}
+.textbox__underel {
+  display: none;
+}
+.textbox__underel.visible {
+  display: block;
 }/*# sourceMappingURL=app.css.map */

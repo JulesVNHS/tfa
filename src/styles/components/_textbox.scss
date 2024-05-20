@@ -1,7 +1,6 @@
 .textbox{
     &__list{
         background-color: $c-bg2;
-        padding: 36px 20px;
         border-radius: 15px;
         position: relative;
 
@@ -27,12 +26,10 @@
           }
     
         @media(min-width: 600px) {
-            padding: 47px 27px;
             border-radius: 20px;
         }
     
         @media(min-width: 2200px) {
-            padding: 63px 36px;
             border-radius: 27px;
         }
     }
@@ -44,7 +41,34 @@
     }
 
     &__text{
+        position: relative;
+        font-size: 20px;
+        font-family: $font-text;
+        line-height: 140%;
+        color: $c-text;
+        padding: 36px 20px;
+        text-align: start;
+        z-index: 1;
+
         & span {
+            display: block;
+        }
+
+        @media(min-width: 600px) {
+            padding: 47px 27px;
+            font-size: 27px;
+        }
+    
+        @media(min-width: 2200px) {
+            padding: 63px 36px;
+            font-size: 36px;
+        }
+    }
+
+    &__underel{
+        display: none;
+
+        &.visible{
             display: block;
         }
     }
