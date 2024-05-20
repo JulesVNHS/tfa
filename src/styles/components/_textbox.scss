@@ -3,6 +3,7 @@
         background-color: $c-bg2;
         border-radius: 15px;
         position: relative;
+        z-index: 9;
 
         &:before {
             content: '';
@@ -23,7 +24,7 @@
                 border-radius: 27px;
             }
         }
-        
+
         @media(min-width: 600px) {
             border-radius: 20px;
         }
