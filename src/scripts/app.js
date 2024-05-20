@@ -537,6 +537,7 @@ const presentation = document.querySelector('.projets__presentation');
 const presentationLink = document.querySelector('.projets__presentation a');
 const boutonBack = document.querySelector('.projets__back');
 const projets = document.getElementById('projets');
+const tousLesTextes = document.querySelectorAll('.textbox__el');
 
 if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets) {
   boutonsProjets.forEach(bouton => {
@@ -596,6 +597,9 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
       setTimeout(() => {
         if (presentation && listeProjets && titleProjets) {
           presentation.classList.add('hide');
+          tousLesTextes.forEach(texte => {
+            texte.classList.add('hide');
+          });
           listeProjets.classList.remove('hide');
           titleProjets.classList.remove('discussion');
 
@@ -633,3 +637,28 @@ if (window.DeviceOrientationEvent) {
     }
   });
 }
+
+/*Boîte de dialogues*/
+document.addEventListener('DOMContentLoaded', function () {
+  const boutonsProjets = document.querySelectorAll('.projets__btn');
+
+  boutonsProjets.forEach(bouton => {
+    bouton.addEventListener('click', () => {
+      const classeBouton = bouton.classList[1];
+      const classeTexteCorrespondant = `textbox__el--${classeBouton.replace('projets__btn--', '')}`;
+      const texteCorrespondant = document.querySelector(`.${classeTexteCorrespondant}`);
+
+      texteCorrespondant.classList.toggle('hide');
+
+      const autresTextes = document.querySelectorAll('.textbox__el:not(.' + classeTexteCorrespondant + ')');
+      autresTextes.forEach(texte => {
+        texte.classList.add('hide');
+      });
+
+      const presentationProjet = document.querySelector('.projets__presentation');
+      presentationProjet.classList.toggle('hide');
+    });
+  });
+});
+
+/*Effet d'écriture*/

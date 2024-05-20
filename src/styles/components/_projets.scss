@@ -144,44 +144,6 @@
         }
     }
 
-    &__text{
-        background-color: $c-bg2;
-        padding: 36px 20px;
-        border-radius: 15px;
-        position: relative;
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            border: 6px solid $c-btn;
-            border-radius: 15px;
-            z-index: 1;
-            animation: scribble infinite 0.4s;
-
-            @media(min-width: 600px) {
-                border-radius: 20px;
-            }
-    
-            @media(min-width: 2200px) {
-                border-radius: 27px;
-            }
-          }
-
-        @media(min-width: 600px) {
-            padding: 47px 27px;
-            border-radius: 20px;
-        }
-
-        @media(min-width: 2200px) {
-            padding: 63px 36px;
-            border-radius: 27px;
-        }
-    }
-
     &__back{
         margin-top: 36px;
         display: block;
