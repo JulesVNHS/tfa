@@ -1,5 +1,42 @@
 "use strict";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+/*Animation GSAP*/
+const sections = document.querySelectorAll("section");
+const menuLinks = document.querySelectorAll(".menu__el");
+
+function updateMenuActiveState(activeIndex) {
+  menuLinks.forEach((item, index) => {
+    if (index === activeIndex) {
+      item.classList.add("menu__el--active");
+    } else {
+      item.classList.remove("menu__el--active");
+    }
+  });
+}
+
+sections.forEach((section, index) => {
+  const trigger = ScrollTrigger.create({
+    trigger: section,
+    start: "top center",
+    end: "bottom center",
+    onEnter: () => {
+      updateMenuActiveState(index - 1);
+    },
+    onLeaveBack: () => {
+      updateMenuActiveState(index - 2);
+    },
+  });
+
+  const resizeObserver = new ResizeObserver(() => {
+    trigger.refresh();
+  });
+  resizeObserver.observe(section);
+});
+
 /*Vérification Tactile*/
 function isDesktop() {
   return !isTouchDevice();
@@ -117,7 +154,7 @@ if (isDesktop()) {
 /* Mouvement Gyroscope*/
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   const images = document.querySelectorAll('.move');
-  const scaleFactor = 0.5;
+  const scaleFactor = -0.5;
 
   window.addEventListener('deviceorientation', function (event) {
     const gamma = event.gamma;
@@ -125,7 +162,7 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
 
     images.forEach(image => {
       image.style.transformOrigin = 'center';
-      image.style.transform = `rotate(${-rotate}deg)`;
+      image.style.transform = `rotate(${rotate}deg)`;
     });
   });
 }
@@ -235,7 +272,7 @@ function initializeCanvas() {
       }
 
       function animateSize(targetSize) {
-        var duration = 300; // Durée de l'animation en millisecondes
+        var duration = 300;
         var startTime = performance.now();
         var startSize = flashlight_size.outside;
 
@@ -245,7 +282,7 @@ function initializeCanvas() {
 
         function updateSize(timestamp) {
           var elapsed = timestamp - startTime;
-          var progress = Math.min(elapsed / duration, 1); // Progression entre 0 et 1
+          var progress = Math.min(elapsed / duration, 1);
           var easingProgress = easeInOutQuad(progress);
 
           flashlight_size.outside = startSize + (targetSize - startSize) * easingProgress;
@@ -555,7 +592,7 @@ const allContent = document.querySelectorAll('.textbox__underel');
 if (titleProjets && boutonsProjets && listeProjets && presentation && presentationLink && boutonBack && projets && textboxElement && firstContent) {
   boutonsProjets.forEach(bouton => {
     bouton.addEventListener('click', () => {
-      // Désactiver tous les boutons
+
       boutonsProjets.forEach(b => b.classList.add('disabled'));
 
       const src = bouton.querySelector('img')?.getAttribute('src');
@@ -702,7 +739,6 @@ document.querySelectorAll('.textbox__text').forEach(button => {
       currentEl.classList.remove('visible');
       nextEl.classList.add('visible');
 
-      // Vérifiez si le prochain élément est le dernier
       if (!nextEl.nextElementSibling) {
         document.querySelector('.textbox__list').classList.add('hide');
       }

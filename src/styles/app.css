@@ -238,6 +238,7 @@ button {
 .menu__el {
   margin-right: 20px;
   opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
 .menu__el--active {
   opacity: 1;
@@ -316,9 +317,6 @@ button {
   }
   .menu__logo:hover {
     transform: scale(1.1);
-  }
-  .menu__el {
-    transition: opacity 0.2s ease;
   }
   .menu__el:hover {
     opacity: 0.8;
@@ -530,6 +528,7 @@ button {
 }
 .projets__el {
   display: none;
+  transition: transform 0.3s ease, opacity 0.5s ease;
 }
 .projets__el:first-child {
   display: block;
@@ -706,9 +705,6 @@ button {
     row-gap: 84px;
     -moz-column-gap: 84px;
          column-gap: 84px;
-  }
-  .projets__el {
-    transition: transform 0.3s ease;
   }
   .projets__el:first-child {
     transform: translateX(20px) translatey(20px) rotate(10deg) scale(0.9);

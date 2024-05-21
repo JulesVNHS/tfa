@@ -23,6 +23,7 @@
     &__el {
         margin-right: 20px;
         opacity: 0.6;
+        transition: opacity 0.2s ease;
 
         &--active {
             opacity: 1;
@@ -119,8 +120,6 @@
         }
 
         &__el {
-            transition: opacity 0.2s ease;
-
             &:hover {
                 opacity: 0.8;
             }
