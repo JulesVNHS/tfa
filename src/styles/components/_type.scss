@@ -54,9 +54,8 @@ body {
   }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-  .body::before {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body::before {
     background-image: url("../assets/images/texture1@2x.png");
   }
 }
