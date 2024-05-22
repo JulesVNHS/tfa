@@ -61,14 +61,14 @@ footer {
   flex-direction: column;
   align-items: center;
   background: #09030D;
-  padding: 27px 0 15px 0;
+  padding: 47px 0 15px 0;
   margin-top: 266px;
 }
 footer img {
   vertical-align: middle;
 }
 footer small {
-  margin-top: 15px;
+  margin-top: 36px;
 }
 footer small a {
   text-decoration: underline;
@@ -280,7 +280,7 @@ button {
   .menu__btn {
     display: block;
     font-size: 20px;
-    padding: 11px 47px 11px 47px;
+    padding: 11px 63px 11px 47px;
     position: relative;
   }
   .menu__btn::before {
@@ -293,6 +293,33 @@ button {
     background-color: #71289F;
     z-index: -1;
     animation: scribble infinite 0.4s;
+  }
+  .menu__btn--play::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 36px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/images/play.svg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 15px;
+    z-index: 1;
+  }
+  .menu__btn--retry::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 36px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/images/refresh.svg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 20px;
+    z-index: 1;
   }
   .menu__logo img {
     max-height: 47px;
@@ -387,7 +414,11 @@ button {
   z-index: 9;
 }
 .hello__el:nth-child(2) {
-  margin-bottom: 20px;
+  margin-bottom: 36px;
+}
+.hello__el:nth-child(2) p {
+  font-size: 27px;
+  line-height: 120%;
 }
 .hello__container {
   transform: rotate(10deg);
@@ -421,7 +452,10 @@ button {
     max-width: 472px;
   }
   .hello__el:nth-child(2) {
-    margin-bottom: 27px;
+    margin-bottom: 47px;
+  }
+  .hello__el:nth-child(2) p {
+    font-size: 36px;
   }
   .hello__me {
     width: 354px;
@@ -455,7 +489,10 @@ button {
     max-width: 629px;
   }
   .hello__el:nth-child(2) {
-    margin-bottom: 36px;
+    margin-bottom: 63px;
+  }
+  .hello__el:nth-child(2) p {
+    font-size: 47px;
   }
   .hello__me {
     width: 35vw;
@@ -618,9 +655,23 @@ button {
   font-family: "Londrina Solid", sans-serif;
   transition: 0.2s ease;
   font-size: 20px;
-  padding: 11px 47px;
+  padding: 11px 63px 11px 47px;
   position: relative;
   z-index: 9;
+}
+.projets__back::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 36px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/cross.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 15px;
+  z-index: 1;
 }
 .projets__back::before {
   content: "";
@@ -641,13 +692,23 @@ button {
 @media (min-width: 600px) {
   .projets__back {
     font-size: 27px;
-    padding: 15px 63px;
+    padding: 15px 84px 15px 63px;
+  }
+  .projets__back::after {
+    content: "";
+    right: 47px;
+    background-size: 20px;
   }
 }
 @media (min-width: 2200px) {
   .projets__back {
     font-size: 36px;
-    padding: 20px 84px 20px 84px;
+    padding: 20px 112px 20px 84px;
+  }
+  .projets__back::after {
+    content: "";
+    right: 63px;
+    background-size: 27px;
   }
 }
 .projets__btn.disabled {
@@ -800,12 +861,14 @@ button {
 .jeu__btn {
   display: block;
   text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0 auto;
   color: #ffffff;
   font-family: "Londrina Solid", sans-serif;
   transition: 0.2s ease;
   font-size: 20px;
-  padding: 11px 47px;
+  padding: 11px 63px 11px 47px;
   position: relative;
 }
 @media (min-width: 1300px) {
@@ -823,6 +886,20 @@ button {
   background-color: #71289F;
   z-index: -1;
   animation: scribble infinite 0.4s;
+}
+.jeu__btn::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 36px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/play.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 15px;
+  z-index: 1;
 }
 .jeu__container {
   transform: rotate(-10deg);
@@ -842,7 +919,12 @@ button {
   }
   .jeu__btn {
     font-size: 27px;
-    padding: 15px 63px 15px 63px;
+    padding: 15px 84px 15px 63px;
+  }
+  .jeu__btn::after {
+    content: "";
+    right: 47px;
+    background-size: 20px;
   }
   .jeu__img1 {
     margin: 112px 0;
@@ -861,8 +943,6 @@ button {
     display: block;
   }
   .jeu__btn {
-    width: -moz-fit-content;
-    width: fit-content;
     margin: 0;
     margin-top: 47px;
   }
@@ -885,7 +965,12 @@ button {
   .jeu__btn {
     margin-top: 84px;
     font-size: 36px;
-    padding: 20px 84px 20px 84px;
+    padding: 20px 112px 20px 84px;
+  }
+  .jeu__btn::after {
+    content: "";
+    right: 63px;
+    background-size: 27px;
   }
 }
 .main--jeu {
@@ -1243,7 +1328,7 @@ button {
   font-family: "Londrina Solid", sans-serif;
   transition: 0.2s ease;
   font-size: 20px;
-  padding: 11px 47px;
+  padding: 11px 63px 11px 47px;
   position: relative;
   z-index: 1;
 }
@@ -1258,6 +1343,20 @@ button {
   z-index: -1;
   animation: scribble infinite 0.4s;
 }
+.overlay .overlayContent .skip::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 36px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/skip.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 15px;
+  z-index: 1;
+}
 @media (min-width: 1300px) {
   .overlay .overlayContent .skip:hover {
     transform: scale(1.1);
@@ -1266,7 +1365,12 @@ button {
 @media (min-width: 600px) {
   .overlay .overlayContent .skip {
     font-size: 27px;
-    padding: 15px 63px;
+    padding: 15px 84px 15px 63px;
+  }
+  .overlay .overlayContent .skip::after {
+    content: "";
+    right: 47px;
+    background-size: 20px;
   }
 }
 
@@ -1323,6 +1427,7 @@ button {
 }
 .fall__title {
   color: #ffffff;
+  margin: 0;
 }
 .fall.hide {
   display: none;
