@@ -693,6 +693,9 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 }
 
 /*Chute*/
+const audioFilePath = '../assets/images/mario-fall.mp3';
+const audio = new Audio(audioFilePath);
+
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   window.addEventListener("orientationchange", function () {
     var fallDiv = document.querySelector(".fall");
@@ -701,6 +704,7 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
         fallDiv.classList.add("hide");
       } else {
         fallDiv.classList.remove("hide");
+        audio.play();
       }
     }
   });
