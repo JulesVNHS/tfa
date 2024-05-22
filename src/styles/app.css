@@ -50,7 +50,7 @@ body.no-scroll {
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .body::before {
+  body::before {
     background-image: url("../assets/images/texture1@2x.png");
   }
 }
@@ -609,7 +609,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
   opacity: 0;
   transition: opacity 0.2s ease;
