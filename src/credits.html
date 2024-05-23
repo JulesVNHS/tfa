@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Crédits - VCard</title>
+    <link rel="shortcut icon" href="assets/images/logo.svg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Présentation de mes projets">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Crédits - VCard">
+    <meta property="og:url" content="https://jules-vanhuysse.be">
+    <meta property="og:image"
+        content="https://media.discordapp.net/attachments/1162394844862361671/1241586777936891935/moivert.jpg?ex=664abd4b&is=66496bcb&hm=ba695e63c90568ec63f89febe902a733bec68b082c8ea2cb3c999baf72348a2d&=&format=webp&width=676&height=676">
+    <meta property="og:description" content="Présentation de mes projets">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/app.js" defer></script>
+</head>
+
+<body class="body--credits">
+    <svg class="filtre--titre">
+        <filter id="scribble--0">
+            <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="0"></feturbulence>
+            <fedisplacementmap id="displacement" in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--1">
+            <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="1"></feturbulence>
+            <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--2">
+            <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="2"></feturbulence>
+            <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--3">
+            <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="3"></feturbulence>
+            <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
+        </filter>
+        <filter id="scribble--4">
+            <feturbulence basefrequency="0.02" numoctaves="3" result="noise" seed="4"></feturbulence>
+            <fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+        </filter>
+    </svg>
+    <header class="expand">
+        <nav class="menu">
+            <div class="menu__container">
+                <a class="menu__logo" href="index.html#home">
+                    <img src="assets/images/logo.svg"
+                        alt="Mon logo qui représente un fantôme blanc avec un casque violet sur la tête">
+                </a>
+            </div>
+            <ul class="menu__list">
+                <li class="menu__el"><a href="https://jules-vanhuysse.be/projets/test/index.html#hello">Hello</a></li>
+                <li class="menu__el"><a href="https://jules-vanhuysse.be/projets/test/index.html#projets">Projets</a>
+                </li>
+                <li class="menu__el"><a href="https://jules-vanhuysse.be/projets/test/index.html#jeu">Skills</a></li>
+            </ul>
+            <a class="menu__btn menu__btn--play" href="game.html">Jouer</a>
+        </nav>
+    </header>
+    <main class="main--credits expand">
+        <div class="credits">
+            <h2>Crédits</h2>
+            <h3>Remerciements</h3>
+            <ul>
+                <li>
+                    <p>Alice&nbsp;Derriks</p>
+                </li>
+                <li>
+                    <p>Guillaume&nbsp;Cabaraux</p>
+                </li>
+                <li>
+                    <p>Maxime&nbsp;Baldan</p>
+                </li>
+                <li>
+                    <p>Nadine&nbsp;Philippart</p>
+                </li>
+            </ul>
+            <h3>Polices utilisées</h3>
+            <ul>
+                <li>
+                    <p>Eczar</p>
+                </li>
+                <li>
+                    <p>Londrina Solid</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer class="footer--jeu">
+        <ul class="footer__list">
+            <li class="footer__el">
+                <a href="https://www.instagram.com/menu.burger/">
+                    <img src="assets/images/insta.svg" alt="un logo instagram">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://github.com/JulesVNHS">
+                    <img src="assets/images/github.svg" alt="un logo github">
+                </a>
+            </li>
+            <li class="footer__el">
+                <a href="https://be.linkedin.com/in/jules-vanhuysse-b52345256">
+                    <img src="assets/images/linkedin.svg" alt="un logo linkedin">
+                </a>
+            </li>
+        </ul>
+        <small>© <a href="index.html#home">Jules Vanhuysse</a> 2024 - <a href="credits.html">Crédits</a></small>
+    </footer>
+</body>
+
+</html>

@@ -108,6 +108,7 @@
                 &::after {
                     content: '';
                     position: absolute;
+                    pointer-events: none;
                     top: 0;
                     right: 36px;
                     width: 100%;

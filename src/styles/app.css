@@ -112,6 +112,7 @@ h3 {
   font-family: "Londrina Solid", sans-serif;
   color: #7BEA44;
   margin: 0;
+  animation: scribble infinite 0.4s;
 }
 
 .filtre--titre {
@@ -311,6 +312,7 @@ button {
   .menu__btn--retry::after {
     content: "";
     position: absolute;
+    pointer-events: none;
     top: 0;
     right: 36px;
     width: 100%;
@@ -1169,7 +1171,7 @@ button {
   color: #ffffff;
   display: block;
   font-size: 20px;
-  padding: 11px 47px 11px 47px;
+  padding: 11px 63px 11px 47px;
   margin: 36px 0;
   position: relative;
   transition: transform 0.2s ease;
@@ -1190,9 +1192,30 @@ button {
   z-index: -1;
   animation: scribble infinite 0.4s;
 }
+.success__btn::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 36px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/play.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 15px;
+  z-index: 1;
+}
 @media (min-width: 600px) {
   .success__btn {
+    font-size: 27px;
     margin-top: 47px;
+    padding: 15px 84px 15px 63px;
+  }
+  .success__btn::after {
+    content: "";
+    right: 47px;
+    background-size: 20px;
   }
 }
 @media (min-width: 1900px) {
@@ -1202,7 +1225,14 @@ button {
 }
 @media (min-width: 2200px) {
   .success__btn {
+    font-size: 36px;
     margin-top: 84px;
+    padding: 20px 112px 20px 84px;
+  }
+  .success__btn::after {
+    content: "";
+    right: 63px;
+    background-size: 27px;
   }
 }
 
@@ -1566,4 +1596,51 @@ button {
 }
 .textbox__underel.visible {
   display: block;
+}
+
+.main--credits {
+  padding: 87px 36px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+@media (min-width: 600px) {
+  .main--credits {
+    padding-top: 99px;
+  }
+}
+
+.credits {
+  z-index: 10;
+}
+.credits h2 {
+  padding-top: 36px;
+}
+.credits h3 {
+  font-size: 27px;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+.credits ul {
+  margin-bottom: 36px;
+}
+@media (min-width: 600px) {
+  .credits h3 {
+    font-size: 36px;
+    margin-bottom: 27px;
+  }
+  .credits ul {
+    margin-bottom: 47px;
+  }
+}
+@media (min-width: 2200px) {
+  .credits h3 {
+    font-size: 47px;
+    margin-bottom: 36px;
+  }
+  .credits ul {
+    margin-bottom: 63px;
+  }
 }/*# sourceMappingURL=app.css.map */
