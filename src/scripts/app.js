@@ -693,15 +693,7 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 }
 
 /*Chute*/
-const audioFilePath = 'assets/sounds/mario-fall.mp3';
-const audio = new Audio(audioFilePath);
 var fallDiv = document.querySelector(".fall");
-
-function enableAudioPlayback() {
-  audio.play().catch(error => {
-    console.error('La lecture audio a échoué :', error);
-  });
-}
 
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   window.addEventListener("orientationchange", function () {
@@ -710,7 +702,6 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
         fallDiv.classList.add("hide");
       } else {
         fallDiv.classList.remove("hide");
-        document.addEventListener('click', enableAudioPlayback);
       }
     }
   });
