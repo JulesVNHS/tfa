@@ -114,7 +114,7 @@
         min-height: 100vh;
         opacity: 0;
         transition: opacity 0.2s ease;
-        padding-top: 87px;
+        padding-top: 112px;
 
         & a {
             margin-bottom: 36px;
@@ -141,10 +141,6 @@
 
         &.fade-in {
             opacity: 1;
-        }
-
-        @media(min-width: 600px) {
-            padding-top: 99px;
         }
     }
 

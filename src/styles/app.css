@@ -617,7 +617,7 @@ button {
   min-height: 100vh;
   opacity: 0;
   transition: opacity 0.2s ease;
-  padding-top: 87px;
+  padding-top: 112px;
 }
 .projets__presentation a {
   margin-bottom: 36px;
@@ -645,11 +645,6 @@ button {
 }
 .projets__presentation.fade-in {
   opacity: 1;
-}
-@media (min-width: 600px) {
-  .projets__presentation {
-    padding-top: 99px;
-  }
 }
 .projets__back {
   margin-top: 36px;
