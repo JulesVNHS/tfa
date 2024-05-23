@@ -703,8 +703,6 @@ function enableAudioPlayback() {
   });
 }
 
-document.addEventListener('click', enableAudioPlayback);
-
 if (window.DeviceOrientationEvent && isTouchDevice()) {
   window.addEventListener("orientationchange", function () {
     if (fallDiv) {

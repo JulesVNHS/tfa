@@ -13,7 +13,7 @@
 
 .credits {
     z-index: 10;
-    
+
     & h2 {
         padding-top: 36px;
     }
@@ -29,6 +29,10 @@
     }
 
     @media (min-width: 600px) {
+        & h2 {
+            padding-top: 47px;
+        }
+
         & h3 {
             font-size: 36px;
             margin-bottom: 27px;
@@ -40,6 +44,10 @@
     }
 
     @media (min-width: 2200px) {
+        & h2 {
+            padding-top: 63px;
+        }
+
         & h3 {
             font-size: 47px;
             margin-bottom: 36px;

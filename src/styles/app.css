@@ -332,8 +332,11 @@ button {
     padding: 20px 47px;
   }
   .menu__container {
-    width: 143px;
+    width: 159px;
     display: flex;
+  }
+  .menu__container--game {
+    width: 219px;
   }
   .menu__btn {
     transition: transform 0.2s ease;
@@ -1627,6 +1630,9 @@ button {
   margin-bottom: 36px;
 }
 @media (min-width: 600px) {
+  .credits h2 {
+    padding-top: 47px;
+  }
   .credits h3 {
     font-size: 36px;
     margin-bottom: 27px;
@@ -1636,6 +1642,9 @@ button {
   }
 }
 @media (min-width: 2200px) {
+  .credits h2 {
+    padding-top: 63px;
+  }
   .credits h3 {
     font-size: 47px;
     margin-bottom: 36px;

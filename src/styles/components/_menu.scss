@@ -133,8 +133,12 @@
         padding: 20px 47px;
 
         &__container {
-            width: 143px;
+            width: 159px;
             display: flex;
+
+            &--game{
+                width: 219px;
+            }
         }
 
         &__btn {
