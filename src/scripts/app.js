@@ -161,7 +161,7 @@ if (window.DeviceOrientationEvent && isTouchDevice()) {
     const rotate = gamma * scaleFactor;
 
     images.forEach(image => {
-      image.style.transformOrigin = 'center';
+      image.style.transformOrigin = '50% 15%';
       image.style.transform = `rotate(${rotate}deg)`;
     });
   });
