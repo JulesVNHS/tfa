@@ -624,15 +624,11 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
 
       setTimeout(() => {
         if (listeProjets && presentation && titleProjets) {
-          listeProjets.classList.add('hide');
           textboxList.classList.remove('hide');
           presentation.classList.remove('hide');
-          titleProjets.classList.add('discussion');
 
           setTimeout(() => {
-            if (presentation) {
-              presentation.scrollIntoView({ behavior: 'smooth' });
-
+            if (presentation) {              
               setTimeout(() => {
                 presentation.classList.add('fade-in');
                 textElement.forEach(text => {
@@ -663,8 +659,6 @@ if (titleProjets && boutonsProjets && listeProjets && presentation && presentati
           textboxElement.forEach(textbox => {
             textbox.classList.add('hide');
           });
-          listeProjets.classList.remove('hide');
-          titleProjets.classList.remove('discussion');
           allContent.forEach(el => {
             el.classList.remove('visible');
           });

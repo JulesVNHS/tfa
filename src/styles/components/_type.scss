@@ -81,19 +81,6 @@ footer {
   & small a {
     text-decoration: underline;
   }
-
-  &::before {
-    content: "";
-    border-top: 6px solid $c-btn;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    z-index: -1;
-    animation: scribble infinite 0.4s;
-  }
 }
 
 p {
@@ -172,11 +159,6 @@ button {
     margin-top: 354px;
   }
 
-
-  p {
-    font-size: 27px;
-  }
-
   h2 {
     font-size: 112px;
     margin-bottom: 47px;
@@ -210,7 +192,7 @@ button {
   }
 
   p {
-    font-size: 36px;
+    font-size: 27px;
   }
 
   h2 {

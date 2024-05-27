@@ -73,18 +73,6 @@ footer small {
 footer small a {
   text-decoration: underline;
 }
-footer::before {
-  content: "";
-  border-top: 6px solid #71289F;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  z-index: -1;
-  animation: scribble infinite 0.4s;
-}
 
 p {
   line-height: 140%;
@@ -161,9 +149,6 @@ button {
   footer {
     margin-top: 354px;
   }
-  p {
-    font-size: 27px;
-  }
   h2 {
     font-size: 112px;
     margin-bottom: 47px;
@@ -191,7 +176,7 @@ button {
     margin-top: 629px;
   }
   p {
-    font-size: 36px;
+    font-size: 27px;
   }
   h2 {
     font-size: 199px;
@@ -230,7 +215,6 @@ button {
   font-family: "Londrina Solid", sans-serif;
   padding: 20px;
   background: #1B0C21;
-  border-bottom: 6px solid #71289F;
 }
 .menu__list {
   display: flex;
@@ -257,17 +241,6 @@ button {
 }
 .menu--hidden {
   transform: translateY(-100%);
-}
-.menu::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: inherit;
-  z-index: -1;
-  animation: scribble infinite 0.4s;
 }
 
 @media (min-width: 600px) {
@@ -384,9 +357,6 @@ button {
     font-size: 150px;
     margin-bottom: 36px;
   }
-  .home__nom {
-    font-size: 27px;
-  }
 }
 @media (min-width: 1300px) {
   .home__title {
@@ -394,7 +364,7 @@ button {
     margin-bottom: 47px;
   }
   .home__nom {
-    font-size: 36px;
+    font-size: 27px;
   }
 }
 @media (min-width: 2200px) {
@@ -403,7 +373,7 @@ button {
     margin-bottom: 63px;
   }
   .home__nom {
-    font-size: 47px;
+    font-size: 36px;
   }
 }
 .hello {
@@ -530,8 +500,7 @@ button {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("../assets/images/texture2.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 250vh;
-  background-attachment: fixed;
+  background-size: cover;
   padding: calc(var(--padding-y) - 112px) var(--padding-x) var(--padding-y) var(--padding-x);
   position: relative;
 }
@@ -557,16 +526,10 @@ button {
   position: relative;
   z-index: 9;
 }
-.projets__title.discussion {
-  margin-bottom: 0px;
-}
 .projets__list {
   display: grid;
   justify-content: center;
   row-gap: 84px;
-}
-.projets__list.hide {
-  display: none;
 }
 .projets__el {
   display: none;
@@ -614,10 +577,17 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  min-height: 100%;
+  min-width: 100%;
   opacity: 0;
   transition: opacity 0.2s ease;
-  padding-top: 112px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 20;
+  padding: 0 36px;
 }
 .projets__presentation a {
   margin-bottom: 36px;
@@ -645,6 +615,18 @@ button {
 }
 .projets__presentation.fade-in {
   opacity: 1;
+}
+.projets__presentation::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#1b0c21, #09030d);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 .projets__back {
   margin-top: 36px;
@@ -755,7 +737,6 @@ button {
     --border-height: 63px;
     --padding-x: 12vw;
     --padding-y: 354px;
-    background-size: 150vw;
   }
   .projets__title {
     margin-bottom: 199px;
@@ -981,6 +962,11 @@ button {
   justify-content: center;
   min-height: 100vh;
   box-sizing: border-box;
+}
+.main--jeu h2 {
+  margin: 0;
+  z-index: 10;
+  position: relative;
 }
 @media (min-width: 600px) {
   .main--jeu {
